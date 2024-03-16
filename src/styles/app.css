@@ -12,6 +12,10 @@ body {
   margin: 0;
 }
 
+.body__accueil {
+  overflow: hidden;
+}
+
 ul {
   list-style: none;
   padding: 0;
