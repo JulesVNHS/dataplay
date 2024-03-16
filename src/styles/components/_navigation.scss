@@ -25,13 +25,17 @@
         align-items: center;
     }
 
+    &__link--nav{
+        width: 55px;
+    }
+
     &__link--inactive{
         opacity: 70%;
     }
 
     &__text {
         font-size: 15px;
-        margin-top: 11px;
+        margin-top: 6px;
         color: #ffffff;
     }
 }
@@ -81,6 +85,10 @@
 
         &__link--accueil{
             margin-left: 112px;
+        }
+
+        &__link--nav{
+            width: auto;
         }
 
         &__text {
