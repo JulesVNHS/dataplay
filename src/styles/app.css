@@ -1,4 +1,116 @@
+@font-face {
+  font-family: "SNPro-Regular";
+  src: url("assets/fonts/SNPro-Regular-BF65efc640b4961.otf") format("opentype");
+}
 body {
-  font-family: sans-serif;
+  font-family: "SNPro-Regular", sans-serif;
   font-size: 20px;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 50%;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+button:active {
+  transform: scale(1.05);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+.menu__logo {
+  height: 63px;
+  padding: 36px 0 36px 0;
+}
+.menu__list {
+  background-color: #0169B4;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20vw;
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.menu__link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.menu__link--inactive {
+  opacity: 70%;
+}
+.menu__text {
+  font-size: 15px;
+  margin-top: 11px;
+  color: #ffffff;
+}
+
+@media (min-width: 600px) {
+  .menu__list {
+    padding: 15px 30vw;
+  }
+}
+@media (min-width: 1200px) {
+  .menu {
+    padding: 15px 63px;
+    flex-direction: row;
+    align-items: center;
+    background-color: #0169B4;
+  }
+  .menu__img {
+    display: none;
+  }
+  .menu__logo {
+    height: 47px;
+    padding: 0 0 0 0;
+    filter: brightness(0) invert(1);
+  }
+  .menu__list {
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+    position: static;
+    width: auto;
+    box-sizing: content-box;
+  }
+  .menu__link {
+    margin-left: 63px;
+  }
+  .menu__link--logo {
+    margin-left: 0px;
+  }
+  .menu__link--accueil {
+    margin-left: 112px;
+  }
+  .menu__text {
+    font-size: 20px;
+    margin-top: 0px;
+  }
 }/*# sourceMappingURL=app.css.map */
