@@ -1,0 +1,27 @@
+.stats__title{
+    font-family: 'LTRenovate-SemiBold', sans-serif;
+    color: $c-interface;
+}
+.stats{
+  display: flex;
+  
+  &__el{
+    margin-left: 1em;
+  }
+}
+.box1{
+  width: 100px;
+  height: 100Px;
+  background-color: red;
+}
+.box2{
+  width: 100px;
+  height: 100Px;
+  background-color: blue;
+
+}
+.box3{
+  width: 100px;
+  height: 100Px;
+  background-color: black;
+}

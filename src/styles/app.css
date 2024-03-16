@@ -2,6 +2,10 @@
   font-family: "SNPro-Regular";
   src: url("assets/fonts/SNPro-Regular-BF65efc640b4961.otf") format("opentype");
 }
+@font-face {
+  font-family: "LTRenovate-SemiBold";
+  src: url("../assets/fonts/LTRenovate-SemiBold.otf") format("opentype");
+}
 body {
   font-family: "SNPro-Regular", sans-serif;
   font-size: 20px;
@@ -22,10 +26,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  opacity: 50%;
-}
-
 button {
   cursor: pointer;
   background: none;
@@ -38,6 +38,11 @@ button:active {
   transform: scale(1.05);
 }
 
+@media (min-width: 1200px) {
+  a:hover {
+    opacity: 50%;
+  }
+}
 .menu {
   display: flex;
   flex-direction: column;
@@ -62,12 +67,15 @@ button:active {
   justify-content: center;
   align-items: center;
 }
+.menu__link--nav {
+  width: 55px;
+}
 .menu__link--inactive {
   opacity: 70%;
 }
 .menu__text {
   font-size: 15px;
-  margin-top: 11px;
+  margin-top: 6px;
   color: #ffffff;
 }
 
@@ -109,8 +117,40 @@ button:active {
   .menu__link--accueil {
     margin-left: 112px;
   }
+  .menu__link--nav {
+    width: auto;
+  }
   .menu__text {
     font-size: 20px;
     margin-top: 0px;
   }
+}
+.stats__title {
+  font-family: "LTRenovate-SemiBold", sans-serif;
+  color: #0169B4;
+}
+
+.stats {
+  display: flex;
+}
+.stats__el {
+  margin-left: 1em;
+}
+
+.box1 {
+  width: 100px;
+  height: 100Px;
+  background-color: red;
+}
+
+.box2 {
+  width: 100px;
+  height: 100Px;
+  background-color: blue;
+}
+
+.box3 {
+  width: 100px;
+  height: 100Px;
+  background-color: black;
 }/*# sourceMappingURL=app.css.map */
