@@ -1,0 +1,32 @@
+.menu{
+    display: flex;
+    flex-direction: column;
+
+    &__logo{
+        max-height: 63px;
+        padding: 36px 0 36px 0;
+    }
+
+    &__list{
+        background-color: $c-interface;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 63px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    &__link{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__text {
+        margin-top: 11px;
+        color: #ffffff;
+    }
+}

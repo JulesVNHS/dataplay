@@ -1,4 +1,64 @@
+@font-face {
+  font-family: "SNPro-Regular";
+  src: url("assets/fonts/SNPro-Regular-BF65efc640b4961.otf") format("opentype");
+}
 body {
-  font-family: sans-serif;
+  font-family: "SNPro-Regular", sans-serif;
   font-size: 20px;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 50%;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+button:active {
+  transform: scale(1.05);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+.menu__logo {
+  max-height: 63px;
+  padding: 36px 0 36px 0;
+}
+.menu__list {
+  background-color: #0169B4;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 63px;
+}
+.menu__link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.menu__text {
+  margin-top: 11px;
+  color: #ffffff;
 }/*# sourceMappingURL=app.css.map */
