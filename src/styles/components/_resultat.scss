@@ -21,6 +21,10 @@
         font-size: 27px;
     }
 
+    &__el--value:last-child{
+        margin-bottom: 0;
+    }
+
     &__text{
         margin-bottom: 8px;
     }
