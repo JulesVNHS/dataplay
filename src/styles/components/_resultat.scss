@@ -12,6 +12,10 @@
     width: 90%;
     box-sizing: border-box;
 
+    &__titre{
+        margin-bottom: 27px;
+    }
+
     &__el--value{
         margin-bottom: 20px;
         font-size: 27px;
@@ -21,13 +25,9 @@
         margin-bottom: 8px;
     }
 
-    &__text--invite{
-        margin-top: 27px;
-        margin-bottom: 20px;
-    }
-
     &__btn{
         width: 100%;
+        margin-top: 27px;
     }
 
     &--hide{
