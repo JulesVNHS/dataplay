@@ -11,9 +11,9 @@
         background-color: $c-interface;
         display: flex;
         justify-content: space-between;
-        padding: 20px 63px;
-        position: fixed;
-        bottom: 0;
+        padding: 20px 20vw;
+        position: absolute;
+        bottom: 0%;
         width: 100%;
         box-sizing: border-box;
     }
