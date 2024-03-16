@@ -1,6 +1,11 @@
 @font-face {
   font-family: 'SNPro-Regular';
-  src: url('assets/fonts/SNPro-Regular-BF65efc640b4961.otf') format('opentype');
+  src: url('/assets/fonts/SNPro-Regular-BF65efc640b4961.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'LTRenovate-Regular';
+  src: url('/assets/fonts/LTRenovate-Regular-BF65dfe1fcd9561.otf') format('opentype');
 }
 
 body {
@@ -19,6 +24,21 @@ p {
   margin: 0;
 }
 
+h1 {
+  font-family: 'LTRenovate-Regular', sans-serif;
+  margin: 0;
+}
+
+h2 {
+  font-family: 'LTRenovate-Regular', sans-serif;
+  margin: 0;
+}
+
+h3 {
+  font-family: 'LTRenovate-Regular', sans-serif;
+  margin: 0;
+}
+
 a {
   text-decoration: none;
 }
@@ -29,10 +49,29 @@ button {
   border: none;
   padding: 0;
   margin: 0;
+  font-family: 'SNPro-Regular', sans-serif;
+  font-size: 20px;
+  background-color: $c-button;
+  color: #ffffff;
+  padding: 11px;
+  border-radius: 6px;
+  margin-top: 36px;
 }
 
 button:active {
   transform: scale(1.05);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+::placeholder {
+  font-size: 15px;
+  color: #ffffff;
+  opacity: 70%;
 }
 
 @media(min-width: 1200px){
