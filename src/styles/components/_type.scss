@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'SNPro-Regular';
-  src: url('/assets/fonts/SNPro-Regular-BF65efc640b4961.otf') format('opentype');
+  src: url('../assets/fonts/SNPro-Regular-BF65efc640b4961.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'LTRenovate-Regular';
-  src: url('/assets/fonts/LTRenovate-Regular-BF65dfe1fcd9561.otf') format('opentype');
+  src: url('../assets/fonts/LTRenovate-Regular-BF65dfe1fcd9561.otf') format('opentype');
 }
 
 body {
@@ -79,6 +79,7 @@ input[type="text"] {
 }
 
 ::placeholder {
+  font-family: 'SNPro-Regular', sans-serif;
   font-size: 15px;
   color: #ffffff;
   opacity: 70%;
