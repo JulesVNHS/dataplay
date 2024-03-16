@@ -1,7 +1,7 @@
 .form-retard{
     position: absolute;
     z-index: 0;
-    top: 108px;
+    top: 91px;
     left: 50%;
     transform: translatex(-50%);
     background-color: $c-interface;
@@ -13,7 +13,7 @@
     box-sizing: border-box;
 
     &__titre{
-        margin-bottom: 36px;
+        margin-bottom: 27px;
     }
 
     &__el{
@@ -37,6 +37,7 @@
 
     &__submit{
         width: 100%;
+        margin-top: 27px;
     }
 }
 
