@@ -50,15 +50,33 @@
         <ul class="form-retard__list">
           <li class="form-retard__el">
             <label class="form-retard__label" for="form-retard__departure-input">De</label><br>
-            <input class="form-retard__input" type="text" id="form-retard__departure-input" name="form-retard__departure-input" placeholder="Gare de départ" required>
+            <input class="form-retard__input" type="text" list="form-retard__departure-datalist" id="form-retard__departure-input" name="form-retard__departure-input" placeholder="Gare de départ" required>
+            <datalist id="form-retard__departure-datalist">
+              <option value="ANTWERPEN-BERCHEM"></option>
+              <option value="ANTWERPEN-CENTRAAL"></option>
+              <option value="BRUSSEL-CENTRAAL"></option>
+            </datalist>
           </li>
           <li class="form-retard__el">
             <label class="form-retard__label" for="form-retard__arrival-input">À</label><br>
-            <input class="form-retard__input" type="text" id="form-retard__arrival-input" name="form-retard__arrival-input" placeholder="Gare d'arrivée" required>
+            <input class="form-retard__input" type="text" list="form-retard__arrival-datalist" id="form-retard__arrival-input" name="form-retard__arrival-input" placeholder="Gare d'arrivée" required>
+            <datalist id="form-retard__arrival-datalist">
+              <option value="ANTWERPEN-CENTRAAL"></option>
+              <option value="BRUSSEL-ZUID"></option>
+              <option value="BRUSSELS AIRPORT - ZAVENTEM"></option>
+            </datalist>
           </li>
           <li class="form-retard__el">
-            <label class="form-retard__label" for="form-retard__frequency-input">Fréquence</label><br>
-            <input class="form-retard__input" type="text" id="form-retard__frequency-input" name="form-retard__frequency-input" placeholder="Sur une semaine" required>
+            <label class="form-retard__label" for="form-retard__frequency-input">Fréquence (par&nbsp;semaine)</label><br>
+            <select class="form-retard__input" id="form-retard__frequency-input" name="form-retard__frequency-input">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+            </select>
           </li>
         </ul>
       </fieldset>

@@ -70,6 +70,11 @@ fieldset {
   margin: 0;
 }
 
+input[type=text] {
+  color: white;
+  font-size: 15px;
+}
+
 ::-moz-placeholder {
   font-size: 15px;
   color: #ffffff;
@@ -80,6 +85,16 @@ fieldset {
   font-size: 15px;
   color: #ffffff;
   opacity: 70%;
+}
+
+select {
+  font-family: "SNPro-Regular", sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+}
+
+select option {
+  color: #0169B4;
 }
 
 @media (min-width: 1200px) {
