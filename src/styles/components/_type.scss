@@ -23,10 +23,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  opacity: 50%;
-}
-
 button {
   cursor: pointer;
   background: none;
@@ -37,4 +33,10 @@ button {
 
 button:active {
   transform: scale(1.05);
+}
+
+@media(min-width: 1200px){
+  a:hover {
+    opacity: 50%;
+  }
 }
