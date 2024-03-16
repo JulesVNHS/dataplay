@@ -1,4 +1,4 @@
-.form-retard{
+.result{
     position: absolute;
     z-index: 0;
     top: 91px;
@@ -12,32 +12,22 @@
     width: 90%;
     box-sizing: border-box;
 
-    &__titre{
-        margin-bottom: 27px;
+    &__el--value{
+        margin-bottom: 20px;
+        font-size: 27px;
     }
 
-    &__el{
+    &__text{
+        margin-bottom: 8px;
+    }
+
+    &__text--invite{
+        margin-top: 27px;
         margin-bottom: 20px;
     }
 
-    &__el:last-child{
-        margin-bottom: 0;
-    }
-
-    &__input{
-        margin: 0;
-        padding: 0;
-        margin-top: 8px;
+    &__btn{
         width: 100%;
-        height: 27px;
-        background-color: transparent;
-        border: none;
-        border-bottom: 1px solid #ffffff;
-    }
-
-    &__submit{
-        width: 100%;
-        margin-top: 27px;
     }
 
     &--hide{
@@ -46,7 +36,7 @@
 }
 
 @media(min-width: 1200px){
-    .form-retard{
+    .result{
         top:50%;
         transform: translatex(-50%) translatey(-50%);
     }

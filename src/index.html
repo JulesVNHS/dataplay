@@ -45,7 +45,7 @@
   </header>
   <main>
     <form class="form-retard" action="#" method="post">
-      <h1 class="form-retard__titre">Mes&nbsp;Voyages</h1>
+      <h1 class="form-retard__titre">Mes&nbsp;Retards</h1>
       <fieldset class="form-retard__fieldset">
         <ul class="form-retard__list">
           <li class="form-retard__el">
@@ -80,8 +80,33 @@
           </li>
         </ul>
       </fieldset>
-      <button class="form-retard__submit" type="submit">Découvrir mon&nbsp;retard</button>
+      <button class="form-retard__submit" type="submit">Calculer</button>
     </form>
+
+    <section class="result result--hide">
+      <ul class="result__list">
+        <li class="result__el">
+          <p class="result__text">Votre train arrivera avec un&nbsp;retard&nbsp;d'environ</p>
+        </li>
+        <li class="result__el result__el--value" id="averageDelay">
+          <p class="result__text result__text--value"></p>
+        </li>
+        <li class="result__el">
+          <p class="result__text">En un mois vous&nbsp;aurez&nbsp;perdu</p>
+        </li>
+        <li class="result__el result__el--value" id="monthlyEstimation">
+          <p class="result__text"></p>
+        </li>
+        <li class="result__el">
+          <p class="result__text">Et vous perdrez sur&nbsp;l'année</p>
+        </li>
+        <li class="result__el result__el--value" id="yearlyEstimation">
+          <p class="result__text result__text--value"></p>
+        </li>
+      </ul>
+      <p class="result__text result__text--invite">Découvrez ce&nbsp;que fait votre&nbsp;train</p>
+      <button class="result__btn">Découvrir</button>
+    </section>
   </main>
 </body>
 </html>
