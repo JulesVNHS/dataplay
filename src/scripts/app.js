@@ -61,16 +61,19 @@ fetch('assets/data_duree_retard.json')
     function countMatchingElements(data, departure, arrival) {
         var count = 0;
         var totalDelay = 0;
-
+    
+        var depToLower = departure.toLowerCase();
+        var arrToLower = arrival.toLowerCase();
+    
         for (var i = 0; i < data.length; i++) {
-            if (data[i].zone_depart === departure && data[i].destination === arrival) {
+            if (data[i].zone_depart.toLowerCase() === depToLower && data[i].destination.toLowerCase() === arrToLower) {
                 count++;
                 totalDelay += data[i].retard_arr_sec;
             }
         }
-
+    
         var averageDelay = count > 0 ? Math.round(totalDelay / count) : 0;
-
+    
         return { averageDelay: averageDelay };
     }
 
