@@ -44,25 +44,265 @@
     </nav>
   </header>
   <main>
-    <h1 class="stats__title">
+    <h1 class="title">
       Les principales causes de retards
     </h1>
-    <div class="stats__incident-voies">
-      <h2>
+    <div class="échelle">
+      <h2 class="échelle__titre">
+        un wagon = 20.000 minutes de retard
+      </h2>
+      <div class="box2"></div>
+    </div>
+    <div class="incident">
+      <h2 class="incident__titre">
         Perturbation sur la voie
       </h2>
-      <p>25 000 trains impactés</p>
-      <ul class="stats" id="stats__li-1">
+      <p id="incident__nombres--perturbation">25 000 minutes de retards</p>
+      <ul class="stats" id="stats__perturbation-1">
         <li class="stats__el">
           <div class="box3"></div>
-        </li>
-        <li class="stats__el">
-          <div class="box2"></div>
         </li>
         <li class="stats__el">
           <div class="box1"></div>
         </li>
       </ul>
+      <small> "Intrusion dans les voies",
+        "Heurt d'une personne",
+        "Incendie à proximité des voies",
+        "Incendie dans les voies",
+        "Incident pendant un chantier",
+        "Accident à un passage à niveau",
+        "Heurt d'animal",
+        "Dérangement à un passage à niveau",
+        "Obstacle dans/à proximité de la voie",
+        "Corps dans les voies",
+        "Dérangement à un aiguillage",
+        "Dérangement à la signalisation".</small>
+    </div>
+
+    <div class="incident">
+      <h2 class="incident__titre">
+        Avarie
+      </h2>
+      <p id="incident__nombres--avarie">25 000 minutes de retards</p>
+      <ul class="stats" id="stats__avarie-1">
+        <li class="stats__el">
+          <div class="box3"></div>
+        </li>
+        <li class="stats__el">
+          <div class="box1"></div>
+        </li>
+      </ul>
+      <small>
+        "Avarie matériel roulant",
+        "Avarie caténaire",
+        "Avarie train à grande vitesse".</small>
+    </div>
+
+    <div class="incident">
+      <h2 class="incident__titre">
+        Travaux
+      </h2>
+      <p id="incident__nombres--travaux">25 000 minutes de retards</p>
+      <ul class="stats" id="stats__travaux-1">
+        <li class="stats__el">
+          <div class="box3"></div>
+        </li>
+        <li class="stats__el">
+          <div class="box1"></div>
+        </li>
+      </ul>
+      <small>
+        "Terminaison tardive de travaux",
+        "Travaux urgents".
+      </small>
+    </div>
+
+    <div class="incident">
+      <h2 class="incident__titre">
+        Grèves
+      </h2>
+      <p id="incident__nombres--grèves">25 000 minutes de retards</p>
+      <ul class="stats" id="stats__grèves-1">
+        <li class="stats__el">
+          <div class="box3"></div>
+        </li>
+        <li class="stats__el">
+          <div class="box1"></div>
+        </li>
+      </ul>
+      <small>
+        "Mouvement de grève"
+      </small>
+    </div>
+
+    <div class="incident">
+      <h2 class="incident__titre">
+        Conditions météos
+      </h2>
+      <p id="incident__nombres--météo">25 000 minutes de retards</p>
+      <ul class="stats" id="stats__météo-1">
+        <li class="stats__el">
+          <div class="box3"></div>
+        </li>
+        <li class="stats__el">
+          <div class="box1"></div>
+        </li>
+      </ul>
+      <small>
+        "Conditions météorologiques exceptionnelles"
+      </small>
+    </div>
+
+    <div class="incident">
+      <h2 class="incident__titre">
+        Déraillement de trains
+      </h2>
+      <p id="incident__nombres--déraillement">25 000 minutes de retards</p>
+      <ul class="stats" id="stats__déraillement-1">
+        <li class="stats__el">
+          <div class="box3"></div>
+        </li>
+        <li class="stats__el">
+          <div class="box1"></div>
+        </li>
+      </ul>
+      <small>
+        "Déraillement d'un train de marchandises",
+        "Déraillement d'un train de voyageurs".
+      </small>
+    </div>
+
+    <div class="incident">
+      <h2 class="incident__titre">
+        Erreur de conducteur
+      </h2>
+      <p id="incident__nombres--erreur">25 000 minutes de retards</p>
+      <ul class="stats" id="stats__erreur-1">
+        <li class="stats__el">
+          <div class="box3"></div>
+        </li>
+        <li class="stats__el">
+          <div class="box1"></div>
+        </li>
+      </ul>
+      <small>
+        "Dépassement d'un signal rouge",
+        "Erreur lors d'une manœuvre".
+      </small>
+    </div>
+
+    <div class="incident">
+      <h2 class="incident__titre">
+        Dérangement externe
+      </h2>
+      <p id="incident__nombres--dérangement">25 000 minutes de retards</p>
+      <ul class="stats" id="stats__dérangement-1">
+        <li class="stats__el">
+          <div class="box3"></div>
+        </li>
+        <li class="stats__el">
+          <div class="box1"></div>
+        </li>
+      </ul>
+      <small>
+        "Acte de malveillance",
+        "Vol de câbles",
+        "Alerte à la bombe",
+        "Présence d'un colis suspect",
+        "Dérangement informatique",
+        "Dérangement à l'infrastructure".
+      </small>
+    </div>
+
+    <div class="incident">
+      <h2 class="incident__titre">
+        Affluence de voyageurs
+      </h2>
+      <p id="incident__nombres--affluence">25 000 minutes de retards</p>
+      <ul class="stats" id="stats__affluence-1">
+        <li class="stats__el">
+          <div class="box3"></div>
+        </li>
+        <li class="stats__el">
+          <div class="box1"></div>
+        </li>
+      </ul>
+      <small>
+        "Affluence de voyageurs".
+      </small>
+    </div>
+
+    <div class="incident">
+      <h2 class="incident__titre">
+        Problème de personnel
+      </h2>
+      <p id="incident__nombres--personnel">25 000 minutes de retards</p>
+      <ul class="stats" id="stats__personnel-1">
+        <li class="stats__el">
+          <div class="box3"></div>
+        </li>
+        <li class="stats__el">
+          <div class="box1"></div>
+        </li>
+      </ul>
+      <small>
+        "Problème de personnel".
+      </small>
+    </div>
+
+    <div class="incident">
+      <h2 class="incident__titre">
+        Mesures COVID 19
+      </h2>
+      <p id="incident__nombres--covid">25 000 minutes de retards</p>
+      <ul class="stats" id="stats__covid-1">
+        <li class="stats__el">
+          <div class="box3"></div>
+        </li>
+        <li class="stats__el">
+          <div class="box1"></div>
+        </li>
+      </ul>
+      <small>
+        "Mesures COVID 19".
+      </small>
+    </div>
+
+    <div class="incident">
+      <h2 class="incident__titre">
+        Défaut de fourniture d'électricité par le gestionnaire de réseau
+      </h2>
+      <p id="incident__nombres--fourniture">25 000 minutes de retards</p>
+      <ul class="stats" id="stats__fourniture-1">
+        <li class="stats__el">
+          <div class="box3"></div>
+        </li>
+        <li class="stats__el">
+          <div class="box1"></div>
+        </li>
+      </ul>
+      <small>
+        "Défaut de fourniture d'électricité par le gestionnaire de réseau".
+      </small>
+    </div>
+
+    <div class="incident">
+      <h2 class="incident__titre">
+        Problème avec un voyageur
+      </h2>
+      <p id="incident__nombres--pb-voyageur">25 000 minutes de retards</p>
+      <ul class="stats" id="stats__voyageur-1">
+        <li class="stats__el">
+          <div class="box3"></div>
+        </li>
+        <li class="stats__el">
+          <div class="box1"></div>
+        </li>
+      </ul>
+      <small>
+        "Problème avec un voyageur".
+      </small>
     </div>
   </main>
 </body>
