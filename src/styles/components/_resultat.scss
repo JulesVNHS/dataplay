@@ -43,5 +43,9 @@
     .result{
         top:50%;
         transform: translatex(-50%) translatey(-50%);
+
+        &__el--value{
+            font-size: 36px;
+        }
     }
 }
