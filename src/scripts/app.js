@@ -116,13 +116,13 @@ function convertSecondsToTime(seconds) {
     var remainingSeconds = seconds % 60;
     var timeString = '';
     if (hours > 0) {
-        timeString += hours + 'h ';
+        timeString += hours + ' h ';
     }
     if (minutes > 0) {
-        timeString += minutes + 'min ';
+        timeString += minutes + ' min ';
     }
     if (remainingSeconds > 0) {
-        timeString += remainingSeconds + 's';
+        timeString += remainingSeconds + ' s';
     }
     return timeString.trim();
 }

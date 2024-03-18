@@ -8,7 +8,6 @@
     color: #ffffff;
     padding: 27px;
     border-radius: 6px;
-    max-width: 629px;
     width: 90%;
     box-sizing: border-box;
 
@@ -17,11 +16,15 @@
     }
 
     &__el{
-        margin-bottom: 20px;
+        margin-bottom: 27px;
     }
 
     &__el:last-child{
         margin-bottom: 0;
+    }
+
+    &__label{
+        font-size: 15px;
     }
 
     &__input{
@@ -29,6 +32,7 @@
         padding: 0;
         margin-top: 8px;
         width: 100%;
+        min-width: 199px;
         height: 27px;
         background-color: transparent;
         border: none;
@@ -53,5 +57,19 @@
     .form-retard{
         top:50%;
         transform: translatex(-50%) translatey(-50%);
+        width: auto;
+
+        &__list{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__el{
+            margin-right: 63px;
+        }
+
+        &__el:last-child{
+            margin-right: 0;
+        }
     }
 }
