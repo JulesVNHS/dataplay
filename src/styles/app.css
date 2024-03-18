@@ -1,6 +1,6 @@
 @font-face {
   font-family: "SNPro-Regular";
-  src: url("assets/fonts/SNPro-Regular-BF65efc640b4961.otf") format("opentype");
+  src: url("../assets/fonts/SNPro-Regular-BF65efc640b4961.otf") format("opentype");
 }
 body {
   font-family: "SNPro-Regular", sans-serif;
@@ -22,10 +22,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  opacity: 50%;
-}
-
 button {
   cursor: pointer;
   background: none;
@@ -38,13 +34,18 @@ button:active {
   transform: scale(1.05);
 }
 
+@media (min-width: 1200px) {
+  a:hover {
+    opacity: 50%;
+  }
+}
 .menu {
   display: flex;
   flex-direction: column;
 }
 .menu__logo {
-  height: 63px;
-  padding: 36px 0 36px 0;
+  height: 36px;
+  padding: 27px 0 27px 0;
 }
 .menu__list {
   background-color: #0169B4;
@@ -62,12 +63,15 @@ button:active {
   justify-content: center;
   align-items: center;
 }
+.menu__link--nav {
+  width: 55px;
+}
 .menu__link--inactive {
   opacity: 70%;
 }
 .menu__text {
   font-size: 15px;
-  margin-top: 11px;
+  margin-top: 6px;
   color: #ffffff;
 }
 
@@ -109,8 +113,309 @@ button:active {
   .menu__link--accueil {
     margin-left: 112px;
   }
+  .menu__link--nav {
+    width: auto;
+  }
   .menu__text {
     font-size: 20px;
     margin-top: 0px;
   }
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.background {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-90px);
+  position: relative;
+  z-index: -10;
+}
+.background__svg {
+  height: 100vh;
+}
+.background__avantPlan path {
+  transform: scale(0.7) translateY(45%);
+}
+.background__deuxiemePlan path {
+  transform: scale(0.7) translateY(45%);
+}
+.background__deuxiemePlan rect {
+  transform: scale(0.7) translateY(45%);
+}
+.background__troisiemePlan {
+  transform: scale(0.7) translateX(0%) translateY(35%);
+}
+.background__quatriemePlan {
+  transform: scale(0.7) translateX(0%);
+}
+.background__train path {
+  transform: translateX(-100%) translateY(8.4%);
+  animation: translationTrain 20s 5s infinite linear;
+}
+.background__train circle {
+  transform: translateX(-100%) translateY(8.4%);
+  animation: translationTrain 20s 5s infinite linear;
+}
+.background__arrierePlan path:nth-child(2) {
+  animation: 1.5s soleil infinite linear alternate-reverse;
+  transform: translateX(-23%) scale(0.7);
+}
+.background__arrierePlan path:nth-child(3) {
+  animation: translationNuages 360s infinite linear;
+}
+.background__arrierePlan circle {
+  animation: 1.5s soleil infinite linear alternate-reverse;
+  transform: translateX(-23%) scale(0.7);
+}
+
+/*Animations*/
+@keyframes soleil {
+  from {
+    transform: translateY(7%) translateX(-23%) scale(0.7);
+  }
+  to {
+    transform: translateY(7.7%) translateX(-23%) scale(0.7);
+  }
+}
+@keyframes translationTrain {
+  from {
+    transform: translateX(-100%) translateY(8.4%);
+  }
+  to {
+    transform: translateX(450%) translateY(8.4%);
+  }
+}
+@keyframes translationNuages {
+  from {
+    transform: translateX(-87%);
+  }
+  to {
+    transform: translateX(115%);
+  }
+}
+/*Responsive*/
+@media (min-width: 430px) {
+  .background__troisiemePlan {
+    transform: scale(0.7) translateX(0%) translateY(30%);
+  }
+  .background__arrierePlan circle {
+    transform: translateX(-17%);
+  }
+  .background__arrierePlan path:nth-child(2) {
+    transform: translateX(-17%);
+  }
+  @keyframes soleil {
+    from {
+      transform: translateY(7%) translateX(-17%) scale(0.6);
+    }
+    to {
+      transform: translateY(7.7%) translateX(-17%) scale(0.6);
+    }
+  }
+}
+@media (min-width: 760px) {
+  .background__svg {
+    height: 100vh;
+  }
+  .background__avantPlan path {
+    transform: scale(1) translateY(0%);
+  }
+  .background__deuxiemePlan rect {
+    transform: scale(1) translateY(0%);
+  }
+  .background__deuxiemePlan path {
+    transform: scale(1) translateY(0%);
+  }
+  .background__troisiemePlan {
+    transform: scale(1) translateX(0%) translateY(0%);
+  }
+  .background__quatriemePlan {
+    transform: scale(1) translateX(0%) translateY(0%);
+  }
+  .background__train path {
+    transform: translateX(-100%) translateY(8.2%);
+    animation: translationTrain 20s 5s infinite linear;
+  }
+  .background__train circle {
+    transform: translateX(-100%) translateY(8.2%);
+    animation: translationTrain 20s 5s infinite linear;
+  }
+  .background__arrierePlan path:nth-child(3) {
+    animation: translationNuages 360s infinite linear;
+  }
+  .background__arrierePlan path:nth-child(2) {
+    animation: 1.5s soleil infinite linear alternate-reverse;
+    transform: translateX(-23%) scale(1);
+  }
+  .background__arrierePlan circle {
+    animation: 1.5s soleil infinite linear alternate-reverse;
+    transform: translateX(-23%) scale(1);
+  }
+  @keyframes soleil {
+    from {
+      transform: translateY(7%) translateX(-19%) scale(0.7);
+    }
+    to {
+      transform: translateY(7.7%) translateX(-19%) scale(0.7);
+    }
+  }
+}
+@media (min-width: 880px) {
+  .background__troisiemePlan {
+    transform: scale(1) translateX(0%) translateY(0%);
+  }
+  @keyframes soleil {
+    from {
+      transform: translateY(7%) translateX(-12%) scale(0.7);
+    }
+    to {
+      transform: translateY(7.7%) translateX(-12%) scale(0.7);
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .background__svg {
+    height: auto;
+    width: 100vw;
+  }
+  .background__avantPlan path {
+    transform: scale(1) translateY(0);
+  }
+  .background__deuxiemePlan path {
+    transform: scale(1) translateY(0);
+  }
+  .background__deuxiemePlan rect {
+    transform: scale(1) translateY(0);
+  }
+  .background__troisiemePlan {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+  .background__quatriemePlan {
+    transform: scale(1) translateX(0);
+  }
+  .background__train path {
+    transform: translateX(-100%) translateY(0);
+    animation: translationTrain 20s 5s infinite linear;
+  }
+  .background__train circle {
+    transform: translateX(-100%) translateY(0);
+    animation: translationTrain 20s 5s infinite linear;
+  }
+  .background__arrierePlan path:nth-child(3) {
+    animation: translationNuages 360s infinite linear;
+  }
+  .background__arrierePlan path:nth-child(2) {
+    animation: 1.5s soleil infinite linear alternate-reverse;
+    transform: translateX(0) scale(1);
+  }
+  .background__arrierePlan circle {
+    animation: 1.5s soleil infinite linear alternate-reverse;
+    transform: translateX(0) scale(1);
+  }
+  @keyframes soleil {
+    from {
+      transform: translateY(0%) translateX(0) scale(1);
+    }
+    to {
+      transform: translateY(1%) translateX(0) scale(1);
+    }
+  }
+  @keyframes translationTrain {
+    from {
+      transform: translateX(-100%) translateY(0);
+    }
+    to {
+      transform: translateX(450%) translateY(0);
+    }
+  }
+  @keyframes translationTrain {
+    from {
+      transform: translateX(-100%) translateY(0);
+    }
+    to {
+      transform: translateX(450%) translateY(0);
+    }
+  }
+}
+/*Dark mode*/
+.background__svg {
+  background-color: #044C7A;
+}
+.background__avantPlan path:first-child {
+  fill: #00588F;
+}
+.background__avantPlan path:nth-child(2) {
+  fill: #081B29;
+}
+.background__deuxiemePlan rect {
+  fill: #044C7A;
+}
+.background__deuxiemePlan rect:nth-child(2) {
+  fill: #FBE95C;
+}
+.background__deuxiemePlan rect:nth-child(3) {
+  fill: #FBE95C;
+}
+.background__deuxiemePlan rect:nth-child(7) {
+  fill: #FBE95C;
+}
+.background__deuxiemePlan rect:nth-child(8) {
+  fill: #FBE95C;
+}
+.background__deuxiemePlan rect:nth-child(6) {
+  fill: #FBE95C;
+}
+.background__deuxiemePlan rect:nth-child(14) {
+  fill: #FBE95C;
+}
+.background__deuxiemePlan path {
+  fill: #00253C;
+}
+.background__troisiemePlan rect {
+  fill: #044C7A;
+}
+.background__troisiemePlan rect:nth-child(8) {
+  fill: #98AA68;
+}
+.background__troisiemePlan rect:nth-child(2) {
+  fill: #98AA68;
+}
+.background__troisiemePlan rect:nth-child(12) {
+  fill: #98AA68;
+}
+.background__troisiemePlan path {
+  fill: #0B3351;
+}
+.background__quatriemePlan rect {
+  fill: #044C7A;
+}
+.background__quatriemePlan rect:nth-child(7) {
+  fill: #678B6E;
+}
+.background__quatriemePlan rect:nth-child(8) {
+  fill: #678B6E;
+}
+.background__quatriemePlan rect:nth-child(10) {
+  fill: #678B6E;
+}
+.background__quatriemePlan path {
+  fill: #0D4066;
+}
+.background__arrierePlan path:nth-child(2) {
+  fill: #0065A3;
+}
+.background__arrierePlan path:nth-child(3) {
+  fill: #0065A3;
+}
+.background__arrierePlan circle {
+  fill: #0065A3;
+}
+.background__hide {
+  display: none;
 }/*# sourceMappingURL=app.css.map */

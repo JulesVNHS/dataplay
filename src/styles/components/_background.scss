@@ -1,0 +1,321 @@
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.background{
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-90px);  
+    position: relative;
+    z-index: -10;
+
+    &__svg{
+      height: 100vh;
+      
+    }
+    &__avantPlan path{
+        transform: scale(0.7) translateY(45%);
+    }
+    &__deuxiemePlan path{
+        transform: scale(0.7) translateY(45%);
+    }
+    &__deuxiemePlan rect{
+        transform: scale(0.7) translateY(45%);
+    }
+    &__troisiemePlan{
+        transform: scale(0.7) translateX(0%) translateY(35%);
+    }
+    &__quatriemePlan{
+        transform: scale(0.7) translateX(0%);
+    }
+    &__train path {
+        transform: translateX(-100%) translateY(8.4%);
+        animation: translationTrain 20s 5s infinite linear;
+    }
+    &__train circle {
+        transform: translateX(-100%) translateY(8.4%);
+        animation: translationTrain 20s 5s infinite linear;
+    }
+    &__arrierePlan path:nth-child(2){
+        animation: 1.5s soleil infinite linear alternate-reverse;
+        transform: translateX(-23%) scale(0.7);
+    }
+    &__arrierePlan path:nth-child(3){
+        animation: translationNuages 360s infinite linear;
+    }
+    &__arrierePlan circle{
+        animation: 1.5s soleil infinite linear alternate-reverse;
+        transform: translateX(-23%) scale(0.7);
+    }
+    &__hide{
+        display: none;
+    }
+}
+
+
+/*Animations*/
+@keyframes soleil{
+    from{
+        transform: translateY(7%) translateX(-23%) scale(0.7);
+    }
+    to {
+        transform: translateY(7.7%) translateX(-23%) scale(0.7);
+    }
+}
+@keyframes translationTrain {
+    from{
+        transform: translateX(-100%) translateY(8.4%);
+    }
+    to{
+        transform: translateX(450%) translateY(8.4%);
+    }
+}
+@keyframes translationNuages {
+    from{
+        transform: translateX(-87%);
+    }
+    to{
+        transform: translateX(115%);
+    } 
+} 
+
+/*Responsive*/
+@media (min-width: 430px){
+    .background{
+        &__troisiemePlan{
+        transform: scale(0.7) translateX(-0%) translateY(30%);
+        }
+        &__arrierePlan circle{
+            transform: translateX(-17%);
+        }
+        &__arrierePlan path:nth-child(2){
+            transform: translateX(-17%);
+        }
+    }
+
+    @keyframes soleil{
+        from{
+            transform: translateY(7%) translateX(-17%) scale(0.6);
+        }
+        to {
+            transform: translateY(7.7%) translateX(-17%) scale(0.6);
+        }
+    }
+}
+@media (min-width: 760px){
+    .background{
+        &__svg{
+            height: 100vh;
+        }
+        &__avantPlan path{
+            transform: scale(1) translateY(0%);
+        }
+        &__deuxiemePlan rect{
+            transform: scale(1) translateY(0%);
+        }
+        &__deuxiemePlan path{
+            transform: scale(1) translateY(0%);
+        }
+        &__troisiemePlan{
+            transform: scale(1) translateX(0%) translateY(0%);
+        }
+        &__quatriemePlan{
+            transform: scale(1) translateX(0%) translateY(0%);
+        }
+        &__train path {
+            transform: translateX(-100%) translateY(8.2%);
+            animation: translationTrain 20s 5s infinite linear;
+        }
+        &__train circle {
+            transform: translateX(-100%) translateY(8.2%);
+            animation: translationTrain 20s 5s infinite linear;
+        }
+        &__arrierePlan path:nth-child(3){
+            animation: translationNuages 360s infinite linear;
+        }
+        &__arrierePlan path:nth-child(2){
+            animation: 1.5s soleil infinite linear alternate-reverse;
+            transform: translateX(-23%) scale(1);
+        }
+        &__arrierePlan circle{
+            animation: 1.5s soleil infinite linear alternate-reverse;
+            transform: translateX(-23%) scale(1);
+        }
+    }
+
+    @keyframes soleil{
+        from{
+            transform: translateY(7%) translateX(-19%) scale(0.7);
+        }
+        to {
+            transform: translateY(7.7%) translateX(-19%) scale(0.7);
+        }
+    }
+}
+@media (min-width: 880px){
+    .background__troisiemePlan{
+            transform: scale(1) translateX(0%) translateY(0%);
+        }
+
+    @keyframes soleil{
+        from{
+            transform: translateY(7%) translateX(-12%) scale(0.7);
+        }
+        to {
+            transform: translateY(7.7%) translateX(-12%) scale(0.7);
+        }
+    }
+}
+@media (min-width: 1024px){
+    .background{
+        &__svg{
+            height: auto;
+            width: 100vw;
+            
+        }
+        &__avantPlan path{
+            transform: scale(1) translateY(0);
+        }
+        &__deuxiemePlan path{
+            transform: scale(1) translateY(0);
+        }
+        &__deuxiemePlan rect{
+            transform: scale(1) translateY(0);
+        }
+        &__troisiemePlan{
+            transform: scale(1) translateX(0) translateY(0);
+        }
+        &__quatriemePlan{
+            transform: scale(1) translateX(0);
+        }
+        &__train path {
+            transform: translateX(-100%) translateY(0);
+            animation: translationTrain 20s 5s infinite linear;
+        }
+        &__train circle {
+            transform: translateX(-100%) translateY(0);
+            animation: translationTrain 20s 5s infinite linear;
+        }
+        &__arrierePlan path:nth-child(3){
+            animation: translationNuages 360s infinite linear;
+        }
+        &__arrierePlan path:nth-child(2){
+            animation: 1.5s soleil infinite linear alternate-reverse;
+            transform: translateX(0) scale(1);
+        }
+        &__arrierePlan circle{
+            animation: 1.5s soleil infinite linear alternate-reverse;
+            transform: translateX(0) scale(1);
+        }
+    }
+    @keyframes soleil{
+        from{
+            transform: translateY(0%) translateX(0) scale(1);
+        }
+        to {
+            transform: translateY(1%) translateX(0) scale(1);
+        }
+    }
+    @keyframes translationTrain {
+        from{
+            transform: translateX(-100%) translateY(0);
+        }
+        to{
+            transform: translateX(450%) translateY(0);
+        }
+    }
+    @keyframes translationTrain {
+        from{
+            transform: translateX(-100%) translateY(0);
+        }
+        to{
+            transform: translateX(450%) translateY(0);
+        }
+    }
+}
+@media (min-height:770px){
+
+}
+
+
+/*Dark mode
+.background{
+    &__svg{
+       background-color:#044C7A; 
+    }
+    &__avantPlan path:first-child{
+        fill: #00588F;
+    }
+    &__avantPlan path:nth-child(2){
+        fill: #081B29;
+    }
+    &__deuxiemePlan rect{
+        fill: #044C7A;
+    }
+    &__deuxiemePlan rect:nth-child(2){
+        fill: #FBE95C;
+    }
+    &__deuxiemePlan rect:nth-child(3){
+        fill: #FBE95C;
+    }
+    &__deuxiemePlan rect:nth-child(7){
+        fill: #FBE95C;
+    }
+    &__deuxiemePlan rect:nth-child(8){
+        fill: #FBE95C;
+    }
+    &__deuxiemePlan rect:nth-child(6){
+        fill: #FBE95C;
+    }
+    &__deuxiemePlan rect:nth-child(14){
+        fill: #FBE95C;
+    }
+    &__deuxiemePlan path{
+        fill: #00253C;
+    }
+    &__troisiemePlan rect{
+        fill: #044C7A;
+    }
+    &__troisiemePlan rect:nth-child(8){
+        fill: #98AA68;
+    }
+    &__troisiemePlan rect:nth-child(2){
+        fill: #98AA68;
+    }
+    &__troisiemePlan rect:nth-child(12){
+        fill: #98AA68;
+    }
+    &__troisiemePlan path{
+        fill: #0B3351;
+    }
+    &__quatriemePlan rect{
+        fill: #044C7A;
+    }
+    &__quatriemePlan rect:nth-child(7){
+        fill: #678B6E;
+    }
+    &__quatriemePlan rect:nth-child(8){
+        fill: #678B6E;
+    }
+    &__quatriemePlan rect:nth-child(10){
+        fill: #678B6E;
+    }
+    &__quatriemePlan path{
+        fill: #0D4066;
+    }
+    &__arrierePlan path:nth-child(2){
+        fill: #0065A3;
+    }
+    &__arrierePlan path:nth-child(3){
+        fill: #0065A3;
+    }
+    &__arrierePlan circle{
+        fill: #0065A3;
+    }
+    &__hide{
+        display: none;
+    }
+}*/
