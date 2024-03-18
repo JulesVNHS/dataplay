@@ -1,12 +1,21 @@
 @font-face {
   font-family: 'SNPro-Regular';
-  src: url('assets/fonts/SNPro-Regular-BF65efc640b4961.otf') format('opentype');
+  src: url('../assets/fonts/SNPro-Regular-BF65efc640b4961.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'LTRenovate-Regular';
+  src: url('../assets/fonts/LTRenovate-Regular-BF65dfe1fcd9561.otf') format('opentype');
 }
 
 body {
   font-family: 'SNPro-Regular', sans-serif;
   font-size: $size-text;
   margin: 0;
+}
+
+.body__accueil{
+  overflow: hidden;
 }
 
 ul {
@@ -19,6 +28,27 @@ p {
   margin: 0;
 }
 
+h1 {
+  font-size: 36px;
+  font-family: 'LTRenovate-Regular', sans-serif;
+  margin: 0;
+}
+
+h2 {
+  font-size: 36px;
+  font-family: 'LTRenovate-Regular', sans-serif;
+  margin: 0;
+}
+
+h3 {
+  font-family: 'LTRenovate-Regular', sans-serif;
+  margin: 0;
+}
+
+small {
+  font-size: 15px;
+}
+
 a {
   text-decoration: none;
 }
@@ -29,10 +59,44 @@ button {
   border: none;
   padding: 0;
   margin: 0;
+  font-family: 'SNPro-Regular', sans-serif;
+  font-size: 20px;
+  background-color: $c-button;
+  color: #ffffff;
+  padding: 11px;
+  border-radius: 6px;
 }
 
 button:active {
   transform: scale(1.05);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+input[type="text"] {
+  color: white;
+  font-size: 15px;
+}
+
+::placeholder {
+  font-family: 'SNPro-Regular', sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+  opacity: 70%;
+}
+
+select {
+  font-family: 'SNPro-Regular', sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+select option {
+  color: $c-interface;
 }
 
 @media(min-width: 1200px){
