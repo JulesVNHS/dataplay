@@ -4,24 +4,27 @@
 }
 .stats{
   display: flex;
-  
-  &__el{
-    margin-left: 1em;
-  }
+
+}
+.stats__background{
+  background-color: $c-bg;
 }
 .box1{
-  width: 100px;
-  height: 100Px;
-  background-color: red;
+  height: 100px;
+  width: 400px;
+  background-image: url(../../assets/images/avant_train.svg);
+  background-repeat: no-repeat;
 }
 .box2{
-  width: 100px;
-  height: 100Px;
-  background-color: blue;
+  height: 100px;
+  width: 400px;
+  background-image: url(../../assets/images/wagon.svg);
+  background-repeat: no-repeat;
 
 }
 .box3{
-  width: 100px;
-  height: 100Px;
-  background-color: black;
+  height: 100px;
+  width: 400px;
+  background-image: url(../../assets/images/arriere_train.svg);
+  background-repeat: no-repeat;
 }

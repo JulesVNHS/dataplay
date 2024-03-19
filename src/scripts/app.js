@@ -138,43 +138,96 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = totalMin
     const firstChildVoyageur = statsListVoyageur.firstElementChild;
 
     // Fonction pour créer et ajouter des éléments li avec des "box2" pour chaque catégorie
-    const addBoxesToList = (list, numberOfBoxes, firstChild) => {
-      for (let i = 1; i <= numberOfBoxes; i++) {
-        // Créer le nouvel élément li avec la classe 'stats__el'
-        const newStatsEl = document.createElement('li');
-        newStatsEl.classList.add('stats__el');
+    const addBoxesToList = (list, minutes) => {
 
-        // Créer la nouvelle boîte 'box2'
-        const newBox2 = document.createElement('div');
-        newBox2.classList.add('box2');
+      /*
+      <ul class="stats" id="">
+        <li class="stats__el">
+          <div class="box3"></div>
+        </li>
+        <li class="stats__el">
+          <div class="box1"></div>
+        </li>
+      </ul>
 
-        // Ajouter le nouvel élément li avec la classe 'stats__el' et la nouvelle boîte 'box2' après le premier enfant de la liste
-        list.insertBefore(newStatsEl, firstChild.nextElementSibling);
-        newStatsEl.appendChild(newBox2);
+      */
+      let trainLength = 12; 
+      let scale = 20000;
+      let numberOfBoxes = minutes / scale;
+      let numberOfTrains = Math.max(1, Math.ceil(numberOfBoxes / trainLength));
+      let animationTrain = numberOfTrains*5;
+   
+
+      console.log(numberOfBoxes)
+      console.log(numberOfTrains)
+      for(let trainCounter = 0; trainCounter < numberOfTrains; trainCounter++){
+        let trainList = document.createElement("ul");
+        trainList.classList.add("stats");
+
+        let firstWagon = document.createElement("li");
+        firstWagon.classList.add("stats__el");
+        firstWagon.innerHTML = '<div class="box3"></div>';
+        trainList.appendChild(firstWagon);
+        let numberOfWagons = 10;
+        if(numberOfBoxes - trainLength * trainCounter < 10){
+          numberOfWagons = numberOfBoxes - trainLength * trainCounter
+        }
+
+        for (let i = 1; i <= numberOfWagons; i++) {
+          // Créer le nouvel élément li avec la classe 'stats__el'
+          const newStatsEl = document.createElement('li');
+          newStatsEl.classList.add('stats__el');
+  
+          // Créer la nouvelle boîte 'box2'
+          const newBox2 = document.createElement('div');
+          newBox2.classList.add('box2');
+  
+          // Ajouter le nouvel élément li avec la classe 'stats__el' et la nouvelle boîte 'box2' après le premier enfant de la liste
+          trainList.appendChild(newStatsEl);
+          newStatsEl.appendChild(newBox2);
+        }
+
+        let lastWagon = document.createElement("li");
+        lastWagon.innerHTML = '<div class="box1"></div>';
+        lastWagon.classList.add("stats__el");
+        trainList.appendChild(lastWagon);
+        list.appendChild(trainList);
       }
+
     };
 
     // Ajouter les "box2" correspondantes pour chaque catégorie
-    addBoxesToList(statsListPerturbation, Math.floor(totalMinutesPerturbation / 20000), firstChildPerturbation);
-    addBoxesToList(statsListAvarie, Math.floor(totalMinutesAvarie / 20000), firstChildAvarie);
-    addBoxesToList(statsListTravaux, Math.floor(totalMinutesTravaux / 20000), firstChildTravaux);
-    addBoxesToList(statsListGrèves, Math.floor(totalMinutesGrèves / 20000), firstChildGrèves);
-    addBoxesToList(statsListMétéo, Math.floor(totalMinutesMétéo / 20000), firstChildMétéo);
-    addBoxesToList(statsListDéraillement, Math.floor(totalMinutesDéraillement / 20000), firstChildDéraillement);
-    addBoxesToList(statsListErreur, Math.floor(totalMinutesErreur / 20000), firstChildErreur);
-    addBoxesToList(statsListDérangement, Math.floor(totalMinutesDérangement / 20000), firstChildDérangement);
-    addBoxesToList(statsListAffluence, Math.floor(totalMinutesAffluence / 20000), firstChildAffluence);
-    addBoxesToList(statsListPersonnel, Math.floor(totalMinutesPersonnel / 20000), firstChildPersonnel);
-    addBoxesToList(statsListCovid, Math.floor(totalMinutesCovid / 20000), firstChildCovid);
-    addBoxesToList(statsListFourniture, Math.floor(totalMinutesFourniture / 20000), firstChildFourniture);
-    addBoxesToList(statsListVoyageur, Math.floor(totalMinutesVoyageur / 20000), firstChildVoyageur);
+    addBoxesToList(statsListPerturbation, Math.floor(totalMinutesPerturbation));
+
+    addBoxesToList(statsListAvarie, Math.floor(totalMinutesAvarie),);
+    addBoxesToList(statsListTravaux, Math.floor(totalMinutesTravaux), );
+    addBoxesToList(statsListGrèves, Math.floor(totalMinutesGrèves),);
+    addBoxesToList(statsListMétéo, Math.floor(totalMinutesMétéo),);
+    addBoxesToList(statsListDéraillement, Math.floor(totalMinutesDéraillement),);
+    addBoxesToList(statsListErreur, Math.floor(totalMinutesErreur),);
+    addBoxesToList(statsListDérangement, Math.floor(totalMinutesDérangement),);
+    addBoxesToList(statsListAffluence, Math.floor(totalMinutesAffluence),);
+    addBoxesToList(statsListPersonnel, Math.floor(totalMinutesPersonnel),);
+    addBoxesToList(statsListCovid, Math.floor(totalMinutesCovid),);
+    addBoxesToList(statsListFourniture, Math.floor(totalMinutesFourniture),);
+    addBoxesToList(statsListVoyageur, Math.floor(totalMinutesVoyageur),);
+
+  
+    gsap.fromTo(
+      ".stats__animation",
+      { x: "-150%" },
+      { 
+          x: "100%", 
+          duration: 50, // Utilisation de numberOfTrains pour calculer la durée
+          ease: "easeInOut", 
+          repeat: -1 
+      }
+  );
   })
   .catch(function(err) {
     console.log(err);
   });
 
-  gsap.fromTo(
-    ".stats",
-    { x: "-150%" },
-    { x: "100%", duration: 15, ease: easeCustom, repeat: -1 }
-  );
+
+
+
