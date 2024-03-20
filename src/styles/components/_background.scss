@@ -169,7 +169,6 @@ body{
         &__avantPlan{
             position: absolute;
             bottom: 0; 
-            transform: translateY(0);
         }
         &__plan{
             transform: scale(1) translateY(60%);
@@ -220,6 +219,13 @@ body{
         }
     }
 
+}
+@media (min-width: 1200px){
+    .background{
+        &__avantPlan{
+            transform: translateY(0);
+        }
+    }
 }
 
 
