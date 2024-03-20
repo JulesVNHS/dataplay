@@ -300,4 +300,7 @@ select option {
     top: 50%;
     transform: translatex(-50%) translatey(-50%);
   }
+  .result__el--value {
+    font-size: 36px;
+  }
 }/*# sourceMappingURL=app.css.map */
