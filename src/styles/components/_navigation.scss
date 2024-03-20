@@ -40,10 +40,33 @@
     }
 }
 
+
+
 @media(min-width: 600px){
     .menu{
         &__list{
             padding: 15px 30vw;
+        }
+    }
+}
+
+@media(max-width: 1200px){
+    .scrollnav{
+        &__menu{
+            position: fixed;
+            width: 100%;
+            bottom: -3%;left: 0;
+            background-color: #2c2c2c;
+            
+            margin-bottom: 1em;
+            z-index: 10;
+        }
+        
+        &--hide {
+            transform: translateY(100%);
+        }
+        &__list{
+            transition: transform 0.3s ease;
         }
     }
 }

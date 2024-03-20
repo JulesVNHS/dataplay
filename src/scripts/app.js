@@ -1,10 +1,24 @@
 "use strict";
 
 import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger)
 console.log(gsap.version);
 
+//Sticky nav
+  let oldScrollY = 0
+  const menu = document.querySelector(".scrollnav__list");
+  window.addEventListener("scroll", scrollListener);
+  function scrollListener(){
+      if(oldScrollY > window.scrollY){
+          menu.classList.remove("scrollnav--hide");
+      }else{
+          menu.classList.add("scrollnav--hide");
+      }
+      oldScrollY = window.scrollY;
+  }
 // Courbe de bezier pour l'animation
-const easeCustom = gsap.parseEase("cubic-bezier(0.36, 0, 0.66, -0.56)");
+const easeCustom = gsap.parseEase("cubic-bezier(0.85, 0, 0.15, 1)");
 
 // Aller chercher la data du json
 fetch("../assets/tab/data_cause_retard.json")
@@ -92,19 +106,26 @@ fetch("../assets/tab/data_cause_retard.json")
 
     // Afficher le total des minutes de retard pour "Intrusion dans les voies"
  // Mettre à jour le nombre de minutes de retards dans chaque catégorie
-document.querySelector('#incident__nombres--perturbation').textContent = totalMinutesPerturbation + " minutes de retards";
-document.querySelector('#incident__nombres--avarie').textContent = totalMinutesAvarie + " minutes de retards";
-document.querySelector('#incident__nombres--travaux').textContent = totalMinutesTravaux + " minutes de retards";
-document.querySelector('#incident__nombres--grèves').textContent = totalMinutesGrèves + " minutes de retards";
-document.querySelector('#incident__nombres--météo').textContent = totalMinutesMétéo + " minutes de retards";
-document.querySelector('#incident__nombres--déraillement').textContent = totalMinutesDéraillement + " minutes de retards";
-document.querySelector('#incident__nombres--erreur').textContent = totalMinutesErreur + " minutes de retards";
-document.querySelector('#incident__nombres--dérangement').textContent = totalMinutesDérangement + " minutes de retards";
-document.querySelector('#incident__nombres--affluence').textContent = totalMinutesAffluence + " minutes de retards";
-document.querySelector('#incident__nombres--personnel').textContent = totalMinutesPersonnel + " minutes de retards";
-document.querySelector('#incident__nombres--covid').textContent = totalMinutesCovid + " minutes de retards";
-document.querySelector('#incident__nombres--fourniture').textContent = totalMinutesFourniture + " minutes de retards";
-document.querySelector('#incident__nombres--pb-voyageur').textContent = totalMinutesVoyageur + " minutes de retards";
+// Fonction pour formater un nombre avec un point entre chaque millier
+function formatNumberWithCommas(number) {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
+
+// Utilisation de la fonction pour formater les nombres et les afficher avec les heures de retard
+document.querySelector('#incident__nombres--perturbation').textContent = formatNumberWithCommas(Math.round(totalMinutesPerturbation / 60)) + " heures de retard";
+document.querySelector('#incident__nombres--avarie').textContent = formatNumberWithCommas(Math.round(totalMinutesAvarie / 60)) + " heures de retard";
+document.querySelector('#incident__nombres--travaux').textContent = formatNumberWithCommas(Math.round(totalMinutesTravaux / 60)) + " heures de retard";
+document.querySelector('#incident__nombres--grèves').textContent = formatNumberWithCommas(Math.round(totalMinutesGrèves / 60)) + " heures de retard";
+document.querySelector('#incident__nombres--météo').textContent = formatNumberWithCommas(Math.round(totalMinutesMétéo / 60)) + " heures de retard";
+document.querySelector('#incident__nombres--déraillement').textContent = formatNumberWithCommas(Math.round(totalMinutesDéraillement / 60)) + " heures de retard";
+document.querySelector('#incident__nombres--erreur').textContent = formatNumberWithCommas(Math.round(totalMinutesErreur / 60)) + " heures de retard";
+document.querySelector('#incident__nombres--dérangement').textContent = formatNumberWithCommas(Math.round(totalMinutesDérangement / 60)) + " heures de retard";
+document.querySelector('#incident__nombres--affluence').textContent = formatNumberWithCommas(Math.round(totalMinutesAffluence / 60)) + " heures de retard";
+document.querySelector('#incident__nombres--personnel').textContent = formatNumberWithCommas(Math.round(totalMinutesPersonnel / 60)) + " heures de retard";
+document.querySelector('#incident__nombres--covid').textContent = formatNumberWithCommas(Math.round(totalMinutesCovid / 60)) + " heures de retard";
+document.querySelector('#incident__nombres--fourniture').textContent = formatNumberWithCommas(Math.round(totalMinutesFourniture / 60)) + " heures de retard";
+document.querySelector('#incident__nombres--pb-voyageur').textContent = formatNumberWithCommas(Math.round(totalMinutesVoyageur / 60)) + " heures de retard";
+
 
 
     // Sélectionner les ul par leur ID et renommer les variables
@@ -137,36 +158,26 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = totalMin
     const firstChildFourniture = statsListFourniture.firstElementChild;
     const firstChildVoyageur = statsListVoyageur.firstElementChild;
 
-    // Fonction pour créer et ajouter des éléments li avec des "box2" pour chaque catégorie
+    // Fonction pour créer et ajouter des éléments li avec des "stats__wagon" pour chaque catégorie
     const addBoxesToList = (list, minutes) => {
 
-      /*
-      <ul class="stats" id="">
-        <li class="stats__el">
-          <div class="box3"></div>
-        </li>
-        <li class="stats__el">
-          <div class="box1"></div>
-        </li>
-      </ul>
-
-      */
       let trainLength = 12; 
       let scale = 20000;
       let numberOfBoxes = minutes / scale;
       let numberOfTrains = Math.max(1, Math.ceil(numberOfBoxes / trainLength));
-      let animationTrain = numberOfTrains*5;
+      
    
 
       console.log(numberOfBoxes)
       console.log(numberOfTrains)
       for(let trainCounter = 0; trainCounter < numberOfTrains; trainCounter++){
         let trainList = document.createElement("ul");
-        trainList.classList.add("stats");
+        trainList.classList.add("stats__list");
+        trainList.classList.add("stats__list"+trainCounter);
 
         let firstWagon = document.createElement("li");
         firstWagon.classList.add("stats__el");
-        firstWagon.innerHTML = '<div class="box3"></div>';
+        firstWagon.innerHTML = '<div class="stats__arriere-train"></div>';
         trainList.appendChild(firstWagon);
         let numberOfWagons = 10;
         if(numberOfBoxes - trainLength * trainCounter < 10){
@@ -178,17 +189,17 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = totalMin
           const newStatsEl = document.createElement('li');
           newStatsEl.classList.add('stats__el');
   
-          // Créer la nouvelle boîte 'box2'
-          const newBox2 = document.createElement('div');
-          newBox2.classList.add('box2');
+          // Créer la nouvelle boîte 'stats__wagon'
+          const newstats__wagon = document.createElement('div');
+          newstats__wagon.classList.add('stats__wagon');
   
-          // Ajouter le nouvel élément li avec la classe 'stats__el' et la nouvelle boîte 'box2' après le premier enfant de la liste
+          // Ajouter le nouvel élément li avec la classe 'stats__el' et la nouvelle boîte 'stats__wagon' après le premier enfant de la liste
           trainList.appendChild(newStatsEl);
-          newStatsEl.appendChild(newBox2);
+          newStatsEl.appendChild(newstats__wagon);
         }
 
         let lastWagon = document.createElement("li");
-        lastWagon.innerHTML = '<div class="box1"></div>';
+        lastWagon.innerHTML = '<div class="stats__avant-train"></div>';
         lastWagon.classList.add("stats__el");
         trainList.appendChild(lastWagon);
         list.appendChild(trainList);
@@ -196,7 +207,7 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = totalMin
 
     };
 
-    // Ajouter les "box2" correspondantes pour chaque catégorie
+    // Ajouter les "stats__wagon" correspondantes pour chaque catégorie
     addBoxesToList(statsListPerturbation, Math.floor(totalMinutesPerturbation));
 
     addBoxesToList(statsListAvarie, Math.floor(totalMinutesAvarie),);
@@ -211,18 +222,45 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = totalMin
     addBoxesToList(statsListCovid, Math.floor(totalMinutesCovid),);
     addBoxesToList(statsListFourniture, Math.floor(totalMinutesFourniture),);
     addBoxesToList(statsListVoyageur, Math.floor(totalMinutesVoyageur),);
+    
 
+  const sections =gsap.utils.toArray(".stats")
+  sections.forEach(function(section){
+  const selector = gsap.utils.selector(section)
+  const trains = selector(".stats__list")
   
-    gsap.fromTo(
-      ".stats__animation",
-      { x: "-150%" },
-      { 
-          x: "100%", 
-          duration: 50, // Utilisation de numberOfTrains pour calculer la durée
-          ease: "easeInOut", 
-          repeat: -1 
-      }
-  );
+  let mm = gsap.matchMedia();
+
+  mm.add({
+    isMobile: "(max-width: 600px)",
+    isTablet: "(min-width: 601px)",
+    isDekstop: "(min-width: 1024px)"
+  },(context)=>{
+    let {isMobile, isTablet, isDekstop} = context.conditions;
+    trains.forEach(function(item){
+      let nombreAleatoire = Math.floor(Math.random() * 5) + 1;
+      gsap.fromTo(
+        item,
+        { x: "-100%" },
+        { 
+          x: isMobile ? "750%" : (isTablet ? "500%" : (isDesktop ? "100%" : "100%")),
+            duration: 8, 
+            ease: easeCustom, 
+            repeat: -1, 
+            delay: nombreAleatoire,
+            scrollTrigger:{
+              trigger: section,
+              start: "center bottom"
+            }
+        }
+    );
+    })
+
+  })
+ 
+})
+
+
   })
   .catch(function(err) {
     console.log(err);
@@ -230,4 +268,4 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = totalMin
 
 
 
-
+  

@@ -1,30 +1,99 @@
 .stats__title{
     font-family: 'LTRenovate-SemiBold', sans-serif;
     color: $c-interface;
+    font-size: 36px;
+    margin: 20px 20px 40px 20px
+}
+.échelle{
+  margin-left: 20px;
+  margin-right: 20px;
+
+  &__title{
+    color: $c-interface;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  &__wagon{
+    margin-top: 0.5em;
+  }
+}
+
+.incident{
+  overflow-x: hidden;
+  margin-top: 40px;
+  &__title{
+    color: $c-interface;
+    margin: 0 0 15px 20px;
+    font-size: 27px;
+  }
+  &__stats{
+    margin-left: 20px;
+  }
+  &__all-stats{
+    display: flex;
+    line-height: 145%;
+    font-size: 15px;
+    margin: 20px 20px 0 20px;
+  }
 }
 .stats{
-  display: flex;
-
-}
-.stats__background{
   background-color: $c-bg;
+  margin-top: 2em;
+  
+  &__list{
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+  }
+  &__el{
+    margin-top: 10px;
+  }
+  &__avant-train{
+    height: 60px;
+    width: 300px;
+    background-image: url(../../assets/images/avant_train.svg);
+    background-repeat: no-repeat;
+  }
+  &__wagon{
+    height: 60px;
+    width: 300px;
+    background-image: url(../../assets/images/wagon.svg);
+    background-repeat: no-repeat;
+  }
+  &__arriere-train{
+    height: 60px;
+    width: 300px;
+    background-image: url(../../assets/images/arriere_train.svg);
+    background-repeat: no-repeat;
+  }
 }
-.box1{
-  height: 100px;
-  width: 400px;
-  background-image: url(../../assets/images/avant_train.svg);
-  background-repeat: no-repeat;
-}
-.box2{
-  height: 100px;
-  width: 400px;
-  background-image: url(../../assets/images/wagon.svg);
-  background-repeat: no-repeat;
 
+.incident--last{
+  padding-bottom: 120px;
 }
-.box3{
-  height: 100px;
-  width: 400px;
-  background-image: url(../../assets/images/arriere_train.svg);
-  background-repeat: no-repeat;
+
+@media(min-width: 1200px){
+  .stats__title{
+    margin-left: 63px;
+}
+
+.échelle{
+  margin-left: 63px;
+  margin-right: 63px;
+}
+
+.incident{
+  &__title{
+    margin-left: 63px;
+    margin-right: 63px;
+  }
+  &__stats{
+    margin-left: 63px;
+  }
+  &__all-stats{
+    margin-left: 63px;
+    margin-right: 63px;
+  }
+}
 }
