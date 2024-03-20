@@ -1,4 +1,4 @@
-body{
+.body__accueil{
     margin: 0;
     padding: 0;
     width: 100vw;
@@ -38,10 +38,8 @@ body{
             animation: translationNuages 80s infinite linear;
         }
     }
-
-
-
 }
+
 .hide{
     display: none;
 }
@@ -114,7 +112,7 @@ body{
 
 /*Responsive*/
 @media (min-width: 600px){
-    body{
+    .body__accueil{
         background-image: url('../../assets/images/illuFINALEtablet.svg');  
     }
     .background{
@@ -162,7 +160,7 @@ body{
     }
 }
 @media (min-width: 1024px){
-    body{
+    .body__accueil{
         background-image: url('../../assets/images/illuFINALEdesktop.svg');  
     }
     .background{
