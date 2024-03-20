@@ -12,6 +12,7 @@ body{
     &__avantPlan{
         position: absolute;
         bottom: 0; 
+        transform: translateY(-80.5px);
     }
     &__plan{
         transform: scale(2.5);
@@ -119,7 +120,7 @@ body{
     .background{
         &__avantPlan{
             position: absolute;
-            bottom: 0; 
+            bottom: 0;
         }
         &__plan{
             transform: scale(1.5) translateY(30%);
@@ -168,9 +169,10 @@ body{
         &__avantPlan{
             position: absolute;
             bottom: 0; 
+            transform: translateY(0);
         }
         &__plan{
-            transform: scale(1.1) translateY(52%);
+            transform: scale(1) translateY(60%);
         }
         &__feu{
             transform: translateX(0);
@@ -189,7 +191,7 @@ body{
             transform: scale(1) translateX(0%);
 
             path:nth-child(3){
-                transform: translateX(-73%);
+                transform: translateX(-73%) translateY(-12%);
                 animation: translationNuages 120s infinite linear;
             }
         }
@@ -211,10 +213,10 @@ body{
     }
     @keyframes translationNuages{
         from{
-            transform: translateX(-73%);
+            transform: translateX(-73%) translateY(-12%);
         }
         to{
-            transform: translateX(99%);
+            transform: translateX(99%) translateY(-12%);
         }
     }
 
