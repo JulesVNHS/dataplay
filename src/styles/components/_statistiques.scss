@@ -76,14 +76,26 @@
 @media(min-width: 1200px){
   .stats__title{
     margin-left: 63px;
+    margin-top: 63px;
+    
 }
 
 .échelle{
   margin-left: 63px;
   margin-right: 63px;
+  &__title{
+    color: $c-interface;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  &__wagon{
+    margin-top: 20px;
+  }
 }
 
 .incident{
+  margin-top: 63px;
   &__title{
     margin-left: 63px;
     margin-right: 63px;
@@ -95,5 +107,8 @@
     margin-left: 63px;
     margin-right: 63px;
   }
+}
+.stats__el{
+  cursor: pointer;
 }
 }
