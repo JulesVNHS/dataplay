@@ -1,342 +1,230 @@
 body{
     margin: 0;
     padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/images/illuFINALEphone.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow: hidden;
 }
 .background{
-    white-space: nowrap;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    transform: translateY(-90px);  
-    position: relative;
-    z-index: -10;
+    &__avantPlan{
+        position: absolute;
+        bottom: 0; 
+    }
+    &__plan{
+        transform: scale(2.5);
+    }
+    &__feu{
+        transform: translateX(-40%);
+    }
+    &__train{
+        transform: translateX(-90%);
+        animation: translationTrain 20s 5s infinite;
+    }
+    &__feu circle:nth-child(3){
+        animation: feuVert 20s 5s infinite;
+    }
+    &__feu circle:nth-child(5){
+        animation: feuRouge 20s 5s infinite;
+    }
+    &__plana{
+        transform: scale(2) translateX(-47%);
 
-    &__svg{
-      height: 100vh;
-      
+        path:nth-child(3){
+            transform: translateX(-26%);
+            animation: translationNuages 80s infinite linear;
+        }
     }
-    &__avantPlan path{
-        transform: scale(0.7) translateY(45%);
-    }
-    &__deuxiemePlan path{
-        transform: scale(0.7) translateY(45%);
-    }
-    &__deuxiemePlan rect{
-        transform: scale(0.7) translateY(45%);
-    }
-    &__troisiemePlan{
-        transform: scale(0.7) translateX(0%) translateY(35%);
-    }
-    &__quatriemePlan{
-        transform: scale(0.7) translateX(0%);
-    }
-    &__train path {
-        transform: translateX(-100%) translateY(8.4%);
-        animation: translationTrain 20s 5s infinite linear;
-    }
-    &__train circle {
-        transform: translateX(-100%) translateY(8.4%);
-        animation: translationTrain 20s 5s infinite linear;
-    }
-    &__arrierePlan path:nth-child(2){
-        animation: 1.5s soleil infinite linear alternate-reverse;
-        transform: translateX(-23%) scale(0.7);
-    }
-    &__arrierePlan path:nth-child(3){
-        animation: translationNuages 360s infinite linear;
-    }
-    &__arrierePlan circle{
-        animation: 1.5s soleil infinite linear alternate-reverse;
-        transform: translateX(-23%) scale(0.7);
-    }
-    &__hide{
-        display: none;
-    }
+
+
+
+}
+.hide{
+    display: none;
 }
 
 
 /*Animations*/
-@keyframes soleil{
-    from{
-        transform: translateY(7%) translateX(-23%) scale(0.7);
+@keyframes translationTrain{ 
+    0%{
+        transform: translateX(-90%);
     }
-    to {
-        transform: translateY(7.7%) translateX(-23%) scale(0.7);
+    20%{
+        transform: translateX(-63%);
     }
-}
-@keyframes translationTrain {
-    from{
-        transform: translateX(-100%) translateY(8.4%);
+    30%{
+        transform: translateX(-63%);
     }
-    to{
-        transform: translateX(450%) translateY(8.4%);
+    100%{
+        transform: translateX(170%);
     }
 }
-@keyframes translationNuages {
+@keyframes feuVert{
+    0%{
+        fill: #FFF;
+    }
+    28%{
+        fill: #FFF;
+    }
+    29%{
+        fill: #9FD4F3;
+    }
+    47%{
+        fill: #9FD4F3;
+    }
+    48%{
+        fill: #FFF;
+    }
+    100%{
+        fill: #FFF;
+    }
+}
+@keyframes feuRouge{
+    0%{
+        fill: #9FD4F3;
+    }
+    28%{
+        fill: #9FD4F3;
+    }
+    29%{
+        fill: #FFF;
+    }
+    47%{
+        fill: #FFF;
+    }
+    48%{
+        fill: #9FD4F3;
+    }
+    100%{
+        fill: #9FD4F3;
+    }
+}
+@keyframes translationNuages{
     from{
-        transform: translateX(-87%);
+        transform: translateX(-26%);
     }
     to{
-        transform: translateX(115%);
-    } 
-} 
+        transform: translateX(100%);
+    }
+}
+
 
 /*Responsive*/
-@media (min-width: 430px){
+@media (min-width: 600px){
+    body{
+        background-image: url('../../assets/images/illuFINALEtablet.svg');  
+    }
     .background{
-        &__troisiemePlan{
-        transform: scale(0.7) translateX(-0%) translateY(30%);
+        &__avantPlan{
+            position: absolute;
+            bottom: 0; 
         }
-        &__arrierePlan circle{
-            transform: translateX(-17%);
+        &__plan{
+            transform: scale(1.5) translateY(30%);
         }
-        &__arrierePlan path:nth-child(2){
-            transform: translateX(-17%);
+        &__feu{
+            transform: translateX(-20%);
+        }
+        &__plana{
+            transform: scale(1.5) translateX(-30%);
+
+            path:nth-child(3){
+                transform: translateX(-43%);
+                animation: translationNuages 100s infinite linear;
+            }
         }
     }
 
-    @keyframes soleil{
-        from{
-            transform: translateY(7%) translateX(-17%) scale(0.6);
+    @keyframes translationTrain{ 
+        0%{
+            transform: translateX(-90%);
         }
-        to {
-            transform: translateY(7.7%) translateX(-17%) scale(0.6);
+        20%{
+            transform: translateX(-45%);
         }
-    }
-}
-@media (min-width: 760px){
-    .background{
-        &__svg{
-            height: 100vh;
+        30%{
+            transform: translateX(-45%);
         }
-        &__avantPlan path{
-            transform: scale(1) translateY(0%);
-        }
-        &__deuxiemePlan rect{
-            transform: scale(1) translateY(0%);
-        }
-        &__deuxiemePlan path{
-            transform: scale(1) translateY(0%);
-        }
-        &__troisiemePlan{
-            transform: scale(1) translateX(0%) translateY(0%);
-        }
-        &__quatriemePlan{
-            transform: scale(1) translateX(0%) translateY(0%);
-        }
-        &__train path {
-            transform: translateX(-100%) translateY(8.2%);
-            animation: translationTrain 20s 5s infinite linear;
-        }
-        &__train circle {
-            transform: translateX(-100%) translateY(8.2%);
-            animation: translationTrain 20s 5s infinite linear;
-        }
-        &__arrierePlan path:nth-child(3){
-            animation: translationNuages 360s infinite linear;
-        }
-        &__arrierePlan path:nth-child(2){
-            animation: 1.5s soleil infinite linear alternate-reverse;
-            transform: translateX(-23%) scale(1);
-        }
-        &__arrierePlan circle{
-            animation: 1.5s soleil infinite linear alternate-reverse;
-            transform: translateX(-23%) scale(1);
+        100%{
+            transform: translateX(300%);
         }
     }
-
-    @keyframes soleil{
+    @keyframes translationNuages{
         from{
-            transform: translateY(7%) translateX(-19%) scale(0.7);
+            transform: translateX(-43%);
         }
-        to {
-            transform: translateY(7.7%) translateX(-19%) scale(0.7);
-        }
-    }
-}
-@media (min-width: 880px){
-    .background__troisiemePlan{
-            transform: scale(1) translateX(0%) translateY(0%);
-        }
-
-    @keyframes soleil{
-        from{
-            transform: translateY(7%) translateX(-12%) scale(0.7);
-        }
-        to {
-            transform: translateY(7.7%) translateX(-12%) scale(0.7);
+        to{
+            transform: translateX(95%);
         }
     }
 }
 @media (min-width: 1024px){
+    body{
+        background-image: url('../../assets/images/illuFINALEdesktop.svg');  
+    }
     .background{
-        &__svg{
-            height: auto;
-            width: 100vw;
-            
+        &__avantPlan{
+            position: absolute;
+            bottom: 0; 
         }
-        &__avantPlan path{
-            transform: scale(1) translateY(0);
+        &__plan{
+            transform: scale(1.1) translateY(52%);
         }
-        &__deuxiemePlan path{
-            transform: scale(1) translateY(0);
+        &__feu{
+            transform: translateX(0);
         }
-        &__deuxiemePlan rect{
-            transform: scale(1) translateY(0);
+        &__train{
+            transform: translateX(-90%);
+            animation: translationTrain 35s 5s infinite;
         }
-        &__troisiemePlan{
-            transform: scale(1) translateX(0) translateY(0);
+        &__feu circle:nth-child(3){
+            animation: feuVert 35s 5s infinite;
         }
-        &__quatriemePlan{
-            transform: scale(1) translateX(0);
+        &__feu circle:nth-child(5){
+            animation: feuRouge 35s 5s infinite;
         }
-        &__train path {
-            transform: translateX(-100%) translateY(0);
-            animation: translationTrain 20s 5s infinite linear;
-        }
-        &__train circle {
-            transform: translateX(-100%) translateY(0);
-            animation: translationTrain 20s 5s infinite linear;
-        }
-        &__arrierePlan path:nth-child(3){
-            animation: translationNuages 360s infinite linear;
-        }
-        &__arrierePlan path:nth-child(2){
-            animation: 1.5s soleil infinite linear alternate-reverse;
-            transform: translateX(0) scale(1);
-        }
-        &__arrierePlan circle{
-            animation: 1.5s soleil infinite linear alternate-reverse;
-            transform: translateX(0) scale(1);
+        &__plana{
+            transform: scale(1) translateX(0%);
+
+            path:nth-child(3){
+                transform: translateX(-73%);
+                animation: translationNuages 120s infinite linear;
+            }
         }
     }
-    @keyframes soleil{
-        from{
-            transform: translateY(0%) translateX(0) scale(1);
+
+    @keyframes translationTrain{ 
+        0%{
+            transform: translateX(-90%);
         }
-        to {
-            transform: translateY(1%) translateX(0) scale(1);
+        20%{
+            transform: translateX(-23%);
+        }
+        30%{
+            transform: translateX(-23%);
+        }
+        100%{
+            transform: translateX(300%);
         }
     }
-    @keyframes translationTrain {
+    @keyframes translationNuages{
         from{
-            transform: translateX(-100%) translateY(0);
+            transform: translateX(-73%);
         }
         to{
-            transform: translateX(450%) translateY(0);
+            transform: translateX(99%);
         }
     }
-    @keyframes translationTrain {
-        from{
-            transform: translateX(-100%) translateY(0);
-        }
-        to{
-            transform: translateX(450%) translateY(0);
-        }
-    }
-}
-@media (min-width:370px) and (max-height:344px){
-    .background{
-        &__svg{
-            height: auto;
-            width: 150vw;
-        }
-    }
-}
-@media (min-width:430px) and (max-height:704px){
-    .background{
-        &__svg{
-            height: auto;
-            width: 150vw;
-        }
-    }
-}
-@media (min-width:760px) and (max-height: ){
-    .background{
-        &__svg{
-            height: auto;
-            width: 150vw;
-        }
-    }
+
 }
 
 
-/*Dark mode
-.background{
-    &__svg{
-       background-color:#044C7A; 
-    }
-    &__avantPlan path:first-child{
-        fill: #00588F;
-    }
-    &__avantPlan path:nth-child(2){
-        fill: #081B29;
-    }
-    &__deuxiemePlan rect{
-        fill: #044C7A;
-    }
-    &__deuxiemePlan rect:nth-child(2){
-        fill: #FBE95C;
-    }
-    &__deuxiemePlan rect:nth-child(3){
-        fill: #FBE95C;
-    }
-    &__deuxiemePlan rect:nth-child(7){
-        fill: #FBE95C;
-    }
-    &__deuxiemePlan rect:nth-child(8){
-        fill: #FBE95C;
-    }
-    &__deuxiemePlan rect:nth-child(6){
-        fill: #FBE95C;
-    }
-    &__deuxiemePlan rect:nth-child(14){
-        fill: #FBE95C;
-    }
-    &__deuxiemePlan path{
-        fill: #00253C;
-    }
-    &__troisiemePlan rect{
-        fill: #044C7A;
-    }
-    &__troisiemePlan rect:nth-child(8){
-        fill: #98AA68;
-    }
-    &__troisiemePlan rect:nth-child(2){
-        fill: #98AA68;
-    }
-    &__troisiemePlan rect:nth-child(12){
-        fill: #98AA68;
-    }
-    &__troisiemePlan path{
-        fill: #0B3351;
-    }
-    &__quatriemePlan rect{
-        fill: #044C7A;
-    }
-    &__quatriemePlan rect:nth-child(7){
-        fill: #678B6E;
-    }
-    &__quatriemePlan rect:nth-child(8){
-        fill: #678B6E;
-    }
-    &__quatriemePlan rect:nth-child(10){
-        fill: #678B6E;
-    }
-    &__quatriemePlan path{
-        fill: #0D4066;
-    }
-    &__arrierePlan path:nth-child(2){
-        fill: #0065A3;
-    }
-    &__arrierePlan path:nth-child(3){
-        fill: #0065A3;
-    }
-    &__arrierePlan circle{
-        fill: #0065A3;
-    }
-    &__hide{
-        display: none;
-    }
-}*/
+
+
+
+
+
+
+
