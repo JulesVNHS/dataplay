@@ -1,0 +1,52 @@
+.snake{
+    position: absolute;
+    z-index: 0;
+    top: 91px;
+    left: 50%;
+    transform: translatex(-50%);
+    background-color: $c-interface;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    width: 90%;
+    box-sizing: border-box;
+
+    &__billboard-list{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $c-panneau;
+        padding: 6px;
+        border-radius: 6px;
+    }
+
+    &__billboard-el--delay{
+        display: flex;
+    }
+
+    &__billboard-delay{
+        background-color: $c-button;
+        padding: 6px;
+        min-width: 47px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__billboard-hour{
+        background-color: #ffffff;
+        color: $c-interface;
+        padding: 6px;
+    }
+
+    &--hide{
+        display: none;
+    }
+}
+
+@media(min-width: 1200px){
+    .snake{
+        top:50%;
+        transform: translatex(-50%) translatey(-50%);
+        width: auto;
+    }
+}

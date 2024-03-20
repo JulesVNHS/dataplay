@@ -100,6 +100,7 @@ document.querySelector('.form-retard').addEventListener('submit', function(event
             var jsonData = JSON.parse(response);
             var result = countMatchingElements(jsonData, departure, arrival);
             document.getElementById('averageDelay').textContent = convertSecondsToTime(result.averageDelay);
+            document.getElementById('delayBillboard').textContent = convertSecondsToMinutes(result.averageDelay);
             var monthlyEstimation = Math.round(result.averageDelay * frequency * 4);
             var yearlyEstimation = Math.round(result.averageDelay * frequency * 52);
             document.getElementById('monthlyEstimation').textContent = convertSecondsToTime(monthlyEstimation);
@@ -123,6 +124,15 @@ function convertSecondsToTime(seconds) {
     }
     if (remainingSeconds > 0) {
         timeString += remainingSeconds + ' s';
+    }
+    return timeString.trim();
+}
+
+function convertSecondsToMinutes(seconds) {
+    var minutes = Math.ceil(seconds / 60); // Arrondir au supérieur
+    var timeString = '';
+    if (minutes > 0) {
+        timeString += "+ " + minutes + "'";
     }
     return timeString.trim();
 }
@@ -168,3 +178,36 @@ document.querySelectorAll('.form-retard__input').forEach(function(input) {
             .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
     });
 });
+
+/*afficher le snake*/
+document.addEventListener("DOMContentLoaded", function() {
+    const resultSection = document.querySelector('.result');
+    const snakeSection = document.querySelector('.snake');
+    const button = document.querySelector('.result__btn');
+
+    button.addEventListener('click', function() {
+      resultSection.classList.add('result--hide');
+      snakeSection.classList.remove('snake--hide');
+    });
+  });
+
+/*Affichage heure*/
+function updateTime() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+
+    var timeString = hours + ':' + minutes;
+
+    var billboardHourElement = document.querySelector('.snake__billboard-hour');
+    if (billboardHourElement) {
+        billboardHourElement.textContent = timeString;
+    }
+}
+
+setInterval(updateTime, 60000);
+
+updateTime();

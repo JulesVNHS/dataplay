@@ -303,4 +303,51 @@ select option {
   .result__el--value {
     font-size: 36px;
   }
+}
+.snake {
+  position: absolute;
+  z-index: 0;
+  top: 91px;
+  left: 50%;
+  transform: translatex(-50%);
+  background-color: #0169B4;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 6px;
+  width: 90%;
+  box-sizing: border-box;
+}
+.snake__billboard-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #044C7A;
+  padding: 6px;
+  border-radius: 6px;
+}
+.snake__billboard-el--delay {
+  display: flex;
+}
+.snake__billboard-delay {
+  background-color: #E9550D;
+  padding: 6px;
+  min-width: 47px;
+  display: flex;
+  justify-content: center;
+}
+.snake__billboard-hour {
+  background-color: #ffffff;
+  color: #0169B4;
+  padding: 6px;
+}
+.snake--hide {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .snake {
+    top: 50%;
+    transform: translatex(-50%) translatey(-50%);
+    width: auto;
+  }
 }/*# sourceMappingURL=app.css.map */
