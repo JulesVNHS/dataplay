@@ -190,7 +190,7 @@ body{
             transform: scale(1) translateX(0%);
 
             path:nth-child(3){
-                transform: translateX(-73%) translateY(-12%);
+                transform: translateX(-73%) translateY(-13.5%);
                 animation: translationNuages 120s infinite linear;
             }
         }
@@ -212,10 +212,10 @@ body{
     }
     @keyframes translationNuages{
         from{
-            transform: translateX(-73%) translateY(-12%);
+            transform: translateX(-73%) translateY(-13.5%);
         }
         to{
-            transform: translateX(99%) translateY(-12%);
+            transform: translateX(99%) translateY(-13.5%);
         }
     }
 
