@@ -13,7 +13,7 @@
         display: flex;
         justify-content: space-between;
         padding: 15px 15vw;
-        position: absolute;
+        position: fixed;
         z-index: 5;
         bottom: 0%;
         width: 100%;
@@ -26,6 +26,7 @@
         justify-content: center;
         align-items: center;
     }
+
     &__link--nav{
         width: 55px;
     }
@@ -98,6 +99,26 @@
         &__text {
             font-size: 20px;
             margin-top: 0px;
+        }
+    }
+}
+
+@media(max-width: 400px) and (max-height: 839px){
+    .menu{
+        &__logo{
+            padding: 20px 0;
+        }
+
+        &__img{
+            height: 20px;
+        }
+
+        &__text {
+            font-size: 11px;
+        }
+
+        &__list{
+            padding: 11px 15vw;
         }
     }
 }
