@@ -9,10 +9,12 @@
 
     &__list{
         background-color: $c-interface;
+        border-top: 1px solid #ffffff;
         display: flex;
         justify-content: space-between;
-        padding: 15px 20vw;
+        padding: 15px 15vw;
         position: absolute;
+        z-index: 5;
         bottom: 0%;
         width: 100%;
         box-sizing: border-box;
@@ -42,7 +44,7 @@
 @media(min-width: 600px){
     .menu{
         &__list{
-            padding: 15px 30vw;
+            padding: 15px 25vw;
         }
     }
 }
@@ -53,18 +55,21 @@
         flex-direction: row;
         align-items: center;
         background-color: $c-interface;
+        border-bottom: 1px solid #ffffff;
+        position: relative;
+        z-index: 5;
 
         &__img{
             display: none;
         }
 
         &__logo{
-            height: 47px;
             padding: 0 0 0 0;
             filter: brightness(0) invert(1);
         }
 
         &__list{
+            border: none;
             background-color: transparent;
             display: flex;
             justify-content:flex-start;
