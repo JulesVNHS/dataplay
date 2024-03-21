@@ -1,4 +1,4 @@
-.snake{
+.snake {
     position: absolute;
     z-index: 0;
     top: 91px;
@@ -9,9 +9,10 @@
     padding: 20px;
     border-radius: 6px;
     width: 90%;
+    max-width: 629px;
     box-sizing: border-box;
 
-    &__billboard-list{
+    &__billboard-list {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -20,11 +21,11 @@
         border-radius: 6px;
     }
 
-    &__billboard-el--delay{
+    &__billboard-el--delay {
         display: flex;
     }
 
-    &__billboard-delay{
+    &__billboard-delay {
         background-color: $c-button;
         padding: 6px;
         min-width: 47px;
@@ -32,21 +33,38 @@
         justify-content: center;
     }
 
-    &__billboard-hour{
+    &__billboard-hour {
         background-color: #ffffff;
         color: $c-interface;
         padding: 6px;
     }
 
-    &--hide{
+    &__canvas {
+        background-image: url(../assets/images/carte_snake.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 100%;
+    }
+
+    &__progress-bar-container {
+        width: 100%;
+        background-color: #fff;
+    }
+
+    &__progress-bar {
+        height: 20px;
+        background-color: $c-button;
+        width: 0%;
+    }
+
+    &--hide {
         display: none;
     }
 }
 
-@media(min-width: 1200px){
-    .snake{
-        top:50%;
+@media(min-width: 1200px) {
+    .snake {
+        top: 50%;
         transform: translatex(-50%) translatey(-50%);
-        width: auto;
     }
 }

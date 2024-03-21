@@ -1,6 +1,6 @@
 "use strict";
 
-import {gsap} from "gsap";
+import { gsap } from "gsap";
 
 /*recherches formulaire*/
 function loadData(inputElementId, property, uniqueCities) {
@@ -8,7 +8,7 @@ function loadData(inputElementId, property, uniqueCities) {
     const dataListId = inputElement.getAttribute('list');
     const dataList = document.getElementById(dataListId);
 
-    inputElement.addEventListener('input', function() {
+    inputElement.addEventListener('input', function () {
         const searchTerm = this.value.trim().toUpperCase();
         const filteredCities = uniqueCities.filter(city => city && city.toUpperCase().startsWith(searchTerm)).slice(0, 3);
 
@@ -32,7 +32,7 @@ fetch('assets/data_duree_retard.json')
     .then(data => {
         const uniqueCitiesDeparture = [...new Set(data.map(item => item['zone_depart']))];
         const uniqueCitiesDestination = [...new Set(data.map(item => item['destination']))];
-        
+
         loadData('form-retard__departure-input', 'zone_depart', uniqueCitiesDeparture);
         loadData('form-retard__arrival-input', 'destination', uniqueCitiesDestination);
     })
@@ -53,7 +53,7 @@ function loadJSON(callback) {
         }
     };
 
-    xobj.onerror = function() {
+    xobj.onerror = function () {
         callback(new Error('Network error occurred while loading JSON'));
     };
     xobj.send();
@@ -78,7 +78,7 @@ function countMatchingElements(data, departure, arrival) {
     return { averageDelay: averageDelay };
 }
 
-document.querySelector('.form-retard').addEventListener('submit', function(event) {
+document.querySelector('.form-retard').addEventListener('submit', function (event) {
     event.preventDefault();
     var departureInput = document.getElementById("form-retard__departure-input");
     var arrivalInput = document.getElementById("form-retard__arrival-input");
@@ -91,7 +91,7 @@ document.querySelector('.form-retard').addEventListener('submit', function(event
         return;
     }
 
-    loadJSON(function(error, response) {
+    loadJSON(function (error, response) {
         if (error) {
             console.error(error);
             return;
@@ -138,16 +138,16 @@ function convertSecondsToMinutes(seconds) {
 }
 
 /*validation form*/
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var form = document.querySelector('.form-retard');
     var sectionResult = document.querySelector('.result');
 
     if (form && sectionResult) {
-        form.addEventListener('submit', function(event) {
+        form.addEventListener('submit', function (event) {
             event.preventDefault();
-            
+
             form.classList.add('form-retard--hide');
-            
+
             sectionResult.classList.remove('result--hide');
         });
     } else {
@@ -156,8 +156,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /*vérification itinéraire*/
-document.querySelectorAll('.form-retard__input').forEach(function(input) {
-    input.addEventListener('change', function() {
+document.querySelectorAll('.form-retard__input').forEach(function (input) {
+    input.addEventListener('change', function () {
         var departure = document.getElementById('form-retard__departure-input').value.toUpperCase();
         var arrival = document.getElementById('form-retard__arrival-input').value.toUpperCase();
 
@@ -180,16 +180,16 @@ document.querySelectorAll('.form-retard__input').forEach(function(input) {
 });
 
 /*afficher le snake*/
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const resultSection = document.querySelector('.result');
     const snakeSection = document.querySelector('.snake');
     const button = document.querySelector('.result__btn');
 
-    button.addEventListener('click', function() {
-      resultSection.classList.add('result--hide');
-      snakeSection.classList.remove('snake--hide');
+    button.addEventListener('click', function () {
+        resultSection.classList.add('result--hide');
+        snakeSection.classList.remove('snake--hide');
     });
-  });
+});
 
 /*Affichage heure*/
 function updateTime() {
@@ -209,5 +209,272 @@ function updateTime() {
 }
 
 setInterval(updateTime, 60000);
-
 updateTime();
+
+/*snake*/
+var canvas = document.getElementById('game');
+var context = canvas.getContext('2d');
+var grid = 16;
+var count = 0;
+var snake = {
+    x: 192,
+    y: 192,
+    dx: grid,
+    dy: 0,
+    cells: [],
+    maxCells: 4,
+    headImg: new Image(),
+    tailImg: new Image()
+};
+var posEmoji = {
+    x: 0,
+    y: 0
+};
+var emojiData;
+var emojiImages = [];
+var totalDelay = 4;
+var baseDelay = 4;
+var maxDelay = baseDelay;
+var acceleration = 2;
+var baseAcceleration = 2;
+var delayParagraph = document.querySelector('.delay');
+var maxParagraph = document.querySelector('.max');
+let timout;
+let intrval;
+delayParagraph.textContent = "Delay : " + totalDelay + " minutes";
+maxParagraph.textContent = "Delay max de cette partie : " + maxDelay + " minutes";
+
+function decrementAndLog() {
+    if (totalDelay > 0) {
+        totalDelay -= acceleration;
+        acceleration += 1;
+        delayParagraph.textContent = "Delay : " + totalDelay + " minutes";
+    } if (totalDelay <= 0) {
+        resetGame();
+        return;
+    }
+    timout = setTimeout(decrementAndLog, 7000);
+    clearInterval(intrval);
+    progress();
+}
+setTimeout(decrementAndLog, 7000);
+function progress() {
+    const progressBar = document.getElementById('progressBar');
+
+    let width = 0;
+
+    const incrementWidth = 100 / (7 * 1000 / 50);
+
+    const increaseWidth = () => {
+        width += incrementWidth;
+
+        progressBar.style.width = width + '%';
+
+        if (width >= 100) {
+            clearInterval(intrval);
+        }
+    };
+
+    intrval = setInterval(increaseWidth, 50);
+}
+
+progress();
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function getRandomPositionAwayFromSnake() {
+    var position = {
+        x: getRandomInt(0, canvas.width / grid - 1) * grid,
+        y: getRandomInt(0, canvas.height / grid - 1) * grid
+    };
+    for (var i = 0; i < snake.cells.length; i++) {
+        if ((position.x === snake.cells[i].x && position.y === snake.cells[i].y) ||
+            (position.x + 1 === snake.cells[i].x && position.y === snake.cells[i].y) ||
+            (position.x === snake.cells[i].x && position.y + 1 === snake.cells[i].y) ||
+            (position.x + 1 === snake.cells[i].x && position.y + 1 === snake.cells[i].y)) {
+            return getRandomPositionAwayFromSnake();
+        }
+    }
+    return position;
+}
+
+function loadEmojiImages() {
+    fetch('assets/data_snake.json')
+        .then(response => response.json())
+        .then(data => {
+            emojiData = data;
+            emojiData.forEach(emoji => {
+                var img = new Image();
+                img.src = emoji.Image;
+                emojiImages.push(img);
+            });
+            setRandomEmojiImage();
+        })
+        .catch(error => console.error('Erreur lors du chargement des données JSON :', error));
+}
+
+function setRandomEmojiImage() {
+    var randomNumber = Math.random() * 100;
+
+    var accumulatedPercentage = 0;
+    for (var i = 0; i < emojiData.length; i++) {
+        accumulatedPercentage += emojiData[i].Pourcentage;
+        if (randomNumber <= accumulatedPercentage) {
+
+            emojiImg = emojiImages[i];
+            break;
+        }
+    }
+}
+
+snake.headImg.src = 'assets/images/tete_gauche.svg';
+snake.tailImg.src = 'assets/images/tete_snake.svg';
+
+var emojiImg = new Image();
+loadEmojiImages();
+
+var initialEmojiPosition = getRandomPositionAwayFromSnake();
+posEmoji.x = initialEmojiPosition.x;
+posEmoji.y = initialEmojiPosition.y;
+var snakeSpeed = 9;
+var updateInterval = 1000 / snakeSpeed;
+var lastUpdateTime = 0;
+
+function loop(timestamp) {
+    requestAnimationFrame(loop);
+    var deltaTime = timestamp - lastUpdateTime;
+    if (deltaTime > updateInterval) {
+        lastUpdateTime = timestamp - (deltaTime % updateInterval);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        snake.x += snake.dx;
+        snake.y += snake.dy;
+        if (snake.x < 0) {
+            snake.x = canvas.width - grid;
+        } else if (snake.x >= canvas.width) {
+            snake.x = 0;
+        }
+        if (snake.y < 0) {
+            snake.y = canvas.height - grid;
+        } else if (snake.y >= canvas.height) {
+            snake.y = 0;
+        }
+        snake.cells.unshift({ x: snake.x, y: snake.y });
+        if (snake.cells.length > snake.maxCells) {
+            snake.cells.pop();
+        }
+        context.drawImage(emojiImg, posEmoji.x, posEmoji.y, grid * 2, grid * 2);
+        snake.cells.forEach(function (cell, index) {
+            if (index === 0) {
+                context.drawImage(snake.headImg, cell.x, cell.y, grid, grid);
+            } else if (index === snake.cells.length - 1) {
+                var nextCell = snake.cells[index - 1];
+                var dx = cell.x - nextCell.x;
+                var dy = cell.y - nextCell.y;
+                var angle = Math.atan2(dy, dx);
+                context.save();
+                context.translate(cell.x + grid / 2, cell.y + grid / 2);
+                context.rotate(angle);
+                context.drawImage(snake.tailImg, -grid / 2, -grid / 2, grid, grid);
+                context.restore();
+            } else {
+                context.fillStyle = '#C6C6C6';
+                context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
+            }
+            if (
+                snake.x < posEmoji.x + grid * 2 &&
+                posEmoji.x < snake.x + grid &&
+                snake.y < posEmoji.y + grid * 2 &&
+                posEmoji.y < snake.y + grid
+            ) {
+                var emojiIndex = emojiImages.findIndex(img => img.src === emojiImg.src);
+                onEmojiEaten(emojiIndex);
+            }
+            for (var i = index + 1; i < snake.cells.length; i++) {
+                if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+                    resetGame();
+                }
+            }
+        });
+    }
+}
+
+function getExplanationForEmoji(emojiIndex) {
+    if (emojiIndex !== -1) {
+        var emojiExplanation = emojiData[emojiIndex].Explication;
+
+        var eventParagraph = document.querySelector('.event');
+        eventParagraph.textContent = "Événement : " + emojiExplanation;
+    }
+}
+
+function calculateTotalDelay(emojiIndex) {
+    if (emojiIndex !== -1) {
+        var delay = emojiData[emojiIndex].Temps;
+        totalDelay += delay;
+        if (maxDelay < totalDelay) {
+            maxDelay = totalDelay;
+        }
+        delayParagraph.textContent = "Delay : " + totalDelay + " minutes";
+        maxParagraph.textContent = "Delay max de cette partie : " + maxDelay + " minutes";
+    }
+}
+
+function onEmojiEaten(emojiIndex) {
+    snake.maxCells++;
+    var newPosition = getRandomPositionAwayFromSnake();
+    posEmoji.x = newPosition.x;
+    posEmoji.y = newPosition.y;
+    setRandomEmojiImage();
+    getExplanationForEmoji(emojiIndex);
+    calculateTotalDelay(emojiIndex);
+}
+
+function resetGame() {
+    clearTimeout(timout);
+    setTimeout(decrementAndLog, 7000);
+    clearInterval(intrval);
+    progress();
+
+    totalDelay = baseDelay;
+    maxDelay = baseDelay;
+    acceleration = baseAcceleration;
+    delayParagraph.textContent = "Delay : " + totalDelay + " minutes";
+    maxParagraph.textContent = "Delay max de cette partie : " + maxDelay + " minutes";
+    var eventParagraph = document.querySelector('.event');
+    eventParagraph.textContent = "...";
+    snake.x = 192;
+    snake.y = 192;
+    snake.cells = [];
+    snake.maxCells = 4;
+    snake.dx = grid;
+    snake.dy = 0;
+    var newPosition = getRandomPositionAwayFromSnake();
+    posEmoji.x = newPosition.x;
+    posEmoji.y = newPosition.y;
+    setRandomEmojiImage();
+    snake.headImg.src = 'assets/images/tete_snake.svg';
+}
+
+document.addEventListener('keydown', function (e) {
+    if (e.which === 37 && snake.dx === 0) {
+        snake.dx = -grid;
+        snake.dy = 0;
+        snake.headImg.src = 'assets/images/tete_droite.svg';
+    } else if (e.which === 38 && snake.dy === 0) {
+        snake.dy = -grid;
+        snake.dx = 0;
+        snake.headImg.src = 'assets/images/tete_haut.svg';
+    } else if (e.which === 39 && snake.dx === 0) {
+        snake.dx = grid;
+        snake.dy = 0;
+        snake.headImg.src = 'assets/images/tete_gauche.svg';
+    } else if (e.which === 40 && snake.dy === 0) {
+        snake.dy = grid;
+        snake.dx = 0;
+        snake.headImg.src = 'assets/images/tete_bas.svg';
+    }
+});
+
+requestAnimationFrame(loop);
