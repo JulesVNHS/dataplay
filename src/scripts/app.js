@@ -236,12 +236,10 @@ var maxDelay;
 var acceleration = 1;
 var baseAcceleration = 1;
 var delayBillboard = document.querySelector('#delayBillboard');
-var delayParagraph = document.querySelector('.delay');
 var maxParagraph = document.querySelector('.max');
 let timout;
 let intrval;
 delayBillboard.textContent = "+" + globalBillboardDelay + " '";
-delayParagraph.textContent = "Delay : " + globalBillboardDelay + " minutes";
 maxParagraph.textContent = "Delay max de cette partie : " + maxDelay + " minutes";
 
 function decrementAndLog() {
@@ -249,7 +247,6 @@ function decrementAndLog() {
         globalBillboardDelay -= acceleration;
         acceleration += 1;
         delayBillboard.textContent = "+" + globalBillboardDelay + " '";
-        delayParagraph.textContent = "Delay : " + globalBillboardDelay + " minutes";
     } if (globalBillboardDelay <= 0) {
         resetGame();
         return;
@@ -405,8 +402,9 @@ function getExplanationForEmoji(emojiIndex) {
     if (emojiIndex !== -1) {
         var emojiExplanation = emojiData[emojiIndex].Explication;
 
-        var eventParagraph = document.querySelector('.event');
-        eventParagraph.textContent = "Événement : " + emojiExplanation;
+        var eventParagraph = document.querySelector('.snake__event');
+        var tempsEmoji = emojiData[emojiIndex].Temps;
+        eventParagraph.textContent = "+" + tempsEmoji + " ' " + emojiExplanation;
     }
 }
 
@@ -418,7 +416,6 @@ function calculateTotalDelay(emojiIndex) {
             maxDelay = globalBillboardDelay;
         }
         delayBillboard.textContent = "+" + globalBillboardDelay + " '";
-        delayParagraph.textContent = "Delay : " + globalBillboardDelay + " minutes";
         maxParagraph.textContent = "Delay max de cette partie : " + maxDelay + " minutes";
     }
 }
@@ -443,9 +440,8 @@ function resetGame() {
     maxDelay = baseDelay;
     acceleration = baseAcceleration;
     delayBillboard.textContent = "+" + globalBillboardDelay + " '";
-    delayParagraph.textContent = "Delay : " + globalBillboardDelay + " minutes";
     maxParagraph.textContent = "Delay max de cette partie : " + maxDelay + " minutes";
-    var eventParagraph = document.querySelector('.event');
+    var eventParagraph = document.querySelector('.snake__event');
     eventParagraph.textContent = "...";
     snake.x = 192;
     snake.y = 192;

@@ -18,7 +18,8 @@
         align-items: center;
         background-color: $c-panneau;
         padding: 6px;
-        border-radius: 6px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
     }
 
     &__billboard-el--delay {
@@ -37,6 +38,17 @@
         background-color: #ffffff;
         color: $c-interface;
         padding: 6px;
+    }
+
+    &__event {
+        background-color: $c-button;
+        height: 47px;
+        margin-bottom: 20px;
+        padding-left: 6px;
+        display: flex;
+        align-items: center;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
     }
 
     &__canvas {
