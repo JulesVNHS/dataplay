@@ -108,7 +108,7 @@
 /*Responsive*/
 @media (min-width: 600px) {
   .body__accueil {
-    background-image: url("../../assets/images/illuFINALEtablet.svg");
+    background-image: url("../assets/images/illuFINALEtablet.svg");
   }
   .background__avantPlan {
     position: absolute;
@@ -152,7 +152,7 @@
 }
 @media (min-width: 1024px) {
   .body__accueil {
-    background-image: url("../../assets/images/illuFINALEdesktop.svg");
+    background-image: url("../assets/images/illuFINALEdesktop.svg");
   }
   .background__avantPlan {
     position: absolute;
