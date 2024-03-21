@@ -14,7 +14,7 @@ body {
   margin: 0;
 }
 
-.body__accueil{
+.body__accueil {
   overflow: hidden;
 }
 
@@ -80,6 +80,7 @@ fieldset {
 input[type="text"] {
   color: white;
   font-size: 15px;
+  padding-left: 6px;
 }
 
 ::placeholder {
@@ -87,6 +88,7 @@ input[type="text"] {
   font-size: 20px;
   color: #ffffff;
   opacity: 70%;
+  padding-left: 6px;
 }
 
 select {
@@ -99,7 +101,7 @@ select option {
   color: $c-interface;
 }
 
-@media(min-width: 1200px){
+@media(min-width: 1200px) {
   a:hover {
     opacity: 50%;
   }
