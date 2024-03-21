@@ -78,6 +78,10 @@
     .snake {
         top: 50%;
         transform: translatex(-50%) translatey(-50%);
+
+        &__progress-bar-container {
+            margin-top: 20px;
+        }
     }
 }
 

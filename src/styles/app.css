@@ -587,6 +587,9 @@ select option {
     top: 50%;
     transform: translatex(-50%) translatey(-50%);
   }
+  .snake__progress-bar-container {
+    margin-top: 20px;
+  }
 }
 @media (min-height: 1200px) and (min-width: 1200px) {
   .snake {
