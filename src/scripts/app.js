@@ -256,6 +256,7 @@ function decrementAndLog() {
     progress();
 }
 setTimeout(decrementAndLog, 7000);
+
 function progress() {
     const progressBar = document.getElementById('progressBar');
 
@@ -456,20 +457,76 @@ function resetGame() {
     snake.headImg.src = 'assets/images/tete_snake.svg';
 }
 
+// Variables pour stocker les coordonnées de départ du toucher
+let startX = 0;
+let startY = 0;
+
+// Ajoutez des écouteurs d'événements pour touchstart, touchmove et touchend
+document.addEventListener('touchstart', function (e) {
+    // Enregistrez les coordonnées de départ du toucher
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+});
+
+document.addEventListener('touchmove', function (e) {
+    // Empêchez le défilement par défaut pour éviter les problèmes sur certains appareils
+    e.preventDefault();
+});
+
+document.addEventListener('touchend', function (e) {
+    // Calculez la distance parcourue dans les deux directions (X et Y)
+    const distX = e.changedTouches[0].clientX - startX;
+    const distY = e.changedTouches[0].clientY - startY;
+
+    // Déterminez la direction principale du glissement en comparant les distances parcourues
+    if (Math.abs(distX) > Math.abs(distY)) {
+        // Mouvement horizontal
+        if (distX < 0 && snake.dx === 0) {
+            // Vers la gauche
+            snake.dx = -grid;
+            snake.dy = 0;
+            snake.headImg.src = 'assets/images/tete_droite.svg';
+        } else if (distX > 0 && snake.dx === 0) {
+            // Vers la droite
+            snake.dx = grid;
+            snake.dy = 0;
+            snake.headImg.src = 'assets/images/tete_gauche.svg';
+        }
+    } else {
+        // Mouvement vertical
+        if (distY < 0 && snake.dy === 0) {
+            // Vers le haut
+            snake.dy = -grid;
+            snake.dx = 0;
+            snake.headImg.src = 'assets/images/tete_haut.svg';
+        } else if (distY > 0 && snake.dy === 0) {
+            // Vers le bas
+            snake.dy = grid;
+            snake.dx = 0;
+            snake.headImg.src = 'assets/images/tete_bas.svg';
+        }
+    }
+});
+
+// Ajoutez également les contrôles basés sur les touches pour la compatibilité avec les ordinateurs
 document.addEventListener('keydown', function (e) {
     if (e.which === 37 && snake.dx === 0) {
+        // Vers la gauche
         snake.dx = -grid;
         snake.dy = 0;
-        snake.headImg.src = 'assets/images/tete_droite.svg';
+        snake.headImg.src = 'assets/images/tete_gauche.svg';
     } else if (e.which === 38 && snake.dy === 0) {
+        // Vers le haut
         snake.dy = -grid;
         snake.dx = 0;
         snake.headImg.src = 'assets/images/tete_haut.svg';
     } else if (e.which === 39 && snake.dx === 0) {
+        // Vers la droite
         snake.dx = grid;
         snake.dy = 0;
-        snake.headImg.src = 'assets/images/tete_gauche.svg';
+        snake.headImg.src = 'assets/images/tete_droite.svg';
     } else if (e.which === 40 && snake.dy === 0) {
+        // Vers le bas
         snake.dy = grid;
         snake.dx = 0;
         snake.headImg.src = 'assets/images/tete_bas.svg';
