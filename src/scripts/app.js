@@ -471,7 +471,7 @@ document.addEventListener('touchstart', function (e) {
 document.addEventListener('touchmove', function (e) {
     // Empêchez le défilement par défaut pour éviter les problèmes sur certains appareils
     e.preventDefault();
-});
+}, { passive: false });
 
 document.addEventListener('touchend', function (e) {
     // Calculez la distance parcourue dans les deux directions (X et Y)
@@ -514,7 +514,7 @@ document.addEventListener('keydown', function (e) {
         // Vers la gauche
         snake.dx = -grid;
         snake.dy = 0;
-        snake.headImg.src = 'assets/images/tete_gauche.svg';
+        snake.headImg.src = 'assets/images/tete_droite.svg';
     } else if (e.which === 38 && snake.dy === 0) {
         // Vers le haut
         snake.dy = -grid;
@@ -524,7 +524,7 @@ document.addEventListener('keydown', function (e) {
         // Vers la droite
         snake.dx = grid;
         snake.dy = 0;
-        snake.headImg.src = 'assets/images/tete_droite.svg';
+        snake.headImg.src = 'assets/images/tete_gauche.svg';
     } else if (e.which === 40 && snake.dy === 0) {
         // Vers le bas
         snake.dy = grid;
