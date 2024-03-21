@@ -12,6 +12,10 @@
     max-width: 354px;
     box-sizing: border-box;
 
+    &__text{
+        font-family: 'SNPro-Semibold', sans-serif;
+    }
+
     &__billboard-list {
         display: flex;
         justify-content: space-between;
@@ -44,7 +48,7 @@
         background-color: $c-button;
         height: 47px;
         margin-bottom: 20px;
-        padding-left: 6px;
+        padding: 0 6px;
         display: flex;
         align-items: center;
         border-bottom-left-radius: 6px;
@@ -88,18 +92,33 @@
 @media(min-width: 1200px) and (min-height: 720px){
     .snake {
         max-width: 472px;
+        font-size: 20px;
+        
+        &__billboard-delay {
+            min-width: 63px;
+        }
     }
 }
 
 @media(min-width: 1600px) and (min-height: 1000px){
     .snake {
         max-width: 629px;
+        font-size: 27px;
+        
+        &__billboard-delay {
+            min-width: 84px;
+        }
     }
 }
 
 @media(min-width: 1900px) and (min-height: 1200px){
     .snake {
         max-width: 839px;
+        font-size: 36px;
+
+        &__billboard-delay {
+            min-width: 112px;
+        }
     }
 }
 

@@ -222,6 +222,10 @@
   font-family: "LTRenovate-Regular";
   src: url("../assets/fonts/LTRenovate-Regular-BF65dfe1fcd9561.otf") format("opentype");
 }
+@font-face {
+  font-family: "SNPro-Semibold";
+  src: url("../assets/fonts/SNPro-Semibold-BF65efc64b903cb.otf") format("opentype");
+}
 body {
   font-family: "SNPro-Regular", sans-serif;
   font-size: 20px;
@@ -622,6 +626,9 @@ select option {
   max-width: 354px;
   box-sizing: border-box;
 }
+.snake__text {
+  font-family: "SNPro-Semibold", sans-serif;
+}
 .snake__billboard-list {
   display: flex;
   justify-content: space-between;
@@ -650,7 +657,7 @@ select option {
   background-color: #E9550D;
   height: 47px;
   margin-bottom: 20px;
-  padding-left: 6px;
+  padding: 0 6px;
   display: flex;
   align-items: center;
   border-bottom-left-radius: 6px;
@@ -687,16 +694,28 @@ select option {
 @media (min-width: 1200px) and (min-height: 720px) {
   .snake {
     max-width: 472px;
+    font-size: 20px;
+  }
+  .snake__billboard-delay {
+    min-width: 63px;
   }
 }
 @media (min-width: 1600px) and (min-height: 1000px) {
   .snake {
     max-width: 629px;
+    font-size: 27px;
+  }
+  .snake__billboard-delay {
+    min-width: 84px;
   }
 }
 @media (min-width: 1900px) and (min-height: 1200px) {
   .snake {
     max-width: 839px;
+    font-size: 36px;
+  }
+  .snake__billboard-delay {
+    min-width: 112px;
   }
 }
 @media (max-width: 400px) and (max-height: 839px) {
