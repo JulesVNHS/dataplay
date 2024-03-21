@@ -100,7 +100,10 @@ document.querySelector('.form-retard').addEventListener('submit', function (even
             var jsonData = JSON.parse(response);
             var result = countMatchingElements(jsonData, departure, arrival);
             document.getElementById('averageDelay').textContent = convertSecondsToTime(result.averageDelay);
-            document.getElementById('delayBillboard').textContent = convertSecondsToMinutes(result.averageDelay);
+            globalBillboardDelay = convertSecondsToMinutes(result.averageDelay);
+            baseDelay = globalBillboardDelay;
+            maxDelay = baseDelay;
+            document.getElementById('delayBillboard').textContent = "+" + globalBillboardDelay + " '";
             var monthlyEstimation = Math.round(result.averageDelay * frequency * 4);
             var yearlyEstimation = Math.round(result.averageDelay * frequency * 52);
             document.getElementById('monthlyEstimation').textContent = convertSecondsToTime(monthlyEstimation);
@@ -129,12 +132,8 @@ function convertSecondsToTime(seconds) {
 }
 
 function convertSecondsToMinutes(seconds) {
-    var minutes = Math.ceil(seconds / 60); // Arrondir au supérieur
-    var timeString = '';
-    if (minutes > 0) {
-        timeString += "+ " + minutes + "'";
-    }
-    return timeString.trim();
+    var minutes = Math.ceil(seconds / 60);
+    return minutes;
 }
 
 /*validation form*/
@@ -215,7 +214,6 @@ updateTime();
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
 var grid = 16;
-var count = 0;
 var snake = {
     x: 192,
     y: 192,
@@ -232,24 +230,27 @@ var posEmoji = {
 };
 var emojiData;
 var emojiImages = [];
-var totalDelay = 4;
-var baseDelay = 4;
-var maxDelay = baseDelay;
-var acceleration = 2;
-var baseAcceleration = 2;
+var globalBillboardDelay;
+var baseDelay;
+var maxDelay;
+var acceleration = 1;
+var baseAcceleration = 1;
+var delayBillboard = document.querySelector('#delayBillboard');
 var delayParagraph = document.querySelector('.delay');
 var maxParagraph = document.querySelector('.max');
 let timout;
 let intrval;
-delayParagraph.textContent = "Delay : " + totalDelay + " minutes";
+delayBillboard.textContent = "+" + globalBillboardDelay + " '";
+delayParagraph.textContent = "Delay : " + globalBillboardDelay + " minutes";
 maxParagraph.textContent = "Delay max de cette partie : " + maxDelay + " minutes";
 
 function decrementAndLog() {
-    if (totalDelay > 0) {
-        totalDelay -= acceleration;
+    if (globalBillboardDelay > 0) {
+        globalBillboardDelay -= acceleration;
         acceleration += 1;
-        delayParagraph.textContent = "Delay : " + totalDelay + " minutes";
-    } if (totalDelay <= 0) {
+        delayBillboard.textContent = "+" + globalBillboardDelay + " '";
+        delayParagraph.textContent = "Delay : " + globalBillboardDelay + " minutes";
+    } if (globalBillboardDelay <= 0) {
         resetGame();
         return;
     }
@@ -412,11 +413,12 @@ function getExplanationForEmoji(emojiIndex) {
 function calculateTotalDelay(emojiIndex) {
     if (emojiIndex !== -1) {
         var delay = emojiData[emojiIndex].Temps;
-        totalDelay += delay;
-        if (maxDelay < totalDelay) {
-            maxDelay = totalDelay;
+        globalBillboardDelay += delay;
+        if (maxDelay < globalBillboardDelay) {
+            maxDelay = globalBillboardDelay;
         }
-        delayParagraph.textContent = "Delay : " + totalDelay + " minutes";
+        delayBillboard.textContent = "+" + globalBillboardDelay + " '";
+        delayParagraph.textContent = "Delay : " + globalBillboardDelay + " minutes";
         maxParagraph.textContent = "Delay max de cette partie : " + maxDelay + " minutes";
     }
 }
@@ -437,10 +439,11 @@ function resetGame() {
     clearInterval(intrval);
     progress();
 
-    totalDelay = baseDelay;
+    globalBillboardDelay = baseDelay;
     maxDelay = baseDelay;
     acceleration = baseAcceleration;
-    delayParagraph.textContent = "Delay : " + totalDelay + " minutes";
+    delayBillboard.textContent = "+" + globalBillboardDelay + " '";
+    delayParagraph.textContent = "Delay : " + globalBillboardDelay + " minutes";
     maxParagraph.textContent = "Delay max de cette partie : " + maxDelay + " minutes";
     var eventParagraph = document.querySelector('.event');
     eventParagraph.textContent = "...";
