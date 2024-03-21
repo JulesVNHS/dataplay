@@ -3,7 +3,7 @@
   padding: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url("../../assets/images/illuFINALEphone.svg");
+  background-image: url("../assets/images/illuFINALEphone.svg");
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
@@ -526,7 +526,7 @@ select option {
   padding: 20px;
   border-radius: 6px;
   width: 90%;
-  max-width: 629px;
+  max-width: 472px;
   box-sizing: border-box;
 }
 .snake__billboard-list {
@@ -535,7 +535,8 @@ select option {
   align-items: center;
   background-color: #044C7A;
   padding: 6px;
-  border-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 .snake__billboard-el--delay {
   display: flex;
@@ -551,6 +552,16 @@ select option {
   background-color: #ffffff;
   color: #0169B4;
   padding: 6px;
+}
+.snake__event {
+  background-color: #E9550D;
+  height: 47px;
+  margin-bottom: 20px;
+  padding-left: 6px;
+  display: flex;
+  align-items: center;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 .snake__canvas {
   background-image: url(../assets/images/carte_snake.svg);
@@ -575,5 +586,10 @@ select option {
   .snake {
     top: 50%;
     transform: translatex(-50%) translatey(-50%);
+  }
+}
+@media (min-height: 1200px) and (min-width: 1200px) {
+  .snake {
+    max-width: 839px;
   }
 }/*# sourceMappingURL=app.css.map */

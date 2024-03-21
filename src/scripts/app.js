@@ -240,7 +240,7 @@ var maxParagraph = document.querySelector('.max');
 let timout;
 let intrval;
 delayBillboard.textContent = "+" + globalBillboardDelay + " '";
-maxParagraph.textContent = "Delay max de cette partie : " + maxDelay + " minutes";
+maxParagraph.textContent = "Max " + maxDelay + " minutes";
 
 function decrementAndLog() {
     if (globalBillboardDelay > 0) {
@@ -417,7 +417,7 @@ function calculateTotalDelay(emojiIndex) {
             maxDelay = globalBillboardDelay;
         }
         delayBillboard.textContent = "+" + globalBillboardDelay + " '";
-        maxParagraph.textContent = "Delay max de cette partie : " + maxDelay + " minutes";
+        maxParagraph.textContent = "Max " + maxDelay + " minutes";
     }
 }
 
@@ -441,7 +441,7 @@ function resetGame() {
     maxDelay = baseDelay;
     acceleration = baseAcceleration;
     delayBillboard.textContent = "+" + globalBillboardDelay + " '";
-    maxParagraph.textContent = "Delay max de cette partie : " + maxDelay + " minutes";
+    maxParagraph.textContent = "Max " + maxDelay + " minutes";
     var eventParagraph = document.querySelector('.snake__event');
     eventParagraph.textContent = "...";
     snake.x = 192;

@@ -1,236 +1,274 @@
-.body__accueil{
+.body__accueil {
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('../../assets/images/illuFINALEphone.svg');
+    background-image: url('../assets/images/illuFINALEphone.svg');
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
 }
-.background{
-    &__avantPlan{
+
+.background {
+    &__avantPlan {
         position: absolute;
-        bottom: 0; 
+        bottom: 0;
         transform: translateY(-80.5px);
     }
-    &__plan{
+
+    &__plan {
         transform: scale(2.5);
     }
-    &__feu{
+
+    &__feu {
         transform: translateX(-40%);
     }
-    &__train{
+
+    &__train {
         transform: translateX(-90%);
         animation: translationTrain 20s 5s infinite;
     }
-    &__feu circle:nth-child(3){
+
+    &__feu circle:nth-child(3) {
         animation: feuVert 20s 5s infinite;
     }
-    &__feu circle:nth-child(5){
+
+    &__feu circle:nth-child(5) {
         animation: feuRouge 20s 5s infinite;
     }
-    &__plana{
+
+    &__plana {
         transform: scale(2) translateX(-47%);
 
-        path:nth-child(3){
+        path:nth-child(3) {
             transform: translateX(-26%);
             animation: translationNuages 80s infinite linear;
         }
     }
 }
 
-.hide{
+.hide {
     display: none;
 }
 
 
 /*Animations*/
-@keyframes translationTrain{ 
-    0%{
+@keyframes translationTrain {
+    0% {
         transform: translateX(-90%);
     }
-    20%{
+
+    20% {
         transform: translateX(-63%);
     }
-    30%{
+
+    30% {
         transform: translateX(-63%);
     }
-    100%{
+
+    100% {
         transform: translateX(170%);
     }
 }
-@keyframes feuVert{
-    0%{
+
+@keyframes feuVert {
+    0% {
         fill: #FFF;
     }
-    28%{
+
+    28% {
         fill: #FFF;
     }
-    29%{
+
+    29% {
         fill: #9FD4F3;
     }
-    47%{
+
+    47% {
         fill: #9FD4F3;
     }
-    48%{
+
+    48% {
         fill: #FFF;
     }
-    100%{
+
+    100% {
         fill: #FFF;
     }
 }
-@keyframes feuRouge{
-    0%{
+
+@keyframes feuRouge {
+    0% {
         fill: #9FD4F3;
     }
-    28%{
+
+    28% {
         fill: #9FD4F3;
     }
-    29%{
+
+    29% {
         fill: #FFF;
     }
-    47%{
+
+    47% {
         fill: #FFF;
     }
-    48%{
+
+    48% {
         fill: #9FD4F3;
     }
-    100%{
+
+    100% {
         fill: #9FD4F3;
     }
 }
-@keyframes translationNuages{
-    from{
+
+@keyframes translationNuages {
+    from {
         transform: translateX(-26%);
     }
-    to{
+
+    to {
         transform: translateX(100%);
     }
 }
 
 
 /*Responsive*/
-@media (min-width: 600px){
-    .body__accueil{
-        background-image: url('../../assets/images/illuFINALEtablet.svg');  
+@media (min-width: 600px) {
+    .body__accueil {
+        background-image: url('../../assets/images/illuFINALEtablet.svg');
     }
-    .background{
-        &__avantPlan{
+
+    .background {
+        &__avantPlan {
             position: absolute;
             bottom: 0;
         }
-        &__plan{
+
+        &__plan {
             transform: scale(1.5) translateY(30%);
         }
-        &__feu{
+
+        &__feu {
             transform: translateX(-20%);
         }
-        &__plana{
+
+        &__plana {
             transform: scale(1.5) translateX(-30%);
 
-            path:nth-child(3){
+            path:nth-child(3) {
                 transform: translateX(-43%);
                 animation: translationNuages 100s infinite linear;
             }
         }
     }
 
-    @keyframes translationTrain{ 
-        0%{
+    @keyframes translationTrain {
+        0% {
             transform: translateX(-90%);
         }
-        20%{
+
+        20% {
             transform: translateX(-45%);
         }
-        30%{
+
+        30% {
             transform: translateX(-45%);
         }
-        100%{
+
+        100% {
             transform: translateX(300%);
         }
     }
-    @keyframes translationNuages{
-        from{
+
+    @keyframes translationNuages {
+        from {
             transform: translateX(-43%);
         }
-        to{
+
+        to {
             transform: translateX(95%);
         }
     }
 }
-@media (min-width: 1024px){
-    .body__accueil{
-        background-image: url('../../assets/images/illuFINALEdesktop.svg');  
+
+@media (min-width: 1024px) {
+    .body__accueil {
+        background-image: url('../../assets/images/illuFINALEdesktop.svg');
     }
-    .background{
-        &__avantPlan{
+
+    .background {
+        &__avantPlan {
             position: absolute;
-            bottom: 0; 
+            bottom: 0;
         }
-        &__plan{
+
+        &__plan {
             transform: scale(1) translateY(60%);
         }
-        &__feu{
+
+        &__feu {
             transform: translateX(0);
         }
-        &__train{
+
+        &__train {
             transform: translateX(-90%);
             animation: translationTrain 35s 5s infinite;
         }
-        &__feu circle:nth-child(3){
+
+        &__feu circle:nth-child(3) {
             animation: feuVert 35s 5s infinite;
         }
-        &__feu circle:nth-child(5){
+
+        &__feu circle:nth-child(5) {
             animation: feuRouge 35s 5s infinite;
         }
-        &__plana{
+
+        &__plana {
             transform: scale(1) translateX(0%);
 
-            path:nth-child(3){
+            path:nth-child(3) {
                 transform: translateX(-73%) translateY(-13.5%);
                 animation: translationNuages 120s infinite linear;
             }
         }
     }
 
-    @keyframes translationTrain{ 
-        0%{
+    @keyframes translationTrain {
+        0% {
             transform: translateX(-90%);
         }
-        20%{
+
+        20% {
             transform: translateX(-23%);
         }
-        30%{
+
+        30% {
             transform: translateX(-23%);
         }
-        100%{
+
+        100% {
             transform: translateX(300%);
         }
     }
-    @keyframes translationNuages{
-        from{
+
+    @keyframes translationNuages {
+        from {
             transform: translateX(-73%) translateY(-13.5%);
         }
-        to{
+
+        to {
             transform: translateX(99%) translateY(-13.5%);
         }
     }
 
 }
-@media (min-width: 1200px){
-    .background{
-        &__avantPlan{
+
+@media (min-width: 1200px) {
+    .background {
+        &__avantPlan {
             transform: translateY(0);
         }
     }
 }
-
-
-
-
-
-
-
-
-
