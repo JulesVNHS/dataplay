@@ -6,17 +6,34 @@ gsap.registerPlugin(ScrollTrigger)
 console.log(gsap.version);
 
 //Sticky nav
-  let oldScrollY = 0
-  const menu = document.querySelector(".scrollnav__list");
-  window.addEventListener("scroll", scrollListener);
-  function scrollListener(){
-      if(oldScrollY > window.scrollY){
-          menu.classList.remove("scrollnav--hide");
-      }else{
-          menu.classList.add("scrollnav--hide");
-      }
-      oldScrollY = window.scrollY;
-  }
+let oldScrollY = 0;
+let timer; // Variable pour stocker l'identifiant du timer
+
+const menu = document.querySelector(".scrollnav__list");
+window.addEventListener("scroll", scrollListener);
+
+function scrollListener() {
+    // Réinitialiser le timer à chaque fois que l'utilisateur fait défiler la page
+    clearTimeout(timer);
+
+    if (oldScrollY > window.scrollY || isBottomReached()) {
+        menu.classList.remove("scrollnav--hide");
+    } else {
+        menu.classList.add("scrollnav--hide");
+    }
+
+    // Réinitialiser le timer pour supprimer la classe après 5 secondes
+    timer = setTimeout(() => {
+        menu.classList.remove("scrollnav--hide");
+    }, 5000);
+
+    oldScrollY = window.scrollY;
+}
+
+function isBottomReached() {
+    return window.innerHeight + window.scrollY >= document.body.offsetHeight;
+}
+
 // Courbe de bezier pour l'animation
 const easeCustom = gsap.parseEase("cubic-bezier(0.85, 0, 0.15, 1)");
 
@@ -165,15 +182,14 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = formatNu
       let scale = 20000;
       let numberOfBoxes = minutes / scale;
       let numberOfTrains = Math.max(1, Math.ceil(numberOfBoxes / trainLength));
-      
-   
 
-      console.log(numberOfBoxes)
-      console.log(numberOfTrains)
+
       for(let trainCounter = 0; trainCounter < numberOfTrains; trainCounter++){
         let trainList = document.createElement("ul");
         trainList.classList.add("stats__list");
         trainList.classList.add("stats__list"+trainCounter);
+
+
 
         let firstWagon = document.createElement("li");
         firstWagon.classList.add("stats__el");
@@ -181,9 +197,13 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = formatNu
         trainList.appendChild(firstWagon);
         let numberOfWagons = 10;
         if(numberOfBoxes - trainLength * trainCounter < 10){
-          numberOfWagons = numberOfBoxes - trainLength * trainCounter
+          numberOfWagons = Math.round(numberOfBoxes - trainLength * trainCounter)
         }
-
+        let TrainWidth = 600+ Math.round(300 * numberOfWagons);
+        console.log(TrainWidth)
+        trainList.setAttribute("data-width", TrainWidth);
+        
+     
         for (let i = 1; i <= numberOfWagons; i++) {
           // Créer le nouvel élément li avec la classe 'stats__el'
           const newStatsEl = document.createElement('li');
@@ -192,7 +212,8 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = formatNu
           // Créer la nouvelle boîte 'stats__wagon'
           const newstats__wagon = document.createElement('div');
           newstats__wagon.classList.add('stats__wagon');
-  
+
+
           // Ajouter le nouvel élément li avec la classe 'stats__el' et la nouvelle boîte 'stats__wagon' après le premier enfant de la liste
           trainList.appendChild(newStatsEl);
           newStatsEl.appendChild(newstats__wagon);
@@ -228,40 +249,33 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = formatNu
   sections.forEach(function(section){
   const selector = gsap.utils.selector(section)
   const trains = selector(".stats__list")
-  
-  let mm = gsap.matchMedia();
 
-  mm.add({
-    isMobile: "(max-width: 600px)",
-    isTablet: "(min-width: 601px)",
-    isDekstop: "(min-width: 1024px)"
-  },(context)=>{
-    let {isMobile, isTablet, isDekstop} = context.conditions;
-    trains.forEach(function(item){
-      let nombreAleatoire = Math.floor(Math.random() * 5) + 1;
-      gsap.fromTo(
-        item,
-        { x: "-100%" },
-        { 
-          x: isMobile ? "750%" : (isTablet ? "500%" : (isDesktop ? "100%" : "100%")),
-            duration: 8, 
-            ease: easeCustom, 
-            repeat: -1, 
-            delay: nombreAleatoire,
-            scrollTrigger:{
-              trigger: section,
-              start: "center bottom"
-            }
-        }
-    );
+  trains.forEach(function(trainItem){
+    let nombreAleatoire = Math.floor(Math.random() * 5) + 1;
+    const width =trainItem.getAttribute("data-width");
+    gsap.fromTo(
+      trainItem,
+      { x: -width },
+      { 
+          x: "100vw", 
+          duration: 7, 
+          ease: "linear", 
+          repeat: -1, 
+          delay: nombreAleatoire,
+          scrollTrigger:{
+            trigger: section,
+            start: "top bottom"
+          }
+      }
+  );
+  })
+
     })
 
   })
  
-})
 
 
-  })
   .catch(function(err) {
     console.log(err);
   });

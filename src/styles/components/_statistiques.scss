@@ -44,7 +44,6 @@
   &__list{
     display: flex;
     position: relative;
-    justify-content: flex-end;
   }
   &__el{
     margin-top: 10px;
@@ -52,19 +51,19 @@
   &__avant-train{
     height: 60px;
     width: 300px;
-    background-image: url(../../assets/images/avant_train.svg);
+    background-image: url(../assets/images/avant_train.svg);
     background-repeat: no-repeat;
   }
   &__wagon{
     height: 60px;
     width: 300px;
-    background-image: url(../../assets/images/wagon.svg);
+    background-image: url(../assets/images/wagon.svg);
     background-repeat: no-repeat;
   }
   &__arriere-train{
     height: 60px;
     width: 300px;
-    background-image: url(../../assets/images/arriere_train.svg);
+    background-image: url(../assets/images/arriere_train.svg);
     background-repeat: no-repeat;
   }
 }
@@ -112,3 +111,4 @@
   cursor: pointer;
 }
 }
+
