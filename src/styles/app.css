@@ -678,6 +678,27 @@ select option {
   background-color: #E9550D;
   width: 0%;
 }
+.snake__acceleration {
+  font-size: 15px;
+  position: absolute;
+  left: 50%;
+  transform: translatex(-50%);
+}
+.snake__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.snake__btn:active {
+  transform: scale(1.05) translate(-50%, -50%);
+}
+.snake__btn--hide {
+  display: none;
+}
 .snake--hide {
   display: none;
 }

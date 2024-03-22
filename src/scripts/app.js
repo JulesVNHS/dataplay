@@ -236,11 +236,22 @@ var maxDelay;
 var acceleration = 1;
 var baseAcceleration = 1;
 var delayBillboard = document.querySelector('#delayBillboard');
-var maxParagraph = document.querySelector('.max');
 let timout;
 let intrval;
 delayBillboard.textContent = "+" + globalBillboardDelay + " '";
-maxParagraph.textContent = "Max " + maxDelay + " minutes";
+console.log("Max " + maxDelay + " minutes");
+snake.headImg.src = 'assets/images/tete_gauche.svg';
+snake.tailImg.src = 'assets/images/tete_snake.svg';
+var emojiImg = new Image();
+var initialEmojiPosition = getRandomPositionAwayFromSnake();
+posEmoji.x = initialEmojiPosition.x;
+posEmoji.y = initialEmojiPosition.y;
+var snakeSpeed = 9;
+var updateInterval = 1000 / snakeSpeed;
+var lastUpdateTime = 0;
+var gamePaused = true;
+document.querySelector('.result__btn').addEventListener('click', startGame);
+var retryButton = document.querySelector('.snake__btn');
 
 function decrementAndLog() {
     if (globalBillboardDelay > 0) {
@@ -255,7 +266,6 @@ function decrementAndLog() {
     clearInterval(intrval);
     progress();
 }
-setTimeout(decrementAndLog, 7000);
 
 function progress() {
     const progressBar = document.getElementById('progressBar');
@@ -276,8 +286,6 @@ function progress() {
 
     intrval = setInterval(increaseWidth, 50);
 }
-
-progress();
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -328,74 +336,63 @@ function setRandomEmojiImage() {
     }
 }
 
-snake.headImg.src = 'assets/images/tete_gauche.svg';
-snake.tailImg.src = 'assets/images/tete_snake.svg';
-
-var emojiImg = new Image();
-loadEmojiImages();
-
-var initialEmojiPosition = getRandomPositionAwayFromSnake();
-posEmoji.x = initialEmojiPosition.x;
-posEmoji.y = initialEmojiPosition.y;
-var snakeSpeed = 9;
-var updateInterval = 1000 / snakeSpeed;
-var lastUpdateTime = 0;
-
 function loop(timestamp) {
-    requestAnimationFrame(loop);
-    var deltaTime = timestamp - lastUpdateTime;
-    if (deltaTime > updateInterval) {
-        lastUpdateTime = timestamp - (deltaTime % updateInterval);
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        snake.x += snake.dx;
-        snake.y += snake.dy;
-        if (snake.x < 0) {
-            snake.x = canvas.width - grid;
-        } else if (snake.x >= canvas.width) {
-            snake.x = 0;
-        }
-        if (snake.y < 0) {
-            snake.y = canvas.height - grid;
-        } else if (snake.y >= canvas.height) {
-            snake.y = 0;
-        }
-        snake.cells.unshift({ x: snake.x, y: snake.y });
-        if (snake.cells.length > snake.maxCells) {
-            snake.cells.pop();
-        }
-        context.drawImage(emojiImg, posEmoji.x, posEmoji.y, grid * 2, grid * 2);
-        snake.cells.forEach(function (cell, index) {
-            if (index === 0) {
-                context.drawImage(snake.headImg, cell.x, cell.y, grid, grid);
-            } else if (index === snake.cells.length - 1) {
-                var nextCell = snake.cells[index - 1];
-                var dx = cell.x - nextCell.x;
-                var dy = cell.y - nextCell.y;
-                var angle = Math.atan2(dy, dx);
-                context.save();
-                context.translate(cell.x + grid / 2, cell.y + grid / 2);
-                context.rotate(angle);
-                context.drawImage(snake.tailImg, -grid / 2, -grid / 2, grid, grid);
-                context.restore();
-            } else {
-                context.fillStyle = '#C6C6C6';
-                context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
+    if (!gamePaused) { // Exécutez le jeu seulement s'il n'est pas en pause
+        requestAnimationFrame(loop);
+        var deltaTime = timestamp - lastUpdateTime;
+        if (deltaTime > updateInterval) {
+            lastUpdateTime = timestamp - (deltaTime % updateInterval);
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            snake.x += snake.dx;
+            snake.y += snake.dy;
+            if (snake.x < 0) {
+                snake.x = canvas.width - grid;
+            } else if (snake.x >= canvas.width) {
+                snake.x = 0;
             }
-            if (
-                snake.x < posEmoji.x + grid * 2 &&
-                posEmoji.x < snake.x + grid &&
-                snake.y < posEmoji.y + grid * 2 &&
-                posEmoji.y < snake.y + grid
-            ) {
-                var emojiIndex = emojiImages.findIndex(img => img.src === emojiImg.src);
-                onEmojiEaten(emojiIndex);
+            if (snake.y < 0) {
+                snake.y = canvas.height - grid;
+            } else if (snake.y >= canvas.height) {
+                snake.y = 0;
             }
-            for (var i = index + 1; i < snake.cells.length; i++) {
-                if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
-                    resetGame();
+            snake.cells.unshift({ x: snake.x, y: snake.y });
+            if (snake.cells.length > snake.maxCells) {
+                snake.cells.pop();
+            }
+            context.drawImage(emojiImg, posEmoji.x, posEmoji.y, grid * 2, grid * 2);
+            snake.cells.forEach(function (cell, index) {
+                if (index === 0) {
+                    context.drawImage(snake.headImg, cell.x, cell.y, grid, grid);
+                } else if (index === snake.cells.length - 1) {
+                    var nextCell = snake.cells[index - 1];
+                    var dx = cell.x - nextCell.x;
+                    var dy = cell.y - nextCell.y;
+                    var angle = Math.atan2(dy, dx);
+                    context.save();
+                    context.translate(cell.x + grid / 2, cell.y + grid / 2);
+                    context.rotate(angle);
+                    context.drawImage(snake.tailImg, -grid / 2, -grid / 2, grid, grid);
+                    context.restore();
+                } else {
+                    context.fillStyle = '#C6C6C6';
+                    context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
                 }
-            }
-        });
+                if (
+                    snake.x < posEmoji.x + grid * 2 &&
+                    posEmoji.x < snake.x + grid &&
+                    snake.y < posEmoji.y + grid * 2 &&
+                    posEmoji.y < snake.y + grid
+                ) {
+                    var emojiIndex = emojiImages.findIndex(img => img.src === emojiImg.src);
+                    onEmojiEaten(emojiIndex);
+                }
+                for (var i = index + 1; i < snake.cells.length; i++) {
+                    if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+                        resetGame();
+                    }
+                }
+            });
+        }
     }
 }
 
@@ -417,7 +414,7 @@ function calculateTotalDelay(emojiIndex) {
             maxDelay = globalBillboardDelay;
         }
         delayBillboard.textContent = "+" + globalBillboardDelay + " '";
-        maxParagraph.textContent = "Max " + maxDelay + " minutes";
+        console.log("Max " + maxDelay + " minutes");
     }
 }
 
@@ -431,19 +428,30 @@ function onEmojiEaten(emojiIndex) {
     calculateTotalDelay(emojiIndex);
 }
 
-function resetGame() {
-    clearTimeout(timout);
-    setTimeout(decrementAndLog, 7000);
-    clearInterval(intrval);
-    progress();
+retryButton.addEventListener('click', resumeGame);
 
+function resumeGame() {
+    resetGame();
+    startGame();
+    retryButton.classList.add('snake__btn--hide');
+}
+
+function pauseGame() {
+    gamePaused = true;
+    retryButton.classList.remove('snake__btn--hide');
+}
+
+function resetGame() {
+    var eventParagraph = document.querySelector('.snake__event');
+    eventParagraph.textContent = "Train en gare ! Retard max +"+ maxDelay + " '";
+    pauseGame(); 
+    clearTimeout(timout);
+    clearInterval(intrval);
     globalBillboardDelay = baseDelay;
     maxDelay = baseDelay;
     acceleration = baseAcceleration;
     delayBillboard.textContent = "+" + globalBillboardDelay + " '";
-    maxParagraph.textContent = "Max " + maxDelay + " minutes";
-    var eventParagraph = document.querySelector('.snake__event');
-    eventParagraph.textContent = "...";
+    console.log("Max " + maxDelay + " minutes");
     snake.x = 192;
     snake.y = 192;
     snake.cells = [];
@@ -453,54 +461,51 @@ function resetGame() {
     var newPosition = getRandomPositionAwayFromSnake();
     posEmoji.x = newPosition.x;
     posEmoji.y = newPosition.y;
-    setRandomEmojiImage();
     snake.headImg.src = 'assets/images/tete_snake.svg';
 }
 
-// Variables pour stocker les coordonnées de départ du toucher
+function startGame() {
+    if (gamePaused) {
+        gamePaused = false;
+        requestAnimationFrame(loop);
+        setTimeout(decrementAndLog, 7000);
+        progress();
+        loadEmojiImages();
+    }
+}
+
 let startX = 0;
 let startY = 0;
 
-// Ajoutez des écouteurs d'événements pour touchstart, touchmove et touchend
 document.addEventListener('touchstart', function (e) {
-    // Enregistrez les coordonnées de départ du toucher
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
 });
 
 document.addEventListener('touchmove', function (e) {
-    // Empêchez le défilement par défaut pour éviter les problèmes sur certains appareils
     e.preventDefault();
 }, { passive: false });
 
 document.addEventListener('touchend', function (e) {
-    // Calculez la distance parcourue dans les deux directions (X et Y)
     const distX = e.changedTouches[0].clientX - startX;
     const distY = e.changedTouches[0].clientY - startY;
 
-    // Déterminez la direction principale du glissement en comparant les distances parcourues
     if (Math.abs(distX) > Math.abs(distY)) {
-        // Mouvement horizontal
         if (distX < 0 && snake.dx === 0) {
-            // Vers la gauche
             snake.dx = -grid;
             snake.dy = 0;
             snake.headImg.src = 'assets/images/tete_droite.svg';
         } else if (distX > 0 && snake.dx === 0) {
-            // Vers la droite
             snake.dx = grid;
             snake.dy = 0;
             snake.headImg.src = 'assets/images/tete_gauche.svg';
         }
     } else {
-        // Mouvement vertical
         if (distY < 0 && snake.dy === 0) {
-            // Vers le haut
             snake.dy = -grid;
             snake.dx = 0;
             snake.headImg.src = 'assets/images/tete_haut.svg';
         } else if (distY > 0 && snake.dy === 0) {
-            // Vers le bas
             snake.dy = grid;
             snake.dx = 0;
             snake.headImg.src = 'assets/images/tete_bas.svg';
@@ -508,25 +513,20 @@ document.addEventListener('touchend', function (e) {
     }
 });
 
-// Ajoutez également les contrôles basés sur les touches pour la compatibilité avec les ordinateurs
 document.addEventListener('keydown', function (e) {
     if (e.which === 37 && snake.dx === 0) {
-        // Vers la gauche
         snake.dx = -grid;
         snake.dy = 0;
         snake.headImg.src = 'assets/images/tete_droite.svg';
     } else if (e.which === 38 && snake.dy === 0) {
-        // Vers le haut
         snake.dy = -grid;
         snake.dx = 0;
         snake.headImg.src = 'assets/images/tete_haut.svg';
     } else if (e.which === 39 && snake.dx === 0) {
-        // Vers la droite
         snake.dx = grid;
         snake.dy = 0;
         snake.headImg.src = 'assets/images/tete_gauche.svg';
     } else if (e.which === 40 && snake.dy === 0) {
-        // Vers le bas
         snake.dy = grid;
         snake.dx = 0;
         snake.headImg.src = 'assets/images/tete_bas.svg';

@@ -73,6 +73,31 @@
         width: 0%;
     }
 
+    &__acceleration{
+        font-size: 15px;
+        position: absolute;
+        left: 50%;
+        transform: translatex(-50%);
+     }
+
+    &__btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__btn:active{
+        transform: scale(1.05) translate(-50%, -50%);
+    }
+
+    &__btn--hide {
+        display: none;
+    }
+
     &--hide {
         display: none;
     }
