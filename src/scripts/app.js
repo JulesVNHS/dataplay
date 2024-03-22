@@ -212,6 +212,7 @@ updateTime();
 
 /*snake*/
 var canvas = document.getElementById('game');
+const overlay = document.getElementById('overlay');
 var context = canvas.getContext('2d');
 var grid = 16;
 var snake = {
@@ -239,7 +240,6 @@ var delayBillboard = document.querySelector('#delayBillboard');
 let timout;
 let intrval;
 delayBillboard.textContent = "+" + globalBillboardDelay + " '";
-console.log("Max " + maxDelay + " minutes");
 snake.headImg.src = 'assets/images/tete_gauche.svg';
 snake.tailImg.src = 'assets/images/tete_snake.svg';
 var emojiImg = new Image();
@@ -252,6 +252,7 @@ var lastUpdateTime = 0;
 var gamePaused = true;
 document.querySelector('.result__btn').addEventListener('click', startGame);
 var retryButton = document.querySelector('.snake__btn');
+var eventParagraph = document.querySelector('.snake__event');
 
 function decrementAndLog() {
     if (globalBillboardDelay > 0) {
@@ -293,8 +294,8 @@ function getRandomInt(min, max) {
 
 function getRandomPositionAwayFromSnake() {
     var position = {
-        x: getRandomInt(0, canvas.width / grid - 1) * grid,
-        y: getRandomInt(0, canvas.height / grid - 1) * grid
+        x: getRandomInt(1, canvas.width / grid - 2) * grid,
+        y: getRandomInt(1, canvas.height / grid - 2) * grid
     };
     for (var i = 0; i < snake.cells.length; i++) {
         if ((position.x === snake.cells[i].x && position.y === snake.cells[i].y) ||
@@ -337,7 +338,7 @@ function setRandomEmojiImage() {
 }
 
 function loop(timestamp) {
-    if (!gamePaused) { // Exécutez le jeu seulement s'il n'est pas en pause
+    if (!gamePaused) {
         requestAnimationFrame(loop);
         var deltaTime = timestamp - lastUpdateTime;
         if (deltaTime > updateInterval) {
@@ -399,8 +400,6 @@ function loop(timestamp) {
 function getExplanationForEmoji(emojiIndex) {
     if (emojiIndex !== -1) {
         var emojiExplanation = emojiData[emojiIndex].Explication;
-
-        var eventParagraph = document.querySelector('.snake__event');
         var tempsEmoji = emojiData[emojiIndex].Temps;
         eventParagraph.textContent = "+" + tempsEmoji + " ' " + emojiExplanation;
     }
@@ -414,7 +413,6 @@ function calculateTotalDelay(emojiIndex) {
             maxDelay = globalBillboardDelay;
         }
         delayBillboard.textContent = "+" + globalBillboardDelay + " '";
-        console.log("Max " + maxDelay + " minutes");
     }
 }
 
@@ -434,24 +432,24 @@ function resumeGame() {
     resetGame();
     startGame();
     retryButton.classList.add('snake__btn--hide');
+    eventParagraph.textContent = "Le train est en route !";
 }
 
 function pauseGame() {
+    overlay.style.display = 'block';
     gamePaused = true;
     retryButton.classList.remove('snake__btn--hide');
 }
 
 function resetGame() {
-    var eventParagraph = document.querySelector('.snake__event');
     eventParagraph.textContent = "Train en gare ! Retard max +"+ maxDelay + " '";
-    pauseGame(); 
+    pauseGame();
     clearTimeout(timout);
     clearInterval(intrval);
     globalBillboardDelay = baseDelay;
     maxDelay = baseDelay;
     acceleration = baseAcceleration;
     delayBillboard.textContent = "+" + globalBillboardDelay + " '";
-    console.log("Max " + maxDelay + " minutes");
     snake.x = 192;
     snake.y = 192;
     snake.cells = [];
@@ -467,6 +465,7 @@ function resetGame() {
 function startGame() {
     if (gamePaused) {
         gamePaused = false;
+        overlay.style.display = 'none';
         requestAnimationFrame(loop);
         setTimeout(decrementAndLog, 7000);
         progress();
