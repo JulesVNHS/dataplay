@@ -9,6 +9,7 @@
     padding: 27px;
     border-radius: 6px;
     width: 90%;
+    max-width: 639px;
     box-sizing: border-box;
 
     &__titre{
@@ -53,11 +54,12 @@
     }
 }
 
-@media(min-width: 1200px){
+@media(min-width: 1200px) and (min-height: 670px){
     .form-retard{
-        top:50%;
+        top: calc(50% + 33px);
         transform: translatex(-50%) translatey(-50%);
         width: auto;
+        max-width: none;
 
         &__list{
             display: flex;
@@ -70,6 +72,80 @@
 
         &__el:last-child{
             margin-right: 0;
+        }
+    }
+}
+
+@media(max-width: 400px) and (max-height: 839px){
+    .form-retard{
+        top: 77px;
+        padding: 20px 27px;
+
+        &__titre{
+            font-size: 20px;
+        }
+
+        &__label{
+            font-size: 11px;
+        }
+
+        &__input{
+            margin-top: 6px;
+            height: 20px;
+            min-width: 150px;
+        }
+
+        &__titre{
+            margin-bottom: 20px;
+        }
+    
+        &__el{
+            margin-bottom: 20px;
+        }
+
+        &__submit{
+            margin-top: 20px;
+        }
+    
+        &__container-message{
+            margin-top: 6px;
+        }
+    }
+}
+
+@media(max-width: 1200px) and (max-height: 670px){
+    .form-retard{
+        top: 77px;
+        padding: 20px 27px;
+
+        &__titre{
+            font-size: 20px;
+        }
+
+        &__label{
+            font-size: 11px;
+        }
+
+        &__input{
+            margin-top: 6px;
+            height: 20px;
+            min-width: 150px;
+        }
+
+        &__titre{
+            margin-bottom: 20px;
+        }
+    
+        &__el{
+            margin-bottom: 20px;
+        }
+
+        &__submit{
+            margin-top: 20px;
+        }
+    
+        &__container-message{
+            margin-top: 6px;
         }
     }
 }

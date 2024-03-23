@@ -1,0 +1,233 @@
+.snake {
+    position: absolute;
+    z-index: 0;
+    top: 91px;
+    left: 50%;
+    transform: translatex(-50%);
+    background-color: $c-interface;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 6px;
+    width: 90%;
+    max-width: 354px;
+    box-sizing: border-box;
+
+    &__text{
+        font-family: 'SNPro-Semibold', sans-serif;
+    }
+
+    &__billboard-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $c-panneau;
+        padding: 6px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+    }
+
+    &__billboard-el--delay {
+        display: flex;
+    }
+
+    &__billboard-delay {
+        background-color: $c-button;
+        padding: 6px;
+        min-width: 47px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__billboard-hour {
+        background-color: #ffffff;
+        color: $c-interface;
+        padding: 6px;
+    }
+
+    &__event {
+        background-color: $c-button;
+        height: 47px;
+        margin-bottom: 20px;
+        padding: 0 6px;
+        display: flex;
+        align-items: center;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        position: relative;
+        z-index: 10;
+    }
+
+    &__canvas {
+        background-image: url(../assets/images/carte_snake.svg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 100%;
+    }
+
+    &__progress-bar-container {
+        width: 100%;
+        background-color: #fff;
+    }
+
+    &__progress-bar {
+        height: 20px;
+        background-color: $c-button;
+        width: 0%;
+    }
+
+    &__acceleration{
+        font-size: 15px;
+        position: absolute;
+        left: 50%;
+        transform: translatex(-50%);
+     }
+
+    &__btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        z-index: 10;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__btn:active{
+        transform: scale(1.05) translate(-50%, -50%);
+    }
+
+    &__btn--hide {
+        display: none;
+    }
+
+    &--hide {
+        display: none;
+    }
+}
+
+#overlay {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+@media(min-width: 1200px) {
+    .snake {
+        top: calc(50% + 33px);
+        transform: translatex(-50%) translatey(-50%);
+
+        &__progress-bar-container {
+            margin-top: 15px;
+        }
+    }
+}
+
+@media(min-width: 1200px) and (min-height: 720px){
+    .snake {
+        max-width: 472px;
+        font-size: 20px;
+        
+        &__billboard-delay {
+            min-width: 63px;
+        }
+    }
+}
+
+@media(min-width: 1600px) and (min-height: 1000px){
+    .snake {
+        max-width: 629px;
+        font-size: 27px;
+        
+        &__billboard-delay {
+            min-width: 84px;
+        }
+    }
+}
+
+@media(min-width: 1900px) and (min-height: 1200px){
+    .snake {
+        max-width: 839px;
+        font-size: 36px;
+
+        &__billboard-delay {
+            min-width: 112px;
+        }
+    }
+}
+
+@media(min-width: 720px) and (min-height: 1024px){
+    .snake {
+        max-width: 629px;
+        font-size: 27px;
+        
+        &__billboard-delay {
+            min-width: 84px;
+        }
+    }
+}
+
+@media(min-width: 1024px) and (min-height: 1300px){
+    .snake {
+        max-width: 839px;
+        font-size: 36px;
+
+        &__billboard-delay {
+            min-width: 112px;
+        }
+    }
+}
+
+@media(max-width: 400px) and (max-height: 839px){
+    .snake{
+        top: 77px;
+        padding: 15px;
+
+        &__billboard-list {
+            padding: 6px;
+        }
+    
+        &__billboard-delay {
+            min-width: 36px;
+        }
+    
+        &__event {
+            height: 36px;
+            margin-bottom: 15px;
+        }
+    
+        &__progress-bar {
+            height: 15px;
+        }
+    }
+}
+
+@media(max-width: 1200px) and (max-height: 670px){
+    .snake {
+        top: 77px;
+        padding: 15px;
+        max-width: 266px;
+        
+        &__billboard-list {
+            padding: 6px;
+        }
+    
+        &__billboard-delay {
+            min-width: 36px;
+        }
+    
+        &__event {
+            height: 36px;
+            margin-bottom: 15px;
+        }
+    
+        &__progress-bar {
+            height: 15px;
+        }
+    }
+}
