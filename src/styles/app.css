@@ -144,9 +144,13 @@ button:active {
     margin-top: 0px;
   }
 }
+.wrap {
+  position: relative;
+  width: 100%;
+}
+
 .stats__title {
   font-family: "LTRenovate-SemiBold", sans-serif;
-  color: #0169B4;
   font-size: 36px;
   margin: 20px 20px 40px 20px;
 }
@@ -165,7 +169,6 @@ button:active {
 }
 
 .incident {
-  overflow-x: hidden;
   margin-top: 40px;
 }
 .incident__title {
@@ -181,6 +184,12 @@ button:active {
   line-height: 145%;
   font-size: 15px;
   margin: 20px 20px 0 20px;
+}
+.incident__contenu {
+  background-color: #064D7C;
+}
+.incident__contenu--clair {
+  background-color: #CDEAFA;
 }
 
 .stats {

@@ -25,7 +25,7 @@ function scrollListener() {
     // Réinitialiser le timer pour supprimer la classe après 5 secondes
     timer = setTimeout(() => {
         menu.classList.remove("scrollnav--hide");
-    }, 5000);
+    }, 3000);
 
     oldScrollY = window.scrollY;
 }
