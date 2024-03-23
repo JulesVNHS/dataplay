@@ -54,7 +54,7 @@
     }
 }
 
-@media(min-width: 1200px) and (min-height: 670px){
+@media(min-width: 1200px) and (min-height: 670px) {
     .form-retard{
         top: calc(50% + 33px);
         transform: translatex(-50%) translatey(-50%);
@@ -76,7 +76,7 @@
     }
 }
 
-@media(max-width: 400px) and (max-height: 839px){
+@media(max-width: 400px) and (max-height: 839px) {
     .form-retard{
         top: 77px;
         padding: 20px 27px;
@@ -113,7 +113,7 @@
     }
 }
 
-@media(max-width: 1200px) and (max-height: 670px){
+@media(max-height: 670px) {
     .form-retard{
         top: 77px;
         padding: 20px 27px;
