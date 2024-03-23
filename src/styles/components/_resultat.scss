@@ -10,6 +10,7 @@
     border-radius: 6px;
     max-width: 629px;
     width: 90%;
+    max-width: 639px;
     box-sizing: border-box;
 
     &__titre{
@@ -39,7 +40,7 @@
     }
 }
 
-@media(min-width: 1200px){
+@media(min-width: 1200px) and (min-height: 670px){
     .result{
         top: calc(50% + 33px);
         transform: translatex(-50%) translatey(-50%);
@@ -51,6 +52,32 @@
 }
 
 @media(max-width: 400px) and (max-height: 839px){
+    .result{
+        top: 77px;
+        padding: 20px 27px;
+    
+        &__titre{
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+    
+        &__el--value{
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+    
+        &__text{
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+    
+        &__btn{
+            margin-top: 20px;
+        }
+    }
+}
+
+@media(max-height: 670px){
     .result{
         top: 77px;
         padding: 20px 27px;

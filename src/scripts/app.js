@@ -103,7 +103,7 @@ document.querySelector('.form-retard').addEventListener('submit', function (even
             globalBillboardDelay = convertSecondsToMinutes(result.averageDelay);
             baseDelay = globalBillboardDelay;
             maxDelay = baseDelay;
-            document.getElementById('delayBillboard').textContent = "+" + globalBillboardDelay + " '";
+            delayBillboard.textContent = "+" + globalBillboardDelay + " '";
             var monthlyEstimation = Math.round(result.averageDelay * frequency * 4);
             var yearlyEstimation = Math.round(result.averageDelay * frequency * 52);
             document.getElementById('monthlyEstimation').textContent = convertSecondsToTime(monthlyEstimation);
@@ -185,8 +185,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const button = document.querySelector('.result__btn');
 
     button.addEventListener('click', function () {
-        resultSection.classList.add('result--hide');
-        snakeSection.classList.remove('snake--hide');
+        if (typeof baseDelay !== 'undefined') {
+            resultSection.classList.add('result--hide');
+            snakeSection.classList.remove('snake--hide');
+            startGame();
+        } else {
+            console.error('La variable baseDelay n\'est pas définie.');
+        }
     });
 });
 
@@ -236,7 +241,7 @@ var baseDelay;
 var maxDelay;
 var acceleration = 1;
 var baseAcceleration = 1;
-var delayBillboard = document.querySelector('#delayBillboard');
+var delayBillboard = document.getElementById('delayBillboard');
 let timout;
 let intrval;
 delayBillboard.textContent = "+" + globalBillboardDelay + " '";
@@ -250,7 +255,6 @@ var snakeSpeed = 9;
 var updateInterval = 1000 / snakeSpeed;
 var lastUpdateTime = 0;
 var gamePaused = true;
-document.querySelector('.result__btn').addEventListener('click', startGame);
 var retryButton = document.querySelector('.snake__btn');
 var eventParagraph = document.querySelector('.snake__event');
 
