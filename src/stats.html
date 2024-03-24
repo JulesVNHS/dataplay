@@ -17,7 +17,7 @@
 </head>
 <body>
   <header>
-    <nav class="menu">
+    <nav class="menu menu__stats">
       <a class="menu__link menu__link--logo" href="index.html">
         <img class="menu__logo" src="assets/images/logo.svg" alt="logo Late (L8)">
       </a>
@@ -48,222 +48,290 @@
     </nav>
   </header>
   <main>
-    <h1 class="stats__title">
-      Cause de retard de la SNCB depuis 2019
-    </h1>
-    <div class="échelle">
-      <h2 class="échelle__title">
-        Un wagon
-      </h2>
-      <p class="échelle__stats">
-        équivaut à 20 000 minutes de retard accumulé
-      </p>
-      <div class="stats__wagon échelle__wagon"></div>
-    </div>
-    <div class="incident">
-      <h2 class="incident__title">
-        Perturbation sur la voie
-      </h2>
-      <p class="incident__stats" id="incident__nombres--perturbation"></p>
-      <div class="stats">
-        <div class="stats__animation" id="stats__perturbation-1">
-
-        </div>
+    <div class="incident__contenu--clair">
+      <h1 class="title">
+        Cause de retard de la SNCB depuis 2019
+      </h1>
+      <div class="échelle">
+        <h2 class="échelle__title">
+          Un wagon
+        </h2>
+        <p class="échelle__stats">
+          équivaut à 20 000 minutes de retard accumulé
+        </p>
+        <div class="stats__wagon échelle__wagon"></div>
       </div>
-      
-      <small class="incident__all-stats">
-        Intrusion dans les voies&#8239;,
-        Heurt&nbsp;d'une&nbsp;personne&#8239;,
-        Incendie&nbsp;à&nbsp;proximité&nbsp;des&nbsp;voies&#8239;,
-        Incendie&nbsp;dans&nbsp;les&nbsp;voies&#8239;,
-        Incident&nbsp;pendant&nbsp;un&nbsp;chantier&#8239;,
-        Accident&nbsp;à&nbsp;un&nbsp;passage&nbsp;à&nbsp;niveau&#8239;,
-        Heurt&nbsp;d'animal&#8239;,
-        Dérangement&nbsp;à&nbsp;un&nbsp;passage&nbsp;à&nbsp;niveau&#8239;,
-        Obstacle&nbsp;dans/à&nbsp;proximité&nbsp;de&nbsp;la&nbsp;voie&#8239;,
-        Corps dans&nbsp;les&nbsp;voies&#8239;,
-        Dérangement&nbsp;à&nbsp;un&nbsp;aiguillage&#8239;,
-        Dérangement&nbsp;à&nbsp;la&nbsp;signalisation&#8239;.
-      </small>
+    </div>
+    <div class="wrap">
+
+      <div class="incident">
+        <div class="incident__background">
+            <img class="incident__img" src="assets/images/bg.svg" alt="">
+        </div>
+        <div class="incident__contenu">
+            <h2 class="incident__title">
+                Perturbation sur la voie
+            </h2>
+            <p class="incident__stats" id="incident__nombres--perturbation"></p>
+            <div class="stats">
+                <div class="stats__animation" id="stats__perturbation-1"></div>
+            </div>
+            <small class="incident__all-stats">
+                Intrusion dans les voies&#8239;,
+                Heurt&nbsp;d'une&nbsp;personne&#8239;,
+                Incendie&nbsp;à&nbsp;proximité&nbsp;des&nbsp;voies&#8239;,
+                Incendie&nbsp;dans&nbsp;les&nbsp;voies&#8239;,
+                Incident&nbsp;pendant&nbsp;un&nbsp;chantier&#8239;,
+                Accident&nbsp;à&nbsp;un&nbsp;passage&nbsp;à&nbsp;niveau&#8239;,
+                Heurt&nbsp;d'animal&#8239;,
+                Dérangement&nbsp;à&nbsp;un&nbsp;passage&nbsp;à&nbsp;niveau&#8239;,
+                Obstacle&nbsp;dans/à&nbsp;proximité&nbsp;de&nbsp;la&nbsp;voie&#8239;,
+                Corps dans&nbsp;les&nbsp;voies&#8239;,
+                Dérangement&nbsp;à&nbsp;un&nbsp;aiguillage&#8239;,
+                Dérangement&nbsp;à&nbsp;la&nbsp;signalisation&#8239;.
+            </small>
+        </div>
     </div>
 
     <div class="incident incident--avarie">
-      <h2 class="incident__title">
-        Avarie
-      </h2>
-      <p class="incident__stats" id="incident__nombres--avarie"></p>
-      <div class="stats">
-        <div class="stats__animation" id="stats__avarie-1">
+        <div class="incident__background--foncé">
+            <img class="incident__img" src="assets/images/bg2.svg" alt="">
         </div>
-      </div>
-      <small class="incident__all-stats">
-        Avarie&nbsp;matériel&nbsp;roulant&#8239;,
-        Avarie&nbsp;caténaire&#8239;,
-        Avarie&nbsp;train&nbsp;à&nbsp;grande&nbsp;vitesse&#8239;.
-      </small>
+        <div class="incident__contenu--clair">
+            <h2 class="incident__title incident__title--clair">
+                Avarie
+            </h2>
+            <p class="incident__stats" id="incident__nombres--avarie"></p>
+            <div class="stats">
+                <div class="stats__animation" id="stats__avarie-1"></div>
+            </div>
+            <small class="incident__all-stats">
+                Avarie&nbsp;matériel&nbsp;roulant&#8239;,
+                Avarie&nbsp;caténaire&#8239;,
+                Avarie&nbsp;train&nbsp;à&nbsp;grande&nbsp;vitesse&#8239;.
+            </small>
+        </div>
     </div>
 
     <div class="incident">
-      <h2 class="incident__title">
-        Travaux
-      </h2>
-      <p class="incident__stats" id="incident__nombres--travaux"></p>
-      <div class="stats">
-        <div class="stats__animation" id="stats__travaux-1">
+      <div class="incident__background">
+        <img class="incident__img" src="assets/images/bg.svg" alt="">
+      </div>
+      <div class="incident__contenu">
+        <h2 class="incident__title">
+          Travaux
+        </h2>
+        <p class="incident__stats" id="incident__nombres--travaux"></p>
+        <div class="stats">
+          <div class="stats__animation" id="stats__travaux-1">
+          </div>
+        </div>
+        <small class="incident__all-stats">
+          Terminaison&nbsp;tardive&nbsp;de&nbsp;travaux&#8239;,
+          Travaux&nbsp;urgents&#8239;.
+        </small>
+      </div>
+    </div>
+    
+      <div class="incident">
+        <div class="incident__background--foncé">
+          <img class="incident__img" src="assets/images/bg2.svg" alt="">
+        </div>
+        <div class="incident__contenu--clair">
+          <h2 class="incident__title incident__title--clair">
+            Grèves
+          </h2>
+          <p class="incident__stats" id="incident__nombres--grèves"></p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__grèves-1">
+            </div>
+          </div>
+          <small class="incident__all-stats">
+            Mouvement&nbsp;de&nbsp;grève&#8239;.
+          </small>
         </div>
       </div>
-      <small class="incident__all-stats">
-        Terminaison&nbsp;tardive&nbsp;de&nbsp;travaux&#8239;,
-        Travaux&nbsp;urgents&#8239;.
-      </small>
+ 
+    
+    <div class="incident">
+      <div class="incident__background">
+        <img class="incident__img" src="assets/images/bg.svg" alt="">
+      </div>
+      <div class="incident__contenu">
+        <h2 class="incident__title">
+          Conditions météos
+        </h2>
+        <p class="incident__stats" id="incident__nombres--météo"></p>
+        <div class="stats">
+          <div class="stats__animation" id="stats__météo-1">
+          </div>
+        </div>
+        <small class="incident__all-stats">
+          Conditions&nbsp;météorologiques&nbsp;exceptionnelles&#8239;.
+        </small>
+      </div>
     </div>
+    
+
+      <div class="incident ">
+        <div class="incident__background--foncé">
+          <img class="incident__img" src="assets/images/bg2.svg" alt="">
+        </div>
+        <div class="incident__contenu--clair">
+           <h2 class="incident__title incident__title--clair">
+             Déraillement de trains
+           </h2>
+           <p class="incident__stats" id="incident__nombres--déraillement"></p>
+           <div class="stats">
+             <div class="stats__animation" id="stats__déraillement-1">
+             </div>
+           </div>
+           <small class="incident__all-stats">
+             Déraillement&nbsp;d'un&nbsp;train&nbsp;de&nbsp;marchandises&#8239;,
+             Déraillement&nbsp;d'un&nbsp;train&nbsp;de&nbsp;voyageurs&#8239;.
+           </small>
+        </div>
+      </div>
+
+      <div class="incident ">
+        <div class="incident__background">
+          <img class="incident__img" src="assets/images/bg.svg" alt="">
+        </div>
+        <div class="incident__contenu">
+          <h2 class="incident__title">
+            Erreur de conducteur
+          </h2>
+          <p class="incident__stats" id="incident__nombres--erreur"></p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__erreur-1">
+            </div>
+          </div>
+          <small class="incident__all-stats">
+            Dépassement&nbsp;d'un&nbsp;signal&nbsp;rouge&#8239;,
+            Erreur&nbsp;lors&nbsp;d'une&nbsp;manœuvre&#8239;.
+          </small>
+        </div>
+      </div>
+
+      <div class="incident ">
+        <div class="incident__background--foncé">
+          <img class="incident__img " src="assets/images/bg2.svg" alt="">
+        </div>
+        <div class="incident__contenu--clair">
+          <h2 class="incident__title incident__title--clair">
+            Dérangement externe
+          </h2>
+          <p class="incident__stats" id="incident__nombres--dérangement"></p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__dérangement-1">
+            </div>
+          </div>
+          <small class="incident__all-stats">
+            Acte&nbsp;de&nbsp;malveillance&#8239;,
+            Vol&nbsp;de&nbsp;câbles&#8239;,
+            Alerte&nbsp;à&nbsp;la&nbsp;bombe&#8239;,
+            Présence&nbsp;d'un&nbsp;colis&nbsp;suspect&#8239;,
+            Dérangement&nbsp;informatique&#8239;,
+            Dérangement&nbsp;à&nbsp;l'infrastructure&#8239;.
+          </small>
+        </div>
+      </div>
 
       <div class="incident">
-        <h2 class="incident__title">
-          Grèves
-        </h2>
-        <p class="incident__stats" id="incident__nombres--grèves"></p>
-      <div class="stats">
-        <div class="stats__animation" id="stats__grèves-1">
+        <div class="incident__background">
+          <img class="incident__img" src="assets/images/bg.svg" alt="">
+        </div>
+        <div class="incident__contenu">
+          <h2 class="incident__title">
+            Affluence de voyageurs
+          </h2>
+          <p class="incident__stats" id="incident__nombres--affluence"></p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__affluence-1">
+            </div>
+          </div>
+          <small class="incident__all-stats">
+            Affluence&nbsp;de&nbsp;voyageurs&#8239;.
+          </small>
         </div>
       </div>
-      <small class="incident__all-stats">
-        Mouvement&nbsp;de&nbsp;grève&#8239;.
-      </small>
-    </div>
 
-    <div class="incident">
-      <h2 class="incident__title">
-        Conditions météos
-      </h2>
-      <p class="incident__stats" id="incident__nombres--météo"></p>
-      <div class="stats">
-        <div class="stats__animation" id="stats__météo-1">
+      <div class="incident">
+        <div class="incident__background--foncé">
+          <img class="incident__img" src="assets/images/bg2.svg" alt="">
+        </div>
+        <div class="incident__contenu--clair">
+          <h2 class="incident__title incident__title--clair">
+            Problème de personnel
+          </h2>
+          <p class="incident__stats" id="incident__nombres--personnel"></p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__personnel-1">
+            </div>
+          </div>
+          <small class="incident__all-stats">
+            Problème&nbsp;de&nbsp;personnel&#8239;.
+          </small>
         </div>
       </div>
-      <small class="incident__all-stats">
-        Conditions&nbsp;météorologiques&nbsp;exceptionnelles&#8239;.
-      </small>
-    </div>
 
-    <div class="incident">
-      <h2 class="incident__title">
-        Déraillement de trains
-      </h2>
-      <p class="incident__stats" id="incident__nombres--déraillement"></p>
-      <div class="stats">
-        <div class="stats__animation" id="stats__déraillement-1">
+      <div class="incident">
+        <div class="incident__background">
+          <img class="incident__img" src="assets/images/bg.svg" alt="">
+        </div>
+        <div class="incident__contenu">
+          <h2 class="incident__title">
+            Mesures COVID 19
+          </h2>
+          <p class="incident__stats" id="incident__nombres--covid"></p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__covid-1">
+            </div>
+          </div>
+          <small class="incident__all-stats">
+            Mesures&nbsp;COVID&nbsp;19&#8239;.
+          </small>
         </div>
       </div>
-      <small class="incident__all-stats">
-        Déraillement&nbsp;d'un&nbsp;train&nbsp;de&nbsp;marchandises&#8239;,
-        Déraillement&nbsp;d'un&nbsp;train&nbsp;de&nbsp;voyageurs&#8239;.
-      </small>
-    </div>
 
-    <div class="incident">
-      <h2 class="incident__title">
-        Erreur de conducteur
-      </h2>
-      <p class="incident__stats" id="incident__nombres--erreur"></p>
-      <div class="stats">
-        <div class="stats__animation" id="stats__erreur-1">
-        </div>
-      </div>
-      <small class="incident__all-stats">
-        Dépassement&nbsp;d'un&nbsp;signal&nbsp;rouge&#8239;,
-        Erreur&nbsp;lors&nbsp;d'une&nbsp;manœuvre&#8239;.
-      </small>
-    </div>
 
-    <div class="incident">
-      <h2 class="incident__title">
-        Dérangement externe
-      </h2>
-      <p class="incident__stats" id="incident__nombres--dérangement"></p>
-      <div class="stats">
-        <div class="stats__animation" id="stats__dérangement-1">
+      <div class="incident">
+        <div class="incident__background--foncé">
+          <img class="incident__img" src="assets/images/bg2.svg" alt="">
+        </div>
+        <div class="incident__contenu--clair">
+          <h2 class="incident__title incident__title--clair">
+            Défaut de fourniture d'électricité par le gestionnaire de réseau
+          </h2>
+          <p class="incident__stats" id="incident__nombres--fourniture"></p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__fourniture-1">
+            </div>
+          </div>
+          <small class="incident__all-stats">
+            Défaut&nbsp;de&nbsp;fourniture&nbsp;d'électricité&nbsp;par&nbsp;le&nbsp;gestionnaire&nbsp;de&nbsp;réseau&#8239;.
+          </small>
         </div>
       </div>
-      <small class="incident__all-stats">
-        Acte&nbsp;de&nbsp;malveillance&#8239;,
-        Vol&nbsp;de&nbsp;câbles&#8239;,
-        Alerte&nbsp;à&nbsp;la&nbsp;bombe&#8239;,
-        Présence&nbsp;d'un&nbsp;colis&nbsp;suspect&#8239;,
-        Dérangement&nbsp;informatique&#8239;,
-        Dérangement&nbsp;à&nbsp;l'infrastructure&#8239;.
-      </small>
-    
-    </div>
-
-    <div class="incident">
-      <h2 class="incident__title">
-        Affluence de voyageurs
-      </h2>
-      <p class="incident__stats" id="incident__nombres--affluence"></p>
-      <div class="stats">
-        <div class="stats__animation" id="stats__affluence-1">
+      
+      <div class="incident incident--last">
+        <div class="incident__background">
+          <img class="incident__img" src="assets/images/bg.svg" alt="">
+        </div>
+        <div class="incident__contenu">
+          <h2 class="incident__title">
+            Problème avec un voyageur
+          </h2>
+          <p class="incident__stats" id="incident__nombres--pb-voyageur"></p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__voyageur-1">
+            </div>
+          </div>
+          <small class="incident__all-stats">
+            Problème&nbsp;avec&nbsp;un&nbsp;voyageur&#8239;.
+          </small>
         </div>
       </div>
-      <small class="incident__all-stats">
-        Affluence&nbsp;de&nbsp;voyageurs&#8239;.
-      </small>
-    </div>
-
-    <div class="incident">
-      <h2 class="incident__title">
-        Problème de personnel
-      </h2>
-      <p class="incident__stats" id="incident__nombres--personnel"></p>
-      <div class="stats">
-        <div class="stats__animation" id="stats__personnel-1">
-        </div>
-      </div>
-      <small class="incident__all-stats">
-        Problème&nbsp;de&nbsp;personnel&#8239;.
-      </small>
-    </div>
-
-    <div class="incident">
-      <h2 class="incident__title">
-        Mesures COVID 19
-      </h2>
-      <p class="incident__stats" id="incident__nombres--covid"></p>
-      <div class="stats">
-        <div class="stats__animation" id="stats__covid-1">
-        </div>
-      </div>
-      <small class="incident__all-stats">
-        Mesures&nbsp;COVID&nbsp;19&#8239;.
-      </small>
-    </div>
-
-    <div class="incident">
-      <h2 class="incident__title">
-        Défaut de fourniture d'électricité par le gestionnaire de réseau
-      </h2>
-      <p class="incident__stats" id="incident__nombres--fourniture"></p>
-      <div class="stats">
-        <div class="stats__animation" id="stats__fourniture-1">
-        </div>
-      </div>
-      <small class="incident__all-stats">
-        Défaut&nbsp;de&nbsp;fourniture&nbsp;d'électricité&nbsp;par&nbsp;le&nbsp;gestionnaire&nbsp;de&nbsp;réseau&#8239;.
-      </small>
-    </div>
-
-    <div class="incident incident--last">
-      <h2 class="incident__title">
-        Problème avec un voyageur
-      </h2>
-      <p class="incident__stats" id="incident__nombres--pb-voyageur"></p>
-      <div class="stats">
-        <div class="stats__animation" id="stats__voyageur-1">
-        </div>
-      </div>
-      <small class="incident__all-stats">
-        Problème&nbsp;avec&nbsp;un&nbsp;voyageur&#8239;.
-      </small>
     </div>
   </main>
 </body>
