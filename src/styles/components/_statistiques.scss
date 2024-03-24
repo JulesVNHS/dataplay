@@ -4,9 +4,17 @@
   margin: 0;
   padding: 0
 }
-.menu__stats{
-  background-color: #CDEAFA;
+.menu{
+  &__stats{
+    background-color: $c-bleuclair;
+  }
+
+  &__logo--stats{
+    filter: brightness(1) invert(0);
+  }
 }
+
+
 .title{
   font-family: 'LTRenovate-SemiBold', sans-serif;
   padding-top: 20px;
@@ -16,9 +24,9 @@
 .échelle{
 margin-left: 20px;
 margin-right: 20px;
-color: #123550;
+color: $c-bleufonce;
 &__title{
-  color: #123550;
+  color: $c-bleufonce;
   margin: 0;
   margin-bottom: 20px;
 }
@@ -32,12 +40,12 @@ color: #123550;
 .incident{
 overflow-x: hidden; // Parce que dans le mode mobile il y a du scroll
 &__title{
-  color: #CDEAFA;
+  color: $c-bleuclair;
   margin: 0 0 15px 20px;
   font-size: 27px;
   padding-top: 40px;
   &--clair{
-    color: #123550;
+    color: $c-bleufonce;
   }
 }
 &__stats{
@@ -57,18 +65,18 @@ overflow-x: hidden; // Parce que dans le mode mobile il y a du scroll
 }
 
 &__background{
-  background-color: #CDEAFA;
+  background-color: $c-bleuclair;
   &--foncé{
-    background-color: #123550;
+    background-color: $c-bleufonce;
   }
 }
 &__contenu{
-  background-color: #123550;
-  color: #CDEAFA;
+  background-color: $c-bleufonce;
+  color: $c-bleuclair;
   margin: 0;
   &--clair{
-    background-color: #CDEAFA;
-    color: #123550;
+    background-color: $c-bleuclair;
+    color: $c-bleufonce;
   }
 }
 }
@@ -112,10 +120,17 @@ margin-top: 2em;
 
 .incident--last{
 padding-bottom: 120px;
-background-color: #123550;
+background-color: $c-bleufonce;
 }
 
 @media(min-width: 1200px){
+
+.menu{
+  &__text--stats{
+    color: $c-interface;
+  }
+}
+
 .title{
   margin-left: 63px;
   padding-top: 63px;
