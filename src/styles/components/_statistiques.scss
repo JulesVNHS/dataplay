@@ -4,8 +4,20 @@
   margin: 0;
   padding: 0
 }
-
-
+.menu{
+  &__link{
+    background-color: #0169B4;
+  }
+  &__logo{
+    filter: brightness(0) invert(1);
+  }
+}
+.menu__link{
+  background-color: #0169B4;
+}
+.body__stats{
+  overflow-x: hidden;
+}
 
 .title{
   font-family: 'LTRenovate-SemiBold', sans-serif;
@@ -83,26 +95,26 @@ margin-top: 2em;
   position: relative;
 }
 &__el{
-  margin-top: 10px;
+  margin-top: 0px;
 
   &:last-child{
     margin-bottom: 20px;
   }
 }
 &__avant-train{
-  height: 60px;
+  height: 55px;
   width: 300px;
   background-image: url(../assets/images/avant_train.svg);
   background-repeat: no-repeat;
 }
 &__wagon{
-  height: 60px;
+  height: 55px;
   width: 300px;
   background-image: url(../assets/images/wagon.svg);
   background-repeat: no-repeat;
 }
 &__arriere-train{
-  height: 60px;
+  height: 55px;
   width: 300px;
   background-image: url(../assets/images/arriere_train.svg);
   background-repeat: no-repeat;
@@ -127,7 +139,7 @@ background-color: $c-bleufonce;
   margin-left: 63px;
   padding-top: 112px;
   margin-top: 0;
-  font-size: 47px;
+  font-size: 84px;
 }
 
 .échelle{
@@ -136,6 +148,7 @@ margin-right: 63px;
 &__title{
   margin: 0;
   margin-bottom: 20px;
+  font-size: 63px;
 }
 
 &__wagon{
@@ -148,8 +161,8 @@ margin-right: 63px;
 &__title{
   margin-left: 63px;
   margin-right: 63px;
-  padding-top: 30px;
-  font-size: 36px;
+  padding-top: 84px;
+  font-size: 63px;
 }
 &__stats{
   margin-left: 63px;

@@ -71,25 +71,6 @@
     }
 }
 
-@media(max-width: 1200px){
-    .scrollnav{
-        &__menu{
-            position: fixed;
-            width: 100%;
-            bottom: -3%;left: 0;
-            margin-bottom: 1em;
-            z-index: 10;
-        }
-        
-        &--hide {
-            transform: translateY(100%);
-        }
-        &__list{
-            transition: transform 0.3s ease;
-        }
-    }
-}
-
 @media(min-width: 1200px) {
     .menu{
         padding: 15px 63px;
@@ -141,6 +122,7 @@
             margin-top: 0px;
         }
     }
+    
     .scrollnav__desktop{
         &-menu{
             position: fixed;

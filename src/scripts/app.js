@@ -4,8 +4,8 @@ import {  gsap  } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 console.log(gsap.version);
-
-
+const bodyStats = document.querySelector(".body__stats")
+if(bodyStats){
 
 //Sticky nav
 let oldScrollY = 0;
@@ -285,6 +285,27 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = formatNu
   .catch(function(err) {
     console.log(err);
   });
+}
+
+const bodyAccueil = document.querySelector(".body__accueil")
+const bodyAccueilNuit = document.querySelector(".body__accueil--nuit")
+
+
+if(bodyAccueil || bodyAccueilNuit){
+
+    var maintenant = new Date();
+    var heure = maintenant.getHours();
+    var conteneur = document.querySelector(".body__accueil");
+
+    
+    if (heure >= 16 || heure < 7) {
+        conteneur.classList.add("body__accueil--nuit");
+        conteneur.classList.remove("body__accueil--jour");
+    } else {
+        conteneur.classList.remove("body__accueil--nuit");
+        conteneur.classList.add("body__accueil--jour");
+    }
+    
 /*recherches formulaire*/
 function loadData(inputElementId, property, uniqueCities) {
     const inputElement = document.getElementById(inputElementId);
@@ -819,4 +840,4 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
-requestAnimationFrame(loop);
+requestAnimationFrame(loop);}
