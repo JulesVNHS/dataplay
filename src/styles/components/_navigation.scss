@@ -56,8 +56,6 @@
             position: fixed;
             width: 100%;
             bottom: -3%;left: 0;
-            background-color: #2c2c2c;
-            
             margin-bottom: 1em;
             z-index: 10;
         }
@@ -117,6 +115,19 @@
         &__text {
             font-size: 20px;
             margin-top: 0px;
+        }
+    }
+    .scrollnav__desktop{
+        &-menu{
+            position: fixed;
+            width: 100%;
+            z-index: 10;
+        }
+        &--hide {
+            transform: translateY(-100%);
+        }
+        &-list{
+            transition: transform 0.3s ease;
         }
     }
 }

@@ -5,18 +5,20 @@
   padding: 0
 }
 
+
+
 .title{
   font-family: 'LTRenovate-SemiBold', sans-serif;
-
+  padding-top: 20px;
   font-size: 36px;
-  margin: 20px 20px 40px 20px
+  margin: 0 20px 40px 20px
 }
 .échelle{
 margin-left: 20px;
 margin-right: 20px;
-
+color: $c-bleufonce;
 &__title{
-  color: $c-interface;
+  color: $c-bleufonce;
   margin: 0;
   margin-bottom: 20px;
 }
@@ -28,11 +30,15 @@ margin-right: 20px;
 
 
 .incident{
-
+overflow-x: hidden; // Parce que dans le mode mobile il y a du scroll
 &__title{
-  color: $c-interface;
+  color: $c-bleuclair;
   margin: 0 0 15px 20px;
   font-size: 27px;
+  padding-top: 40px;
+  &--clair{
+    color: $c-bleufonce;
+  }
 }
 &__stats{
   margin-left: 20px;
@@ -42,28 +48,34 @@ margin-right: 20px;
   line-height: 145%;
   font-size: 15px;
   margin: 20px 20px 0 20px; 
+  padding-bottom: 100px; 
 }
 &__img{
   margin: 0;
   vertical-align: middle;
+  
 }
 
 &__background{
-  background-color: #CDEAFA;
+  background-color: $c-bleuclair;
   &--foncé{
-    background-color: #123550;
+    background-color: $c-bleufonce;
   }
 }
 &__contenu{
-  background-color: #123550;
+  background-color: $c-bleufonce;
+  color: $c-bleuclair;
   margin: 0;
   &--clair{
-    background-color: #CDEAFA;
+    background-color: $c-bleuclair;
+    color: $c-bleufonce;
   }
 }
 }
-.stats{
 
+
+
+.stats{
 margin-top: 2em;
 
 &__list{
@@ -72,6 +84,10 @@ margin-top: 2em;
 }
 &__el{
   margin-top: 10px;
+
+  &:last-child{
+    margin-bottom: 20px;
+  }
 }
 &__avant-train{
   height: 60px;
@@ -91,24 +107,33 @@ margin-top: 2em;
   background-image: url(../assets/images/arriere_train.svg);
   background-repeat: no-repeat;
 }
+
 }
 
 .incident--last{
 padding-bottom: 120px;
+background-color: $c-bleufonce;
 }
 
 @media(min-width: 1200px){
+
+.menu{
+  &__text--stats{
+    color: white;
+  }
+}
+
 .title{
   margin-left: 63px;
-  margin-top: 63px;
-  
+  padding-top: 112px;
+  margin-top: 0;
+  font-size: 47px;
 }
 
 .échelle{
 margin-left: 63px;
 margin-right: 63px;
 &__title{
-  color: $c-interface;
   margin: 0;
   margin-bottom: 20px;
 }
@@ -123,6 +148,8 @@ margin-right: 63px;
 &__title{
   margin-left: 63px;
   margin-right: 63px;
+  padding-top: 30px;
+  font-size: 36px;
 }
 &__stats{
   margin-left: 63px;

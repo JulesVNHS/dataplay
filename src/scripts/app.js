@@ -5,11 +5,14 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 console.log(gsap.version);
 
+
+
 //Sticky nav
 let oldScrollY = 0;
 let timer; // Variable pour stocker l'identifiant du timer
 
 const menu = document.querySelector(".scrollnav__list");
+const menuDesktop = document.querySelector(".scrollnav__desktop-list");
 window.addEventListener("scroll", scrollListener);
 
 function scrollListener() {
@@ -18,17 +21,20 @@ function scrollListener() {
 
     if (oldScrollY > window.scrollY || isBottomReached()) {
         menu.classList.remove("scrollnav--hide");
+        menuDesktop.classList.remove("scrollnav__desktop--hide");
     } else {
         menu.classList.add("scrollnav--hide");
+        menuDesktop.classList.add("scrollnav__desktop--hide");
     }
 
-    // Réinitialiser le timer pour supprimer la classe après 5 secondes
+
     timer = setTimeout(() => {
         menu.classList.remove("scrollnav--hide");
     }, 3000);
 
     oldScrollY = window.scrollY;
 }
+
 
 function isBottomReached() {
     return window.innerHeight + window.scrollY >= document.body.offsetHeight;
@@ -279,7 +285,3 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = formatNu
   .catch(function(err) {
     console.log(err);
   });
-
-
-
-  
