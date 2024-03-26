@@ -12,6 +12,7 @@
     width: 90%;
     max-width: 639px;
     box-sizing: border-box;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.5);
 
     &__titre{
         margin-bottom: 27px;
@@ -55,19 +56,19 @@
 
 @keyframes pointChargement{
     0%{
-        transform: translateY(O);
+        transform: translateY(0);
     }
     25%{
         transform: translateY(15%);
     }
     50%{
-        transform: translateY(O);
+        transform: translateY(0);
     }
     75%{
         transform: translateY(15%);
     }
     100%{
-        transform: translateY(O);
+        transform: translateY(0);
     }
 
     
