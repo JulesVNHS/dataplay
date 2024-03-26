@@ -1,0 +1,134 @@
+[
+  {
+    "Image": "assets/images/emoji/emoji_1.svg",
+    "Pourcentage": 15,
+    "Explication": "Pluie abondante",
+    "Temps": 1
+  },
+  {
+    "Image": "assets/images/emoji/emoji_2.svg",
+    "Pourcentage": 10,
+    "Explication": "Mouvement de grève",
+    "Temps": 5
+  },
+  {
+    "Image": "assets/images/emoji/emoji_3.svg",
+    "Pourcentage": 10,
+    "Explication": "Problème technique",
+    "Temps": 3
+  },
+  {
+    "Image": "assets/images/emoji/emoji_4.svg",
+    "Pourcentage": 10,
+    "Explication": "Train devant nous",
+    "Temps": 2
+  },
+  {
+    "Image": "assets/images/emoji/emoji_5.svg",
+    "Pourcentage": 10,
+    "Explication": "Une personne sur les voies",
+    "Temps": 2
+  },
+  {
+    "Image": "assets/images/emoji/emoji_6.svg",
+    "Pourcentage": 8,
+    "Explication": "Feu rouge",
+    "Temps": 3
+  },
+  {
+    "Image": "assets/images/emoji/emoji_7.svg",
+    "Pourcentage": 8,
+    "Explication": "Grève des agriculteurs",
+    "Temps": 4
+  },
+  {
+    "Image": "assets/images/emoji/emoji_8.svg",
+    "Pourcentage": 7,
+    "Explication": "Arbre écroulé sur les voies",
+    "Temps": 2
+  },
+  {
+    "Image": "assets/images/emoji/emoji_9.svg",
+    "Pourcentage": 5,
+    "Explication": "Chute de neige",
+    "Temps": 4
+  },
+  {
+    "Image": "assets/images/emoji/emoji_10.svg",
+    "Pourcentage": 3,
+    "Explication": "Panne de courant",
+    "Temps": 4
+  },
+  {
+    "Image": "assets/images/emoji/emoji_11.svg",
+    "Pourcentage": 3,
+    "Explication": "Personnes alcoolisées à bord",
+    "Temps": 1
+  },
+  {
+    "Image": "assets/images/emoji/emoji_12.svg",
+    "Pourcentage": 3,
+    "Explication": "Rails gelés",
+    "Temps": 4
+  },
+  {
+    "Image": "assets/images/emoji/emoji_13.svg",
+    "Pourcentage": 3,
+    "Explication": "Tempête",
+    "Temps": 4
+  },
+  {
+    "Image": "assets/images/emoji/emoji_14.svg",
+    "Pourcentage": 1,
+    "Explication": "On a volé les fils de cuivre",
+    "Temps": 10
+  },
+  {
+    "Image": "assets/images/emoji/emoji_15.svg",
+    "Pourcentage": 1,
+    "Explication": "Train en feu",
+    "Temps": 15
+  },
+  {
+    "Image": "assets/images/emoji/emoji_16.svg",
+    "Pourcentage": 1,
+    "Explication": "Train inondé",
+    "Temps": 7
+  },
+  {
+    "Image": "assets/images/emoji/emoji_17.svg",
+    "Pourcentage": 1,
+    "Explication": "Un wagon s'est détaché",
+    "Temps": 10
+  },
+  {
+    "Image": "assets/images/emoji/emoji_18.svg",
+    "Pourcentage": 0.5,
+    "Explication": "Fugitif à bord du train",
+    "Temps": 15
+  },
+  {
+    "Image": "assets/images/emoji/emoji_19.svg",
+    "Pourcentage": 0.2,
+    "Explication": "Troupeau de vache sur les voies",
+    "Temps": 20
+  },
+  {
+    "Image": "assets/images/emoji/emoji_20.svg",
+    "Pourcentage": 0.1,
+    "Explication": "Détraqueurs à bord",
+    "Temps": 30
+  },
+  {
+    "Image": "assets/images/emoji/emoji_21.svg",
+    "Pourcentage": 0.1,
+    "Explication": "éruption volcanique",
+    "Temps": 30
+  },
+  {
+    "Image": "assets/images/emoji/emoji_22.svg",
+    "Pourcentage": 0.1,
+    "Explication": "Météorite sur les voies",
+    "Temps": 30
+  }
+]
