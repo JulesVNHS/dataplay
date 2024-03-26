@@ -4,19 +4,66 @@ import {  gsap  } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 console.log(gsap.version);
-
+const bodyStats = document.querySelector(".body__stats")
+if(bodyStats){
+    document.addEventListener('DOMContentLoaded', function () {
+        var ul = document.querySelectorAll(".incident__all-stats");
+    
+        ul.forEach(element => {
+            element.firstElementChild.classList.add("active");
+        });
+    
+        function next() {
+            var liActive = document.querySelectorAll(".active");
+            liActive.forEach(element => {
+                var liNext = element.nextElementSibling;
+                if (liNext) {
+                    element.classList.remove("active");
+                    liNext.classList.add("active");
+                } else {
+                    element.classList.remove("active");
+                    element.parentElement.firstElementChild.classList.add("active");
+                }
+            });
+        }
+    
+        // Déclencher la fonction next() avec un intervalle de 500 ms
+        const intervalID = setInterval(next, 500);
+    });
+     
 //Sticky nav
-  let oldScrollY = 0
-  const menu = document.querySelector(".scrollnav__list");
-  window.addEventListener("scroll", scrollListener);
-  function scrollListener(){
-      if(oldScrollY > window.scrollY){
-          menu.classList.remove("scrollnav--hide");
-      }else{
-          menu.classList.add("scrollnav--hide");
-      }
-      oldScrollY = window.scrollY;
-  }
+let oldScrollY = 0;
+let timer; // Variable pour stocker l'identifiant du timer
+
+const menu = document.querySelector(".scrollnav__list");
+const menuDesktop = document.querySelector(".scrollnav__desktop-list");
+window.addEventListener("scroll", scrollListener);
+
+function scrollListener() {
+    // Réinitialiser le timer à chaque fois que l'utilisateur fait défiler la page
+    clearTimeout(timer);
+
+    if (oldScrollY > window.scrollY || isBottomReached()) {
+        menu.classList.remove("scrollnav--hide");
+        menuDesktop.classList.remove("scrollnav__desktop--hide");
+    } else {
+        menu.classList.add("scrollnav--hide");
+        menuDesktop.classList.add("scrollnav__desktop--hide");
+    }
+
+
+    timer = setTimeout(() => {
+        menu.classList.remove("scrollnav--hide");
+    }, 3000);
+
+    oldScrollY = window.scrollY;
+}
+
+
+function isBottomReached() {
+    return window.innerHeight + window.scrollY >= document.body.offsetHeight;
+}
+
 // Courbe de bezier pour l'animation
 const easeCustom = gsap.parseEase("cubic-bezier(0.85, 0, 0.15, 1)");
 
