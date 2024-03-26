@@ -7,6 +7,32 @@ console.log(gsap.version);
 const bodyStats = document.querySelector(".body__stats")
 if(bodyStats){
 
+    var ul = document.querySelectorAll(".incident__all-stats");
+
+    ul.forEach(element => {
+
+        element.firstElementChild.classList.add("active");
+
+    });
+
+    function next(){
+
+        liActive = document.querySelectorAll(".active");
+        liActive.forEach(element => {
+            
+            liNext = element.nextElementSibling;
+            if(liNext){
+                element.classList.remove("active");
+                liNext.classList.add("active");
+            }else{
+                element.classList.remove("active");
+                element.parentElement.firstElementChild.classList.add("active");
+            }
+        });        
+    }
+    
+    const intervalID = setInterval(next, 500);
+    
 //Sticky nav
 let oldScrollY = 0;
 let timer; // Variable pour stocker l'identifiant du timer

@@ -1,3 +1,5 @@
+
+
 .wrap{
   position: relative;
   width: 100%;
@@ -20,7 +22,6 @@
 }
 
 .title{
-  font-family: 'LTRenovate-SemiBold', sans-serif;
   padding-top: 20px;
   font-size: 36px;
   margin: 0 20px 40px 20px
@@ -32,11 +33,12 @@ color: $c-bleufonce;
 &__title{
   color: $c-bleufonce;
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 &__wagon{
-  margin-top: 0.5em;
+  margin-top: 20px;
+  display: flex;
 }
 }
 
@@ -45,22 +47,31 @@ color: $c-bleufonce;
 overflow-x: hidden; // Parce que dans le mode mobile il y a du scroll
 &__title{
   color: $c-bleuclair;
-  margin: 0 0 15px 20px;
-  font-size: 27px;
-  padding-top: 40px;
+  margin: 0 0 40px 20px;
+  font-size: 36px;
+  padding-top: 63px;
   &--clair{
     color: $c-bleufonce;
   }
 }
+&__excuse{
+  font-style: italic;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  max-width: 50%;
+}
 &__stats{
   margin-left: 20px;
+  margin-top: 20px;
+  padding-bottom: 63px;
 }
 &__all-stats{
-  display: flex;
-  line-height: 145%;
-  font-size: 15px;
-  margin: 20px 20px 0 20px; 
-  padding-bottom: 100px; 
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
 }
 &__img{
   margin: 0;
@@ -83,6 +94,10 @@ overflow-x: hidden; // Parce que dans le mode mobile il y a du scroll
     color: $c-bleufonce;
   }
 }
+&--last{
+  padding-bottom: 120px;
+  background-color: $c-bleufonce;
+  }
 }
 
 
@@ -112,7 +127,12 @@ margin-top: 2em;
   width: 300px;
   background-image: url(../assets/images/wagon.svg);
   background-repeat: no-repeat;
+  &--echelle{
+    width: 450px;
+    height: 65px;
+  }
 }
+
 &__arriere-train{
   height: 55px;
   width: 300px;
@@ -121,11 +141,41 @@ margin-top: 2em;
 }
 
 }
-
-.incident--last{
-padding-bottom: 120px;
-background-color: $c-bleufonce;
+.slider-container {
+  width: 100%;
+  display: flex;
 }
+
+.slider {
+  white-space: nowrap;
+}
+@keyframes moveRight {
+  0% {
+      transform: translateX(-126px);
+      opacity: 5%;
+  }
+  30% {
+    transform: translateX(0px);
+    opacity: 100%;
+}
+  50% {
+      transform: translateX(0px);
+      opacity: 100%;
+  }
+
+  100% {
+    transform: translateX(63px);
+      opacity: 0%;
+  }
+}
+
+.incident__all-stats li {
+  display: inline-block;
+  margin-left: 20px;
+  animation: moveRight 4.5s forwards;
+  font-size: 27px;
+}
+
 
 @media(min-width: 1200px){
 
@@ -137,7 +187,7 @@ background-color: $c-bleufonce;
 
 .title{
   margin-left: 63px;
-  padding-top: 112px;
+  padding-top: 180px;
   margin-top: 0;
   font-size: 84px;
 }
@@ -147,7 +197,7 @@ margin-left: 63px;
 margin-right: 63px;
 &__title{
   margin: 0;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   font-size: 63px;
 }
 
@@ -161,18 +211,33 @@ margin-right: 63px;
 &__title{
   margin-left: 63px;
   margin-right: 63px;
-  padding-top: 84px;
+  margin-bottom: 63px;
+  padding-top: 150px;
   font-size: 63px;
 }
-&__stats{
+&__excuse{
+  max-width: 60%;
   margin-left: 63px;
+  margin-bottom: 63px;
+}
+
+&__stats{
+  margin-top: 20px;
+  margin-left: 63px;
+  padding-bottom: 150px;
 }
 &__all-stats{
   margin-left: 63px;
   margin-right: 63px;
 }
+
 }
 .stats__el{
 cursor: pointer;
 }
+.incident__all-stats li {
+  margin-left: 0px;
+  font-size: 36px;
+}
+
 }

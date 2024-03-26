@@ -27,13 +27,13 @@
             <div class="scrollnav__menu">
               <ul class="scrollnav__list menu__list">
                 <li class=" menu__el">
-                  <a class="menu__link menu__link--nav menu__link--accueil" href="index.html">
+                  <a class="menu__link menu__link--nav menu__link--accueil menu__link--inactive" href="index.html">
                     <img class="menu__img" src="assets/images/home.svg" alt="logo home">
                     <p class="menu__text menu__text--stats">Accueil</p>
                   </a>
                 </li>
                 <li class=" menu__el">
-                  <a class="menu__link menu__link--nav menu__link--inactive" href="stats.html">
+                  <a class="menu__link menu__link--nav " href="stats.html">
                     <img class="menu__img" src="assets/images/stats.svg" alt="logo stats">
                     <p class="menu__text menu__text--stats">Stats</p>
                   </a>
@@ -61,9 +61,9 @@
           Un wagon
         </h2>
         <p class="échelle__stats">
-          équivaut à 20 000 minutes de retard accumulé
+          = 20 000 minutes de retard.
         </p>
-        <div class="stats__wagon échelle__wagon"></div>
+        <div class="stats__wagon stats__wagon--echelle échelle__wagon"></div>
       </div>
     </div>
     <div class="wrap">
@@ -76,44 +76,55 @@
             <h2 class="incident__title">
                 Perturbation sur la voie
             </h2>
-            <p class="incident__stats" id="incident__nombres--perturbation"></p>
+            <div class="slider-container">
+              <div class="slider">
+                <ul class="incident__all-stats">
+                  <li>Intrusion dans les voies&#8239;</li>
+                  <li>Heurt&nbsp;d'une&nbsp;personne&#8239;</li>
+                  <li>Incendie&nbsp;à&nbsp;proximité&nbsp;des&nbsp;voies&#8239;</li>
+                  <li>Incendie&nbsp;dans&nbsp;les&nbsp;voies&#8239;</li>
+                  <li>Incident&nbsp;pendant&nbsp;un&nbsp;chantier&#8239;</li>
+                  <li>Accident&nbsp;à&nbsp;un&nbsp;passage&nbsp;à&nbsp;niveau&#8239;</li>
+                  <li>Heurt&nbsp;d'animal&#8239;</li>
+                  <li>Dérangement&nbsp;à&nbsp;un&nbsp;passage&nbsp;à&nbsp;niveau&#8239;</li>
+                  <li>Obstacle&nbsp;dans/à&nbsp;proximité&nbsp;de&nbsp;la&nbsp;voie&#8239;</li>
+                  <li>Corps dans&nbsp;les&nbsp;voies&#8239;</li>
+                  <li>Dérangement&nbsp;à&nbsp;un&nbsp;aiguillage&#8239;</li>
+                  <li>Dérangement&nbsp;à&nbsp;la&nbsp;signalisation&#8239;.</li>
+                </ul>
+              </div>
+            </div>
+            <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
             <div class="stats">
                 <div class="stats__animation" id="stats__perturbation-1"></div>
             </div>
-            <small class="incident__all-stats">
-                Intrusion dans les voies&#8239;,
-                Heurt&nbsp;d'une&nbsp;personne&#8239;,
-                Incendie&nbsp;à&nbsp;proximité&nbsp;des&nbsp;voies&#8239;,
-                Incendie&nbsp;dans&nbsp;les&nbsp;voies&#8239;,
-                Incident&nbsp;pendant&nbsp;un&nbsp;chantier&#8239;,
-                Accident&nbsp;à&nbsp;un&nbsp;passage&nbsp;à&nbsp;niveau&#8239;,
-                Heurt&nbsp;d'animal&#8239;,
-                Dérangement&nbsp;à&nbsp;un&nbsp;passage&nbsp;à&nbsp;niveau&#8239;,
-                Obstacle&nbsp;dans/à&nbsp;proximité&nbsp;de&nbsp;la&nbsp;voie&#8239;,
-                Corps dans&nbsp;les&nbsp;voies&#8239;,
-                Dérangement&nbsp;à&nbsp;un&nbsp;aiguillage&#8239;,
-                Dérangement&nbsp;à&nbsp;la&nbsp;signalisation&#8239;.
-            </small>
+            <p class="incident__stats" id="incident__nombres--perturbation"></p>
         </div>
     </div>
 
     <div class="incident incident--avarie">
         <div class="incident__background--foncé">
             <img class="incident__img" src="assets/images/illuDinant.svg" alt="">
+            
         </div>
         <div class="incident__contenu--clair">
             <h2 class="incident__title incident__title--clair">
                 Avarie
             </h2>
-            <p class="incident__stats" id="incident__nombres--avarie"></p>
+            <div class="slider-container">
+              <div class="slider">
+                <ul class="incident__all-stats">
+                  <li>Avarie&nbsp;matériel&nbsp;roulant&#8239;</li>
+                  <li>Avarie&nbsp;caténaire&#8239;</li>
+                  <li>Avarie&nbsp;train&nbsp;à&nbsp;grande&nbsp;vitesse&#8239;</li>
+                </ul>
+              </div>
+            </div>
+            <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
             <div class="stats">
                 <div class="stats__animation" id="stats__avarie-1"></div>
             </div>
-            <small class="incident__all-stats">
-                Avarie&nbsp;matériel&nbsp;roulant&#8239;,
-                Avarie&nbsp;caténaire&#8239;,
-                Avarie&nbsp;train&nbsp;à&nbsp;grande&nbsp;vitesse&#8239;.
-            </small>
+            <p class="incident__stats" id="incident__nombres--avarie"></p>
         </div>
     </div>
 
@@ -125,15 +136,20 @@
         <h2 class="incident__title">
           Travaux
         </h2>
-        <p class="incident__stats" id="incident__nombres--travaux"></p>
-        <div class="stats">
-          <div class="stats__animation" id="stats__travaux-1">
+        <div class="slider-container">
+          <div class="slider">
+            <ul class="incident__all-stats">
+              <li>Terminaison&nbsp;tardive&nbsp;de&nbsp;travaux&#8239;</li>
+              <li>Travaux&nbsp;urgents&#8239;</li>
+            </ul>
           </div>
         </div>
-        <small class="incident__all-stats">
-          Terminaison&nbsp;tardive&nbsp;de&nbsp;travaux&#8239;,
-          Travaux&nbsp;urgents&#8239;.
-        </small>
+        <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+        <div class="stats">
+          <div class="stats__animation" id="stats__travaux-1">
+        </div>
+        <p class="incident__stats" id="incident__nombres--travaux"></p>
+        </div>
       </div>
     </div>
     
@@ -145,14 +161,19 @@
           <h2 class="incident__title incident__title--clair">
             Grèves
           </h2>
-          <p class="incident__stats" id="incident__nombres--grèves"></p>
-          <div class="stats">
-            <div class="stats__animation" id="stats__grèves-1">
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Mouvement&nbsp;de&nbsp;grève&#8239;</li>
+              </ul>
             </div>
           </div>
-          <small class="incident__all-stats">
-            Mouvement&nbsp;de&nbsp;grève&#8239;.
-          </small>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__grèves-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--grèves"></p>
+          </div>          
         </div>
       </div>
  
@@ -165,14 +186,20 @@
         <h2 class="incident__title">
           Conditions météos
         </h2>
+        <div class="slider-container">
+          <div class="slider">
+            <ul class="incident__all-stats">
+              <li>Conditions&nbsp;météorologiques&nbsp;exceptionnelles&#8239;</li>
+            </ul>
+          </div>
+        </div>
+        <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+
         <p class="incident__stats" id="incident__nombres--météo"></p>
         <div class="stats">
           <div class="stats__animation" id="stats__météo-1">
           </div>
         </div>
-        <small class="incident__all-stats">
-          Conditions&nbsp;météorologiques&nbsp;exceptionnelles&#8239;.
-        </small>
       </div>
     </div>
     
@@ -185,15 +212,21 @@
            <h2 class="incident__title incident__title--clair">
              Déraillement de trains
            </h2>
-           <p class="incident__stats" id="incident__nombres--déraillement"></p>
+           <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Déraillement&nbsp;d'un&nbsp;train&nbsp;de&nbsp;marchandises&#8239;</li>
+                <li>Déraillement&nbsp;d'un&nbsp;train&nbsp;de&nbsp;voyageurs&#8239;</li>
+              </ul>
+            </div>
+          </div>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+    
            <div class="stats">
              <div class="stats__animation" id="stats__déraillement-1">
-             </div>
+            </div>
+          <p class="incident__stats" id="incident__nombres--déraillement"></p>
            </div>
-           <small class="incident__all-stats">
-             Déraillement&nbsp;d'un&nbsp;train&nbsp;de&nbsp;marchandises&#8239;,
-             Déraillement&nbsp;d'un&nbsp;train&nbsp;de&nbsp;voyageurs&#8239;.
-           </small>
         </div>
       </div>
 
@@ -205,15 +238,21 @@
           <h2 class="incident__title">
             Erreur de conducteur
           </h2>
-          <p class="incident__stats" id="incident__nombres--erreur"></p>
-          <div class="stats">
-            <div class="stats__animation" id="stats__erreur-1">
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Dépassement&nbsp;d'un&nbsp;signal&nbsp;rouge&#8239;</li>
+                <li>Erreur&nbsp;lors&nbsp;d'une&nbsp;manœuvre&#8239;</li>
+              </ul>
             </div>
           </div>
-          <small class="incident__all-stats">
-            Dépassement&nbsp;d'un&nbsp;signal&nbsp;rouge&#8239;,
-            Erreur&nbsp;lors&nbsp;d'une&nbsp;manœuvre&#8239;.
-          </small>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__erreur-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--erreur"></p>
+          </div>
+          
         </div>
       </div>
 
@@ -225,19 +264,26 @@
           <h2 class="incident__title incident__title--clair">
             Dérangement externe
           </h2>
-          <p class="incident__stats" id="incident__nombres--dérangement"></p>
-          <div class="stats">
-            <div class="stats__animation" id="stats__dérangement-1">
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Acte&nbsp;de&nbsp;malveillance&#8239;</li>
+                <li>Vol&nbsp;de&nbsp;câbles&#8239;</li>
+                <li>Alerte&nbsp;à&nbsp;la&nbsp;bombe&#8239;</li>
+                <li>Présence&nbsp;d'un&nbsp;colis&nbsp;suspect&#8239;</li>
+                <li>Dérangement&nbsp;informatique&#8239;</li>
+                <li>Dérangement&nbsp;à&nbsp;l'infrastructure&#8239;</li>
+              </ul>
             </div>
           </div>
-          <small class="incident__all-stats">
-            Acte&nbsp;de&nbsp;malveillance&#8239;,
-            Vol&nbsp;de&nbsp;câbles&#8239;,
-            Alerte&nbsp;à&nbsp;la&nbsp;bombe&#8239;,
-            Présence&nbsp;d'un&nbsp;colis&nbsp;suspect&#8239;,
-            Dérangement&nbsp;informatique&#8239;,
-            Dérangement&nbsp;à&nbsp;l'infrastructure&#8239;.
-          </small>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+
+          
+          <div class="stats">
+            <div class="stats__animation" id="stats__dérangement-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--dérangement"></p>
+          </div>
         </div>
       </div>
 
@@ -249,14 +295,21 @@
           <h2 class="incident__title">
             Affluence de voyageurs
           </h2>
-          <p class="incident__stats" id="incident__nombres--affluence"></p>
-          <div class="stats">
-            <div class="stats__animation" id="stats__affluence-1">
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Affluence&nbsp;de&nbsp;voyageurs&#8239;</li>
+              </ul>
             </div>
           </div>
-          <small class="incident__all-stats">
-            Affluence&nbsp;de&nbsp;voyageurs&#8239;.
-          </small>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__affluence-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--affluence"></p>
+          </div>
+
+          
         </div>
       </div>
 
@@ -268,14 +321,22 @@
           <h2 class="incident__title incident__title--clair">
             Problème de personnel
           </h2>
-          <p class="incident__stats" id="incident__nombres--personnel"></p>
-          <div class="stats">
-            <div class="stats__animation" id="stats__personnel-1">
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Problème&nbsp;de&nbsp;personnel&#8239;</li>
+              </ul>
             </div>
           </div>
-          <small class="incident__all-stats">
-            Problème&nbsp;de&nbsp;personnel&#8239;.
-          </small>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+
+          <div class="stats">
+            <div class="stats__animation" id="stats__personnel-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--personnel"></p>
+          </div>
+
+          
         </div>
       </div>
 
@@ -287,14 +348,22 @@
           <h2 class="incident__title">
             Mesures COVID 19
           </h2>
-          <p class="incident__stats" id="incident__nombres--covid"></p>
-          <div class="stats">
-            <div class="stats__animation" id="stats__covid-1">
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Mesures&nbsp;COVID&nbsp;19&#8239;</li>
+              </ul>
             </div>
           </div>
-          <small class="incident__all-stats">
-            Mesures&nbsp;COVID&nbsp;19&#8239;.
-          </small>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+
+         
+          <div class="stats">
+            <div class="stats__animation" id="stats__covid-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--covid"></p>
+          </div>
+        
         </div>
       </div>
 
@@ -307,14 +376,20 @@
           <h2 class="incident__title incident__title--clair">
             Défaut de fourniture d'électricité par le gestionnaire de réseau
           </h2>
-          <p class="incident__stats" id="incident__nombres--fourniture"></p>
-          <div class="stats">
-            <div class="stats__animation" id="stats__fourniture-1">
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Défaut&nbsp;de&nbsp;fourniture&nbsp;d'électricité&nbsp;par&nbsp;le&nbsp;gestionnaire&nbsp;de&nbsp;réseau&#8239;</li>
+              </ul>
             </div>
           </div>
-          <small class="incident__all-stats">
-            Défaut&nbsp;de&nbsp;fourniture&nbsp;d'électricité&nbsp;par&nbsp;le&nbsp;gestionnaire&nbsp;de&nbsp;réseau&#8239;.
-          </small>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+
+          <div class="stats">
+            <div class="stats__animation" id="stats__fourniture-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--fourniture"></p>
+          </div>          
         </div>
       </div>
       
@@ -326,14 +401,19 @@
           <h2 class="incident__title">
             Problème avec un voyageur
           </h2>
-          <p class="incident__stats" id="incident__nombres--pb-voyageur"></p>
-          <div class="stats">
-            <div class="stats__animation" id="stats__voyageur-1">
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Problème&nbsp;avec&nbsp;un&nbsp;voyageur&#8239;</li>
+              </ul>
             </div>
           </div>
-          <small class="incident__all-stats">
-            Problème&nbsp;avec&nbsp;un&nbsp;voyageur&#8239;.
-          </small>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__voyageur-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--pb-voyageur"></p>
+          </div>
         </div>
       </div>
     </div>
