@@ -3,7 +3,6 @@
 import {  gsap  } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
-console.log(gsap.version);
 const bodyStats = document.querySelector(".body__stats")
 if(bodyStats){
     document.addEventListener('DOMContentLoaded', function () {
@@ -28,7 +27,7 @@ if(bodyStats){
         }
     
         // Déclencher la fonction next() avec un intervalle de 500 ms
-        const intervalID = setInterval(next, 500);
+        const intervalID = setInterval(next, 3500);
     });
      
 //Sticky nav
@@ -230,7 +229,6 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = formatNu
           numberOfWagons = Math.round(numberOfBoxes - trainLength * trainCounter)
         }
         let TrainWidth = 600+ Math.round(300 * numberOfWagons);
-        console.log(TrainWidth)
         trainList.setAttribute("data-width", TrainWidth);
         
      
@@ -281,7 +279,7 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = formatNu
   const trains = selector(".stats__list")
 
   trains.forEach(function(trainItem){
-    let nombreAleatoire = Math.floor(Math.random() * 5) + 1;
+    let nombreAleatoire = Math.floor(Math.random() * 3.5) + 1;
     const width =trainItem.getAttribute("data-width");
     gsap.fromTo(
       trainItem,

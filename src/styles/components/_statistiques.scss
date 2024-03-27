@@ -6,17 +6,6 @@
   margin: 0;
   padding: 0
 }
-.menu{
-  &__link{
-    background-color: #0169B4;
-  }
-  &__logo{
-    filter: brightness(0) invert(1);
-  }
-}
-.menu__link{
-  background-color: #0169B4;
-}
 .body__stats{
   overflow-x: hidden;
 }
@@ -30,6 +19,7 @@
 margin-left: 20px;
 margin-right: 20px;
 color: $c-bleufonce;
+padding-bottom: 63px;
 &__title{
   color: $c-bleufonce;
   margin: 0;
@@ -39,12 +29,14 @@ color: $c-bleufonce;
 &__wagon{
   margin-top: 20px;
   display: flex;
+  padding-bottom: 20px;
 }
 }
 
 
 .incident{
 overflow-x: hidden; // Parce que dans le mode mobile il y a du scroll
+position: sticky;
 &__title{
   color: $c-bleuclair;
   margin: 0 0 40px 20px;
@@ -59,7 +51,7 @@ overflow-x: hidden; // Parce que dans le mode mobile il y a du scroll
   margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 40px;
-  max-width: 50%;
+  max-width: 80%;
 }
 &__stats{
   margin-left: 20px;
@@ -73,10 +65,15 @@ overflow-x: hidden; // Parce que dans le mode mobile il y a du scroll
   width: 100%;
   overflow: hidden;
 }
+&__légendes{
+  margin-left: 20px;
+}
 &__img{
   margin: 0;
   vertical-align: middle;
-  
+  &--first{
+    height: 200px;
+  }
 }
 
 &__background{
@@ -128,9 +125,10 @@ margin-top: 2em;
   background-image: url(../assets/images/wagon.svg);
   background-repeat: no-repeat;
   &--echelle{
-    width: 450px;
+    width: 300px;
     height: 65px;
   }
+
 }
 
 &__arriere-train{
@@ -170,12 +168,16 @@ margin-top: 2em;
 }
 
 .incident__all-stats li {
-  display: inline-block;
   margin-left: 20px;
-  animation: moveRight 4.5s forwards;
-  font-size: 27px;
+  display: none;
+  opacity: 0;
+  animation: moveRight 3.5s ease; /* Définir la transition pour l'opacité */
 }
 
+.incident__all-stats li.active {
+  display: inline-block;
+  opacity: 1; /* L'opacité 1 pour les éléments actifs */
+}
 
 @media(min-width: 1200px){
 
@@ -184,10 +186,15 @@ margin-top: 2em;
     color: white;
   }
 }
+.menu__link{
 
+  &--stats{
+    background-color: #0169B4;
+  }
+}
 .title{
   margin-left: 63px;
-  padding-top: 180px;
+  padding-top: 150px;
   margin-top: 0;
   font-size: 84px;
 }
@@ -199,6 +206,9 @@ margin-right: 63px;
   margin: 0;
   margin-bottom: 40px;
   font-size: 63px;
+}
+&__stats{
+  font-size: 27px;
 }
 
 &__wagon{
@@ -212,25 +222,43 @@ margin-right: 63px;
   margin-left: 63px;
   margin-right: 63px;
   margin-bottom: 63px;
-  padding-top: 150px;
+  padding-top: 112px;
   font-size: 63px;
 }
 &__excuse{
   max-width: 60%;
   margin-left: 63px;
   margin-bottom: 63px;
+  line-height: 150%;
 }
 
 &__stats{
+  font-size: 27px;
   margin-top: 20px;
   margin-left: 63px;
-  padding-bottom: 150px;
+  padding-bottom: 112px;
 }
+
 &__all-stats{
   margin-left: 63px;
   margin-right: 63px;
 }
-
+&__img{
+  &--last{
+    height: 500px;
+  }
+}
+&__légendes{
+  margin-left: 63px;
+}
+}
+.stats{
+  &__wagon{
+    &--echelle{
+      width: 450px;
+      height: 65px;
+    }
+  }
 }
 .stats__el{
 cursor: pointer;

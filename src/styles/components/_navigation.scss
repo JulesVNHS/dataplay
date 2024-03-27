@@ -5,6 +5,9 @@
     &__logo{
         height: 36px;
         padding: 27px 0 27px 0;
+        &--stats{
+            filter: brightness(0) invert(1);
+        }
     }
 
     &__list{
@@ -25,6 +28,12 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        &--mobile{
+            background-color: $c-bleuclair;
+        }
+        &-accueil{
+            background-color: white;
+        }
     }
 
     &__link--nav{
