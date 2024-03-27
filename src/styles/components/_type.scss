@@ -17,6 +17,11 @@ body {
   font-family: 'SNPro-Regular', sans-serif;
   font-size: $size-text;
   margin: 0;
+  padding: 0;
+}
+
+.body__accueil {
+  overflow: hidden;
 }
 
 .body__accueil {

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Late - DataPlay</title>
+  <link rel="shortcut icon" href="assets/images/logo.svg">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Une interaction ludiques sur base de données">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Late - DataPlay">
+  <meta property="og:url" content="https://maxime-baldan.be/projets/dataplay">
+  <meta property="og:image" content="assets/images/logo.svg">
+  <meta property="og:description" content="Une interaction ludiques sur base de données">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/app.css">
+  <script src="scripts/app.js" defer></script>
+</head>
+<body class="body__stats">
+  <header>
+    <div class="scrollnav__desktop">
+      <div class="scrollnav__desktop-menu">
+        <nav class="menu menu__stats scrollnav__desktop-list">
+          <a class="menu__link menu__link--stats menu__link--logo  menu__link--mobile" href="index.html">
+            <img class="menu__logo menu__logo--stats" src="assets/images/logo.svg" alt="logo Late (L8)">
+          </a>
+          <div class="scrollnav">
+            <div class="scrollnav__menu">
+              <ul class="scrollnav__list menu__list">
+                <li class=" menu__el">
+                  <a class="menu__link menu__link--nav menu__link--accueil menu__link--inactive" href="index.html">
+                    <img class="menu__img" src="assets/images/home.svg" alt="logo home">
+                    <p class="menu__text menu__text--stats">Accueil</p>
+                  </a>
+                </li>
+                <li class=" menu__el">
+                  <a class="menu__link menu__link--nav " href="stats.html">
+                    <img class="menu__img" src="assets/images/stats.svg" alt="logo stats">
+                    <p class="menu__text menu__text--stats">Stats</p>
+                  </a>
+                </li>
+                <li class=" menu__el">
+                  <a class="menu__link menu__link--nav menu__link--inactive" href="maxime-baldan.be/projets/dataplay/presentation">
+                    <img class="menu__img" src="assets/images/projet.svg" alt="logo projet">
+                    <p class="menu__text menu__text--stats">Projet</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="incident__contenu--clair">
+      <h1 class="title">
+        Les trains du retard
+      </h1>
+      <div class="échelle">
+        <p class="échelle__stats">
+          Un wagon = 20 000 minutes de retard.
+        </p>
+        <div class="stats__wagon stats__wagon--echelle échelle__wagon"></div>
+      </div>
+    </div>
+    <div class="wrap">
+
+      <div class="incident">
+        <div class="incident__background">
+            <img class="incident__img " src="assets/images/illuMons.svg" alt="">
+        </div>
+        <div class="incident__contenu">
+            <h2 class="incident__title">
+                Perturbation sur la voie
+            </h2>
+            <div class="slider-container">
+              <div class="slider">
+                <ul class="incident__all-stats">
+                  <li>Intrusion dans les voies&#8239;</li>
+                  <li>Heurt&nbsp;d'une&nbsp;personne&#8239;</li>
+                  <li>Incendie&nbsp;à&nbsp;proximité&nbsp;des&nbsp;voies&#8239;</li>
+                  <li>Incendie&nbsp;dans&nbsp;les&nbsp;voies&#8239;</li>
+                  <li>Incident&nbsp;pendant&nbsp;un&nbsp;chantier&#8239;</li>
+                  <li>Accident&nbsp;à&nbsp;un&nbsp;passage&nbsp;à&nbsp;niveau&#8239;</li>
+                  <li>Heurt&nbsp;d'animal&#8239;</li>
+                  <li>Dérangement&nbsp;à&nbsp;un&nbsp;passage&nbsp;à&nbsp;niveau&#8239;</li>
+                  <li>Obstacle&nbsp;dans/à&nbsp;proximité&nbsp;de&nbsp;la&nbsp;voie&#8239;</li>
+                  <li>Corps dans&nbsp;les&nbsp;voies&#8239;</li>
+                  <li>Dérangement&nbsp;à&nbsp;un&nbsp;aiguillage&#8239;</li>
+                  <li>Dérangement&nbsp;à&nbsp;la&nbsp;signalisation&#8239;.</li>
+                </ul>
+              </div>
+            </div>
+            <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre&nbsp;est momentanément interromp, car&nbsp;une&nbsp;vache se trouve sur les voies et qu'on ne va quand même pas en faire des&nbsp;côtelettes&#8239;."</p>
+            <div class="stats">
+                <div class="stats__animation" id="stats__perturbation-1"></div>
+            </div>
+            <p class="incident__stats" id="incident__nombres--perturbation"></p>
+        </div>
+    </div>
+
+    <div class="incident incident--avarie">
+        <div class="incident__background--foncé">
+            <img class="incident__img" src="assets/images/illuDinant.svg" alt="">
+            
+        </div>
+        <div class="incident__contenu--clair">
+            <h2 class="incident__title incident__title--clair">
+                Avarie
+            </h2>
+            <div class="slider-container">
+              <div class="slider">
+                <ul class="incident__all-stats">
+                  <li>Avarie&nbsp;matériel&nbsp;roulant&#8239;</li>
+                  <li>Avarie&nbsp;caténaire&#8239;</li>
+                  <li>Avarie&nbsp;train&nbsp;à&nbsp;grande&nbsp;vitesse&#8239;</li>
+                </ul>
+              </div>
+            </div>
+            <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+            <div class="stats">
+                <div class="stats__animation" id="stats__avarie-1"></div>
+            </div>
+            <p class="incident__stats" id="incident__nombres--avarie"></p>
+        </div>
+    </div>
+
+    <div class="incident">
+      <div class="incident__background">
+        <img class="incident__img" src="assets/images/illuAnvers.svg" alt="">
+      </div>
+      <div class="incident__contenu">
+        <h2 class="incident__title">
+          Travaux
+        </h2>
+        <div class="slider-container">
+          <div class="slider">
+            <ul class="incident__all-stats">
+              <li>Terminaison&nbsp;tardive&nbsp;de&nbsp;travaux&#8239;</li>
+              <li>Travaux&nbsp;urgents&#8239;</li>
+            </ul>
+          </div>
+        </div>
+        <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+        <div class="stats">
+          <div class="stats__animation" id="stats__travaux-1">
+        </div>
+        <p class="incident__stats" id="incident__nombres--travaux"></p>
+        </div>
+      </div>
+    </div>
+    
+      <div class="incident">
+        <div class="incident__background--foncé">
+          <img class="incident__img" src="assets/images/illuNamur.svg" alt="">
+        </div>
+        <div class="incident__contenu--clair">
+          <h2 class="incident__title incident__title--clair">
+            Grèves
+          </h2>
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Mouvement&nbsp;de&nbsp;grève&#8239;</li>
+              </ul>
+            </div>
+          </div>
+          <p class="incident__excuse">
+            "Chers passagers, aujourd'hui, notre train est en mode 'slow motion' à cause d'une grève surprise."</p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__grèves-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--grèves"></p>
+          </div>          
+        </div>
+      </div>
+ 
+    
+    <div class="incident">
+      <div class="incident__background">
+        <img class="incident__img" src="assets/images/illuBruxelles.svg" alt="">
+      </div>
+      <div class="incident__contenu">
+        <h2 class="incident__title">
+          Conditions météos
+        </h2>
+        <div class="slider-container">
+          <div class="slider">
+            <ul class="incident__all-stats">
+              <li>Conditions&nbsp;météorologiques&nbsp;exceptionnelles&#8239;</li>
+            </ul>
+          </div>
+        </div>
+        <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+        <div class="stats">
+          <div class="stats__animation" id="stats__météo-1">
+        </div>
+        <p class="incident__stats" id="incident__nombres--météo"></p>
+        </div>
+      </div>
+    </div>
+    
+
+      <div class="incident ">
+        <div class="incident__background--foncé">
+          <img class="incident__img" src="assets/images/illuGand.svg" alt="">
+        </div>
+        <div class="incident__contenu--clair">
+           <h2 class="incident__title incident__title--clair">
+             Déraillement de trains
+           </h2>
+           <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Déraillement&nbsp;d'un&nbsp;train&nbsp;de&nbsp;marchandises&#8239;</li>
+                <li>Déraillement&nbsp;d'un&nbsp;train&nbsp;de&nbsp;voyageurs&#8239;</li>
+              </ul>
+            </div>
+          </div>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+    
+           <div class="stats">
+             <div class="stats__animation" id="stats__déraillement-1">
+            </div>
+          <p class="incident__stats" id="incident__nombres--déraillement"></p>
+           </div>
+        </div>
+      </div>
+
+      <div class="incident ">
+        <div class="incident__background">
+          <img class="incident__img" src="assets/images/illuMons.svg" alt="">
+        </div>
+        <div class="incident__contenu">
+          <h2 class="incident__title">
+            Erreur de conducteur
+          </h2>
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Dépassement&nbsp;d'un&nbsp;signal&nbsp;rouge&#8239;</li>
+                <li>Erreur&nbsp;lors&nbsp;d'une&nbsp;manœuvre&#8239;</li>
+              </ul>
+            </div>
+          </div>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__erreur-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--erreur"></p>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="incident ">
+        <div class="incident__background--foncé">
+          <img class="incident__img " src="assets/images/illuDinant.svg" alt="">
+        </div>
+        <div class="incident__contenu--clair">
+          <h2 class="incident__title incident__title--clair">
+            Dérangement externe
+          </h2>
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Acte&nbsp;de&nbsp;malveillance&#8239;</li>
+                <li>Vol&nbsp;de&nbsp;câbles&#8239;</li>
+                <li>Alerte&nbsp;à&nbsp;la&nbsp;bombe&#8239;</li>
+                <li>Présence&nbsp;d'un&nbsp;colis&nbsp;suspect&#8239;</li>
+                <li>Dérangement&nbsp;informatique&#8239;</li>
+                <li>Dérangement&nbsp;à&nbsp;l'infrastructure&#8239;</li>
+              </ul>
+            </div>
+          </div>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+
+          
+          <div class="stats">
+            <div class="stats__animation" id="stats__dérangement-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--dérangement"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="incident">
+        <div class="incident__background">
+          <img class="incident__img" src="assets/images/illuBruxelles.svg" alt="">
+        </div>
+        <div class="incident__contenu">
+          <h2 class="incident__title">
+            Affluence de voyageurs
+          </h2>
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Affluence&nbsp;de&nbsp;voyageurs&#8239;</li>
+              </ul>
+            </div>
+          </div>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__affluence-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--affluence"></p>
+          </div>
+
+          
+        </div>
+      </div>
+
+      <div class="incident">
+        <div class="incident__background--foncé">
+          <img class="incident__img" src="assets/images/illuNamur.svg" alt="">
+        </div>
+        <div class="incident__contenu--clair">
+          <h2 class="incident__title incident__title--clair">
+            Problème de personnel
+          </h2>
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Problème&nbsp;de&nbsp;personnel&#8239;</li>
+              </ul>
+            </div>
+          </div>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+
+          <div class="stats">
+            <div class="stats__animation" id="stats__personnel-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--personnel"></p>
+          </div>
+
+          
+        </div>
+      </div>
+
+      <div class="incident">
+        <div class="incident__background">
+          <img class="incident__img" src="assets/images/illuAnvers.svg" alt="">
+        </div>
+        <div class="incident__contenu">
+          <h2 class="incident__title">
+            Mesures COVID 19
+          </h2>
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Mesures&nbsp;COVID&nbsp;19&#8239;</li>
+              </ul>
+            </div>
+          </div>
+          <p class="incident__excuse">"Chers voyageurs, le trajet Malines-Gand-St-Pierre est momentanément interrompu, car une vache se trouve sur les voies et qu'on ne va quand même pas en faire des côtelettes."</p>
+
+         
+          <div class="stats">
+            <div class="stats__animation" id="stats__covid-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--covid"></p>
+          </div>
+        
+        </div>
+      </div>
+
+
+      <div class="incident">
+        <div class="incident__background--foncé">
+          <img class="incident__img" src="assets/images/illuDinant.svg" alt="">
+        </div>
+        <div class="incident__contenu--clair">
+          <h2 class="incident__title incident__title--clair">
+            Défaut de fourniture d'électricité par le gestionnaire de réseau
+          </h2>
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Défaut&nbsp;de&nbsp;fourniture&nbsp;d'électricité&nbsp;par&nbsp;le&nbsp;gestionnaire&nbsp;de&nbsp;réseau&#8239;</li>
+              </ul>
+            </div>
+          </div>
+          <p class="incident__excuse">
+            "Chers voyageurs, excusez notre retard. Notre fournisseur électrique a pris une pause café, laissant nos trains dans le noir. Nous réglons le souci rapidement. Merci pour votre patience."</p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__fourniture-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--fourniture"></p>
+          </div>          
+        </div>
+      </div>
+      
+      <div class="incident incident--last">
+        <div class="incident__background">
+          <img class="incident__img" src="assets/images/illuBruxelles.svg" alt="">
+        </div>
+        <div class="incident__contenu">
+          <h2 class="incident__title">
+            Problème avec un voyageur
+          </h2>
+          <div class="slider-container">
+            <div class="slider">
+              <ul class="incident__all-stats">
+                <li>Problème&nbsp;avec&nbsp;un&nbsp;voyageur&#8239;</li>
+              </ul>
+            </div>
+          </div>
+          <p class="incident__excuse">"Mesdames et Messieurs, ce train aura quelques minutes de retard suite à un problème d'accouplement."</p>
+          <div class="stats">
+            <div class="stats__animation" id="stats__voyageur-1">
+          </div>
+          <p class="incident__stats" id="incident__nombres--pb-voyageur"></p>
+          <small class="incident__légendes">*Causes des retards depuis 2019 fournies par Infrabel</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,271 @@
+
+
+.wrap{
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0
+}
+.body__stats{
+  overflow-x: hidden;
+}
+
+.title{
+  padding-top: 20px;
+  font-size: 36px;
+  margin: 0 20px 40px 20px
+}
+.échelle{
+margin-left: 20px;
+margin-right: 20px;
+color: $c-bleufonce;
+padding-bottom: 63px;
+&__title{
+  color: $c-bleufonce;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+&__wagon{
+  margin-top: 20px;
+  display: flex;
+  padding-bottom: 20px;
+}
+}
+
+
+.incident{
+overflow-x: hidden; // Parce que dans le mode mobile il y a du scroll
+position: sticky;
+&__title{
+  color: $c-bleuclair;
+  margin: 0 0 40px 20px;
+  font-size: 36px;
+  padding-top: 63px;
+  &--clair{
+    color: $c-bleufonce;
+  }
+}
+&__excuse{
+  font-style: italic;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  max-width: 80%;
+}
+&__stats{
+  margin-left: 20px;
+  margin-top: 20px;
+  padding-bottom: 63px;
+}
+&__all-stats{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+}
+&__légendes{
+  margin-left: 20px;
+}
+&__img{
+  margin: 0;
+  vertical-align: middle;
+  &--first{
+    height: 200px;
+  }
+}
+
+&__background{
+  background-color: $c-bleuclair;
+  &--foncé{
+    background-color: $c-bleufonce;
+  }
+}
+&__contenu{
+  background-color: $c-bleufonce;
+  color: $c-bleuclair;
+  margin: 0;
+  &--clair{
+    background-color: $c-bleuclair;
+    color: $c-bleufonce;
+  }
+}
+&--last{
+  padding-bottom: 120px;
+  background-color: $c-bleufonce;
+  }
+}
+
+
+
+.stats{
+margin-top: 2em;
+
+&__list{
+  display: flex;
+  position: relative;
+}
+&__el{
+  margin-top: 0px;
+
+  &:last-child{
+    margin-bottom: 20px;
+  }
+}
+&__avant-train{
+  height: 55px;
+  width: 300px;
+  background-image: url(../assets/images/avant_train.svg);
+  background-repeat: no-repeat;
+}
+&__wagon{
+  height: 55px;
+  width: 300px;
+  background-image: url(../assets/images/wagon.svg);
+  background-repeat: no-repeat;
+  &--echelle{
+    width: 300px;
+    height: 65px;
+  }
+
+}
+
+&__arriere-train{
+  height: 55px;
+  width: 300px;
+  background-image: url(../assets/images/arriere_train.svg);
+  background-repeat: no-repeat;
+}
+
+}
+.slider-container {
+  width: 100%;
+  display: flex;
+}
+
+.slider {
+  white-space: nowrap;
+}
+@keyframes moveRight {
+  0% {
+      transform: translateX(-126px);
+      opacity: 5%;
+  }
+  30% {
+    transform: translateX(0px);
+    opacity: 100%;
+}
+  50% {
+      transform: translateX(0px);
+      opacity: 100%;
+  }
+
+  100% {
+    transform: translateX(63px);
+      opacity: 0%;
+  }
+}
+
+.incident__all-stats li {
+  margin-left: 20px;
+  display: none;
+  opacity: 0;
+  animation: moveRight 3.5s ease; /* Définir la transition pour l'opacité */
+}
+
+.incident__all-stats li.active {
+  display: inline-block;
+  opacity: 1; /* L'opacité 1 pour les éléments actifs */
+}
+
+@media(min-width: 1200px){
+
+.menu{
+  &__text--stats{
+    color: white;
+  }
+}
+.menu__link{
+
+  &--stats{
+    background-color: #0169B4;
+  }
+}
+.title{
+  margin-left: 63px;
+  padding-top: 150px;
+  margin-top: 0;
+  font-size: 84px;
+}
+
+.échelle{
+margin-left: 63px;
+margin-right: 63px;
+&__title{
+  margin: 0;
+  margin-bottom: 40px;
+  font-size: 63px;
+}
+&__stats{
+  font-size: 27px;
+}
+
+&__wagon{
+  margin-top: 20px;
+}
+}
+
+.incident{
+
+&__title{
+  margin-left: 63px;
+  margin-right: 63px;
+  margin-bottom: 63px;
+  padding-top: 112px;
+  font-size: 63px;
+}
+&__excuse{
+  max-width: 60%;
+  margin-left: 63px;
+  margin-bottom: 63px;
+  line-height: 150%;
+}
+
+&__stats{
+  font-size: 27px;
+  margin-top: 20px;
+  margin-left: 63px;
+  padding-bottom: 112px;
+}
+
+&__all-stats{
+  margin-left: 63px;
+  margin-right: 63px;
+}
+&__img{
+  &--last{
+    height: 500px;
+  }
+}
+&__légendes{
+  margin-left: 63px;
+}
+}
+.stats{
+  &__wagon{
+    &--echelle{
+      width: 450px;
+      height: 65px;
+    }
+  }
+}
+.stats__el{
+cursor: pointer;
+}
+.incident__all-stats li {
+  margin-left: 0px;
+  font-size: 36px;
+}
+
+}
