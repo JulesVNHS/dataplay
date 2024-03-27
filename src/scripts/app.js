@@ -67,7 +67,7 @@ function isBottomReached() {
 const easeCustom = gsap.parseEase("cubic-bezier(0.85, 0, 0.15, 1)");
 
 // Aller chercher la data du json
-fetch("../assets/tab/data_cause_retard.json")
+fetch("assets/tab/data_cause_retard.json")
   .then(function(response) {
     return response.json();
   })
