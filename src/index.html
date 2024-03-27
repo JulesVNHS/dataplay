@@ -538,6 +538,7 @@
           </svg>
         </li>
       </ul>
+      <button class="result__btn result__accueil">Refaire votre trajet</button>
       <button class="result__btn">Voir votre train</button>
     </section>
 
@@ -556,7 +557,11 @@
         <li class="snake__game-el">
           <canvas class="snake__canvas" width="400" height="400" id="game"></canvas>
           <div id="overlay"></div>
-          <button class="snake__btn snake__btn--hide">Réessayer</button>
+          <ul class="snake__btn-list snake__btn-list--hide">
+            <li class="snake__btn-el"><button class="snake__btn snake__btn--hide">Réessayer</button></li>
+            <li class="snake__btn-el"><button class="back__btn snake__btn--hide">Retour</button></li>
+            <li class="snake__btn-el"><a class="stats__btn" href="stats.html">Statistiques</a></li>
+          </ul>
         </li>
         <li class="snake__game-el">
           <div class="snake__progress-bar-container">
