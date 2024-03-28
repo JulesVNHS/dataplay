@@ -11,7 +11,7 @@
 }
 
 .title{
-  padding-top: 20px;
+  padding-top: 40px;
   font-size: 36px;
   margin: 0 20px 40px 20px
 }
@@ -40,6 +40,7 @@ position: sticky;
 &__title{
   color: $c-bleuclair;
   margin: 0 0 40px 20px;
+  margin-right: 20px;
   font-size: 36px;
   padding-top: 63px;
   &--clair{
@@ -49,14 +50,18 @@ position: sticky;
 &__excuse{
   font-style: italic;
   margin-left: 20px;
-  margin-top: 20px;
+  margin-right: 20px;
+  margin-top: 40px;
   margin-bottom: 40px;
   max-width: 80%;
+  line-height: 170%;
 }
 &__stats{
-  margin-left: 20px;
+  text-align: center;
   margin-top: 20px;
+  margin-right: 20px;
   padding-bottom: 63px;
+  font-size: 20px;
 }
 &__all-stats{
   list-style-type: none;
@@ -64,15 +69,25 @@ position: sticky;
   margin: 0;
   width: 100%;
   overflow: hidden;
+  &__ul{
+    &__li{
+      word-wrap: break-word;
+    }
+  }
 }
 &__légendes{
   margin-left: 20px;
+  margin-right: 20px;
 }
 &__img{
   margin: 0;
   vertical-align: middle;
+
   &--first{
     height: 200px;
+  }
+  &--monsFirst{
+    margin-top: -80px;
   }
 }
 
@@ -86,6 +101,7 @@ position: sticky;
   background-color: $c-bleufonce;
   color: $c-bleuclair;
   margin: 0;
+  overflow: hidden;
   &--clair{
     background-color: $c-bleuclair;
     color: $c-bleufonce;
@@ -146,6 +162,7 @@ margin-top: 2em;
 
 .slider {
   white-space: nowrap;
+  word-wrap: break-word;
 }
 @keyframes moveRight {
   0% {
@@ -169,6 +186,7 @@ margin-top: 2em;
 
 .incident__all-stats li {
   margin-left: 20px;
+  margin-right: 20px;
   display: none;
   opacity: 0;
   animation: moveRight 3.5s ease; /* Définir la transition pour l'opacité */
@@ -193,15 +211,16 @@ margin-top: 2em;
   }
 }
 .title{
-  margin-left: 63px;
+  margin-left: 150px;
+  margin-right: 150px;
   padding-top: 150px;
   margin-top: 0;
   font-size: 84px;
 }
 
 .échelle{
-margin-left: 63px;
-margin-right: 63px;
+margin-left: 150px;
+margin-right: 150px;
 &__title{
   margin: 0;
   margin-bottom: 40px;
@@ -218,38 +237,50 @@ margin-right: 63px;
 
 .incident{
 
+  &--last{
+    padding: 0;
+  }
+
 &__title{
-  margin-left: 63px;
-  margin-right: 63px;
+  margin-left: 150px;
+  margin-right: 150px;
   margin-bottom: 63px;
   padding-top: 112px;
   font-size: 63px;
 }
 &__excuse{
   max-width: 60%;
-  margin-left: 63px;
+  margin-left: 150px;
+  margin-right: 150px;
   margin-bottom: 63px;
+  margin-top: 60px;
   line-height: 150%;
+  font-size: 27px;
 }
 
 &__stats{
-  font-size: 27px;
-  margin-top: 20px;
-  margin-left: 63px;
+  font-size: 47px;
+  margin-top: 94px;
   padding-bottom: 112px;
+  text-align: center;
 }
 
 &__all-stats{
-  margin-left: 63px;
-  margin-right: 63px;
+  margin-left: 150px;
+  margin-right: 150px;
 }
 &__img{
   &--last{
-    height: 500px;
+    height: 1000px;
+  }
+  &--monsFirst{
+    margin-top: -200px;
   }
 }
 &__légendes{
-  margin-left: 63px;
+  margin-left: 150px;
+  margin-right: 150px;
+  padding-bottom: 40px;
 }
 }
 .stats{
