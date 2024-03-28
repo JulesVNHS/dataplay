@@ -3,11 +3,19 @@
     padding: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('../assets/images/illuFINALEphone.svg');
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
 }
+
+.body__accueil--jour{
+    background-image: url('../assets/images/illuFINALEphone.svg');
+}
+
+.body__accueil--nuit{
+    background-image: url('../assets/images/illuFINALEphoneNuit.svg');
+}
+
 
 .background {
     &__avantPlan {
@@ -136,8 +144,11 @@
 
 /*Responsive*/
 @media (min-width: 600px) {
-    .body__accueil {
+    .body__accueil--jour{
         background-image: url('../assets/images/illuFINALEtablet.svg');
+    }
+    .body__accueil--nuit{
+        background-image: url('../assets/images/illuFINALEtabletNuit.svg');
     }
 
     .background {
@@ -194,8 +205,11 @@
 }
 
 @media (min-width: 1024px) {
-    .body__accueil {
+    .body__accueil--jour{
         background-image: url('../assets/images/illuFINALEdesktop.svg');
+    }
+    .body__accueil--nuit{
+        background-image: url('../assets/images/illuFINALEdesktopNuit.svg');
     }
 
     .background {
@@ -288,3 +302,4 @@
         }
     }
 }
+

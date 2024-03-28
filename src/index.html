@@ -17,10 +17,10 @@
   <script src="scripts/app.js" defer></script>
 </head>
 
-<body class="body__accueil">
+<body class="body__accueil body__accueil--jour body__accueil--nuit">
   <header>
     <nav class="menu">
-      <a class="menu__link menu__link--logo" href="index.html">
+      <a class="menu__link menu__link--logo menu__link--mobile-accueil" href="index.html">
         <img class="menu__logo" src="assets/images/logo.svg" alt="logo Late (L8)">
       </a>
       <ul class="menu__list">
@@ -37,7 +37,8 @@
           </a>
         </li>
         <li class="menu__el">
-          <a class="menu__link menu__link--nav menu__link--inactive" href="projet.html">
+          <a class="menu__link menu__link--nav menu__link--inactive"
+            href="maxime-baldan.be/projets/dataplay/presentation">
             <img class="menu__img" src="assets/images/projet.svg" alt="logo projet">
             <p class="menu__text">Projet</p>
           </a>
@@ -216,7 +217,7 @@
             <g class="background__feu">
               <path
                 d="M1045.8 19.6h-32.6c-1.8 0-3.3 1.5-3.3 3.3v40.9c0 1.8 1.5 3.3 3.3 3.3h18.7c1.8 0 3.3-1.5 3.3-3.3V44.7c0-.9.4-1.7 1-2.4l11.9-11.3c.6-.6 1-1.5 1-2.4v-5.9c0-1.6-1.5-3.1-3.3-3.1z"
-                class="st22" />
+                class="st22 background__pont" />
               <path d="M1017.6 34.3c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7-3.7-1.7-3.7-3.7 1.7-3.7 3.7-3.7z"
                 class="st19" />
               <circle cx="1017.6" cy="27.4" r="3.7" class="st16" />
@@ -477,7 +478,7 @@
             <label class="form-retard__label" for="form-retard__arrival-input">À</label><br>
             <input class="form-retard__input" type="text" list="form-retard__arrival-datalist"
               id="form-retard__arrival-input" name="form-retard__arrival-input" placeholder="Gare d'arrivée" required>
-            <datalist id="form-retard__arrival-datalist">
+            <datalist class="form-retard__datalist" id="form-retard__arrival-datalist">
               <option value="ANTWERPEN-CENTRAAL"></option>
               <option value="BRUSSEL-ZUID"></option>
               <option value="BRUSSELS AIRPORT - ZAVENTEM"></option>
@@ -511,34 +512,40 @@
           <p class="result__text">Retard estimé du train</p>
         </li>
         <li class="result__el result__el--value" id="averageDelay">
-          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" x="0" y="0" version="1.1" viewBox="0 0 850.4 566.9" class="result__svg">
-            <circle cx="90.1" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle"/>
-            <circle cx="424.3" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle result__circle--2"/>
-            <circle cx="758.5" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle result__circle--3"/>
+          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" x="0" y="0" version="1.1"
+            viewBox="0 0 850.4 566.9" class="result__svg">
+            <circle cx="90.1" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle" />
+            <circle cx="424.3" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle result__circle--2" />
+            <circle cx="758.5" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle result__circle--3" />
           </svg>
         </li>
         <li class="result__el">
           <p class="result__text">En un mois vous&nbsp;aurez&nbsp;perdu</p>
         </li>
         <li class="result__el result__el--value" id="monthlyEstimation">
-          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" x="0" y="0" version="1.1" viewBox="0 0 850.4 566.9" class="result__svg">
-            <circle cx="90.1" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle"/>
-            <circle cx="424.3" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle result__circle--2"/>
-            <circle cx="758.5" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle result__circle--3"/>
+          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" x="0" y="0" version="1.1"
+            viewBox="0 0 850.4 566.9" class="result__svg">
+            <circle cx="90.1" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle" />
+            <circle cx="424.3" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle result__circle--2" />
+            <circle cx="758.5" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle result__circle--3" />
           </svg>
         </li>
         <li class="result__el">
           <p class="result__text">Et vous perdrez sur&nbsp;l'année</p>
         </li>
         <li class="result__el result__el--value" id="yearlyEstimation">
-          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" x="0" y="0" version="1.1" viewBox="0 0 850.4 566.9" class="result__svg">
-            <circle cx="90.1" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle"/>
-            <circle cx="424.3" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle result__circle--2"/>
-            <circle cx="758.5" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle result__circle--3"/>
+          <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" x="0" y="0" version="1.1"
+            viewBox="0 0 850.4 566.9" class="result__svg">
+            <circle cx="90.1" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle" />
+            <circle cx="424.3" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle result__circle--2" />
+            <circle cx="758.5" cy="243.1" r="90.1" fill="#FFFFFF" class="result__circle result__circle--3" />
           </svg>
         </li>
       </ul>
-      <button class="result__btn">Voir votre train</button>
+      <div class="result__list--btn">
+        <button class="result__accueil">Recalculer</button>
+        <button class="result__btn">Voir votre train</button>
+      </div>
     </section>
 
     <div class="snake snake--hide">
@@ -556,7 +563,11 @@
         <li class="snake__game-el">
           <canvas class="snake__canvas" width="400" height="400" id="game"></canvas>
           <div id="overlay"></div>
-          <button class="snake__btn snake__btn--hide">Réessayer</button>
+          <ul class="snake__btn-list snake__btn-list--hide">
+            <li class="snake__btn-el"><button class="snake__btn snake__btn--hide">Réessayer</button></li>
+            <li class="snake__btn-el"><button class="back__btn snake__btn--hide">Retour</button></li>
+            <li class="snake__btn-el"><a class="stats__btn" href="stats.html">Statistiques</a></li>
+          </ul>
         </li>
         <li class="snake__game-el">
           <div class="snake__progress-bar-container">

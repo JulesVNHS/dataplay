@@ -1,13 +1,17 @@
-.menu{
+.menu {
     display: flex;
     flex-direction: column;
 
-    &__logo{
+    &__logo {
         height: 36px;
         padding: 27px 0 27px 0;
+
+        &--stats {
+            filter: brightness(0) invert(1);
+        }
     }
 
-    &__list{
+    &__list {
         background-color: $c-interface;
         border-top: 1px solid #ffffff;
         display: flex;
@@ -20,18 +24,30 @@
         box-sizing: border-box;
     }
 
-    &__link{
+    &__link {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        &--mobile {
+            background-color: $c-bleuclair;
+        }
+
+        &-accueil {
+            background-color: white;
+        }
     }
 
-    &__link--nav{
+    &__link:hover {
+        opacity: 100%;
+    }
+
+    &__link--nav {
         width: 55px;
     }
 
-    &__link--inactive{
+    &__link--inactive {
         opacity: 70%;
     }
 
@@ -42,16 +58,39 @@
     }
 }
 
+
+
 @media(min-width: 600px) {
-    .menu{
-        &__list{
+    .menu {
+        &__list {
             padding: 15px 25vw;
         }
     }
 }
 
+@media(max-width: 1200px) {
+    .scrollnav {
+        &__menu {
+            position: fixed;
+            width: 100%;
+            bottom: -3%;
+            left: 0;
+            margin-bottom: 1em;
+            z-index: 10;
+        }
+
+        &--hide {
+            transform: translateY(100%);
+        }
+
+        &__list {
+            transition: transform 0.3s ease;
+        }
+    }
+}
+
 @media(min-width: 1200px) {
-    .menu{
+    .menu {
         padding: 15px 63px;
         flex-direction: row;
         align-items: center;
@@ -60,39 +99,39 @@
         position: relative;
         z-index: 5;
 
-        &__img{
+        &__img {
             display: none;
         }
 
-        &__logo{
+        &__logo {
             padding: 0 0 0 0;
             filter: brightness(0) invert(1);
         }
 
-        &__list{
+        &__list {
             border: none;
             background-color: transparent;
             display: flex;
-            justify-content:flex-start;
+            justify-content: flex-start;
             padding: 0;
             position: static;
             width: auto;
             box-sizing: content-box;
         }
 
-        &__link{
+        &__link {
             margin-left: 63px;
         }
 
-        &__link--logo{
+        &__link--logo {
             margin-left: 0px;
         }
 
-        &__link--accueil{
+        &__link--accueil {
             margin-left: 112px;
         }
 
-        &__link--nav{
+        &__link--nav {
             width: auto;
         }
 
@@ -101,15 +140,31 @@
             margin-top: 0px;
         }
     }
+
+    .scrollnav__desktop {
+        &-menu {
+            position: fixed;
+            width: 100%;
+            z-index: 10;
+        }
+
+        &--hide {
+            transform: translateY(-100%);
+        }
+
+        &-list {
+            transition: transform 0.3s ease;
+        }
+    }
 }
 
 @media(max-width: 400px) and (max-height: 839px) {
-    .menu{
-        &__logo{
+    .menu {
+        &__logo {
             padding: 20px 0;
         }
 
-        &__img{
+        &__img {
             height: 20px;
         }
 
@@ -117,19 +172,19 @@
             font-size: 11px;
         }
 
-        &__list{
+        &__list {
             padding: 11px 15vw;
         }
     }
 }
 
 @media(max-width: 1199px) and (max-height: 670px) {
-    .menu{
-        &__logo{
+    .menu {
+        &__logo {
             padding: 20px 0;
         }
 
-        &__img{
+        &__img {
             height: 20px;
         }
 
@@ -137,7 +192,47 @@
             font-size: 11px;
         }
 
-        &__list{
+        &__list {
+            padding: 11px 15vw;
+        }
+    }
+}
+
+@media(max-width: 400px) and (max-height: 839px) {
+    .menu {
+        &__logo {
+            padding: 20px 0;
+        }
+
+        &__img {
+            height: 20px;
+        }
+
+        &__text {
+            font-size: 11px;
+        }
+
+        &__list {
+            padding: 11px 15vw;
+        }
+    }
+}
+
+@media(max-width: 1199px) and (max-height: 670px) {
+    .menu {
+        &__logo {
+            padding: 20px 0;
+        }
+
+        &__img {
+            height: 20px;
+        }
+
+        &__text {
+            font-size: 11px;
+        }
+
+        &__list {
             padding: 11px 15vw;
         }
     }
