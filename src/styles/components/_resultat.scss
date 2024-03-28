@@ -48,7 +48,10 @@
     }
 
     &__btn {
-        width: 45%;
+        margin-top: 27px;
+    }
+
+    &__accueil {
         margin-top: 27px;
     }
 
@@ -113,6 +116,10 @@
         }
 
         &__btn {
+            margin-top: 20px;
+        }
+
+        &__accueil {
             margin-top: 20px;
         }
     }
