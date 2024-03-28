@@ -279,7 +279,7 @@ document.querySelector('#incident__nombres--pb-voyageur').textContent = formatNu
   const trains = selector(".stats__list")
 
   trains.forEach(function(trainItem){
-    let nombreAleatoire = Math.floor(Math.random() * 3.5) + 1;
+    let nombreAleatoire = Math.floor(Math.random() * 2.5) + 1;
     const width =trainItem.getAttribute("data-width");
     gsap.fromTo(
       trainItem,
