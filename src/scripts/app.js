@@ -320,7 +320,7 @@ if(bodyAccueil || bodyAccueilNuit){
     var conteneur = document.querySelector(".body__accueil");
 
     
-    if (heure >= 16 || heure < 7) {
+    if (heure >= 19 || heure < 7) {
         conteneur.classList.add("body__accueil--nuit");
         conteneur.classList.remove("body__accueil--jour");
     } else {
@@ -503,7 +503,10 @@ document.querySelectorAll('.form-retard__input').forEach(function (input) {
             .catch(error => console.error('Erreur lors du chargement du fichier JSON:', error));
     });
 });
-
+ const accueil = document.querySelector('.result__accueil')
+ accueil.addEventListener('click',function(){
+    location.reload();
+ })
 /*afficher le snake*/
 document.addEventListener("DOMContentLoaded", function () {
     const resultSection = document.querySelector('.result');
@@ -518,6 +521,18 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             console.error('La variable baseDelay n\'est pas définie.');
         }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const resultSection = document.querySelector('.result');
+    const snakeSection = document.querySelector('.snake');
+    const backButton = document.querySelector('.back__btn')
+
+    backButton.addEventListener('click', function () {
+        resultSection.classList.remove('result--hide')
+        snakeSection.classList.add('snake--hide');
+        hiddenBtn.classList.add('snake__btn-list--hide');
     });
 });
 
@@ -583,6 +598,7 @@ var lastUpdateTime = 0;
 var gamePaused = true;
 var retryButton = document.querySelector('.snake__btn');
 var eventParagraph = document.querySelector('.snake__event');
+var hiddenBtn = document.querySelector('.snake__btn-list')
 
 function decrementAndLog() {
     if (globalBillboardDelay > 0) {
@@ -762,6 +778,7 @@ function resumeGame() {
     resetGame();
     startGame();
     retryButton.classList.add('snake__btn--hide');
+    hiddenBtn.classList.add('snake__btn-list--hide');
     eventParagraph.textContent = "Le train est en route !";
 }
 
@@ -769,6 +786,7 @@ function pauseGame() {
     overlay.style.display = 'block';
     gamePaused = true;
     retryButton.classList.remove('snake__btn--hide');
+    hiddenBtn.classList.remove('snake__btn-list--hide');
 }
 
 function resetGame() {
