@@ -439,6 +439,9 @@ select option {
 .menu__link-accueil {
   background-color: white;
 }
+.menu__link:hover {
+  opacity: 100%;
+}
 .menu__link--nav {
   width: 55px;
 }
@@ -834,7 +837,7 @@ select option {
   padding: 27px;
   border-radius: 6px;
   width: 90%;
-  max-width: 639px;
+  max-width: 629px;
   box-sizing: border-box;
 }
 .form-retard__titre {
@@ -860,6 +863,9 @@ select option {
   border: none;
   border-bottom: 1px solid #ffffff;
 }
+.form-retard__input:focus {
+  outline: 0;
+}
 .form-retard__submit {
   width: 100%;
   margin-top: 27px;
@@ -877,6 +883,8 @@ select option {
     transform: translatex(-50%) translatey(-50%);
     width: auto;
     max-width: none;
+    display: flex;
+    flex-direction: column;
   }
   .form-retard__list {
     display: flex;
@@ -887,6 +895,16 @@ select option {
   }
   .form-retard__el:last-child {
     margin-right: 0;
+  }
+  .form-retard__input {
+    min-width: 266px;
+  }
+  .form-retard__submit {
+    max-width: 354px;
+    align-self: center;
+  }
+  .form-retard--hide {
+    display: none;
   }
 }
 @media (max-width: 400px) and (max-height: 839px) {
