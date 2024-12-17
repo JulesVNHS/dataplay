@@ -599,7 +599,7 @@ select option {
 }
 
 .title {
-  padding-top: 20px;
+  padding-top: 40px;
   font-size: 36px;
   margin: 0 20px 40px 20px;
 }
@@ -628,6 +628,7 @@ select option {
 .incident__title {
   color: #5C94CF;
   margin: 0 0 40px 20px;
+  margin-right: 20px;
   font-size: 36px;
   padding-top: 63px;
 }
@@ -637,14 +638,18 @@ select option {
 .incident__excuse {
   font-style: italic;
   margin-left: 20px;
-  margin-top: 20px;
+  margin-right: 20px;
+  margin-top: 40px;
   margin-bottom: 40px;
   max-width: 80%;
+  line-height: 170%;
 }
 .incident__stats {
-  margin-left: 20px;
+  text-align: center;
   margin-top: 20px;
+  margin-right: 20px;
   padding-bottom: 63px;
+  font-size: 20px;
 }
 .incident__all-stats {
   list-style-type: none;
@@ -653,8 +658,12 @@ select option {
   width: 100%;
   overflow: hidden;
 }
+.incident__all-stats__ul__li {
+  word-wrap: break-word;
+}
 .incident__légendes {
   margin-left: 20px;
+  margin-right: 20px;
 }
 .incident__img {
   margin: 0;
@@ -662,6 +671,9 @@ select option {
 }
 .incident__img--first {
   height: 200px;
+}
+.incident__img--monsFirst {
+  margin-top: -80px;
 }
 .incident__background {
   background-color: #5C94CF;
@@ -673,6 +685,7 @@ select option {
   background-color: #0D1928;
   color: #5C94CF;
   margin: 0;
+  overflow: hidden;
 }
 .incident__contenu--clair {
   background-color: #5C94CF;
@@ -726,6 +739,7 @@ select option {
 
 .slider {
   white-space: nowrap;
+  word-wrap: break-word;
 }
 
 @keyframes moveRight {
@@ -748,6 +762,7 @@ select option {
 }
 .incident__all-stats li {
   margin-left: 20px;
+  margin-right: 20px;
   display: none;
   opacity: 0;
   animation: moveRight 3.5s ease; /* Définir la transition pour l'opacité */
@@ -766,14 +781,15 @@ select option {
     background-color: #0169B4;
   }
   .title {
-    margin-left: 63px;
+    margin-left: 150px;
+    margin-right: 150px;
     padding-top: 150px;
     margin-top: 0;
     font-size: 84px;
   }
   .échelle {
-    margin-left: 63px;
-    margin-right: 63px;
+    margin-left: 150px;
+    margin-right: 150px;
   }
   .échelle__title {
     margin: 0;
@@ -786,34 +802,45 @@ select option {
   .échelle__wagon {
     margin-top: 20px;
   }
+  .incident--last {
+    padding: 0;
+  }
   .incident__title {
-    margin-left: 63px;
-    margin-right: 63px;
+    margin-left: 150px;
+    margin-right: 150px;
     margin-bottom: 63px;
     padding-top: 112px;
     font-size: 63px;
   }
   .incident__excuse {
     max-width: 60%;
-    margin-left: 63px;
+    margin-left: 150px;
+    margin-right: 150px;
     margin-bottom: 63px;
+    margin-top: 60px;
     line-height: 150%;
+    font-size: 27px;
   }
   .incident__stats {
-    font-size: 27px;
-    margin-top: 20px;
-    margin-left: 63px;
+    font-size: 47px;
+    margin-top: 94px;
     padding-bottom: 112px;
+    text-align: center;
   }
   .incident__all-stats {
-    margin-left: 63px;
-    margin-right: 63px;
+    margin-left: 150px;
+    margin-right: 150px;
   }
   .incident__img--last {
-    height: 500px;
+    height: 1000px;
+  }
+  .incident__img--monsFirst {
+    margin-top: -200px;
   }
   .incident__légendes {
-    margin-left: 63px;
+    margin-left: 150px;
+    margin-right: 150px;
+    padding-bottom: 40px;
   }
   .stats__wagon--echelle {
     width: 450px;
@@ -840,6 +867,7 @@ select option {
   width: 90%;
   max-width: 629px;
   box-sizing: border-box;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.5);
 }
 .form-retard__titre {
   margin-bottom: 27px;
@@ -980,6 +1008,7 @@ select option {
   width: 90%;
   max-width: 639px;
   box-sizing: border-box;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.5);
 }
 .result__titre {
   margin-bottom: 27px;
@@ -1101,6 +1130,7 @@ select option {
   width: 90%;
   max-width: 354px;
   box-sizing: border-box;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.5);
 }
 .snake__text {
   font-family: "SNPro-Semibold", sans-serif;
